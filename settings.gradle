@@ -1,0 +1,2 @@
+rootProject.name = 'ClassTest'
+include 'ClassTest-Service', 'ClassTest-Webapp','ClassTest-Model'

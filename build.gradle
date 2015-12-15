@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+allprojects{
+repositories {
+    mavenCentral()
+}
+apply plugin: 'eclipse'
+apply plugin: 'java'
+dependencies {
+  testCompile 'junit:junit:4.11'
+}
+}
+project(':ClassTest-Webapp') {
+    dependencies { compile project(':ClassTest-Service')}
+}
+project(':ClassTest-Service') {
+    dependencies { compile project(':ClassTest-Model')}
+}
