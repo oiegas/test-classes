@@ -7,13 +7,7 @@
 
 	<http auto-config="true">
 	
-	 <intercept-url pattern="/flights" access="ROLE_ADMIN" />
-	    <intercept-url pattern="/flights/edit/**" access="ROLE_ADMIN" />
-	    <intercept-url pattern="/cities" access="ROLE_ADMIN" />
-	     <intercept-url pattern="/users" access="ROLE_ADMIN" />
-	     <intercept-url pattern="/userFlights" access="ROLE_USER" />
-	    
-		
+	 <intercept-url pattern="/startup" access="ROLE_ADMIN" />
 		<form-login login-page="/"
 			default-target-url="/default"
 			authentication-failure-url="/?error" 

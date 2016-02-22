@@ -31,6 +31,10 @@ public class User implements Serializable{
 	private String name;
 	@Column(name = "surname", nullable = false, length = 30)
 	private String surname;
+	@Column(name = "username", nullable = false,unique = true, length = 30)
+	private String username;
+	@Column(name = "password", nullable = false, length = 30)
+	private String password;
 	@Column(name = "speciality", nullable = false, length = 30)
 	private String speciality;
 	@Column(name = "year", nullable = false, length = 30)
@@ -43,6 +47,18 @@ public class User implements Serializable{
 			inverseJoinColumns = { @JoinColumn(name = "test_id", 
 					nullable = false, updatable = false) })
 	private Set<Test> tests;
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	@OneToMany(fetch = FetchType.LAZY)
 	private Set<Grades> grades;
 	@OneToMany(fetch = FetchType.LAZY)

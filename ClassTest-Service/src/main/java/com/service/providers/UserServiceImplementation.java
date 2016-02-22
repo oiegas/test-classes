@@ -23,8 +23,7 @@ public class UserServiceImplementation implements UserService{
 	}
 
 	public String getRole(String user) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getRole(user);
 	}
 
 	public boolean verifyLogin(String username, String password) {
