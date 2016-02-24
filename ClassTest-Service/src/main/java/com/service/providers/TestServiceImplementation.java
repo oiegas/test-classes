@@ -18,4 +18,8 @@ public class TestServiceImplementation implements TestService{
 dao.removeTest(test);		
 	}
 
+	public Test getTestById(int id) {
+		return dao.getTestById(id);
+	}
+
 }

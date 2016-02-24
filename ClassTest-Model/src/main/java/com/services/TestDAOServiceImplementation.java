@@ -1,8 +1,10 @@
 package com.services;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import com.domain.Test;
+import com.domain.User;
 import com.repository.EntityManagerUtil;
 
 public class TestDAOServiceImplementation implements TestDAOService{
@@ -35,5 +37,19 @@ public class TestDAOServiceImplementation implements TestDAOService{
 	}
 	public EntityManager getEntityManager() {
 		return this.entityM;
+	}
+	public Test getTestById(int id) {
+		try {
+			TypedQuery <Test> query = entityM.createQuery("Select x from Test x where x.test_id =:test_id",Test.class);
+			query.setParameter("test_id", id);	
+			if (query.getSingleResult() != null) 
+				return query.getSingleResult();
+			else return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

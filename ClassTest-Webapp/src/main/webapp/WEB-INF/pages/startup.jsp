@@ -1,4 +1,3 @@
-<%@page import="com.yonder.service.provider.EmployeeServiceImpl"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page session="true"%>
@@ -18,10 +17,10 @@ body {
 
 .body {
 	position: absolute;
-	top: -20px;
-	left: -20px;
-	right: -40px;
-	bottom: -40px;
+	top: -5px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
 	width: auto;
 	height: auto;
 	background-image:
@@ -53,7 +52,7 @@ body {
 
 	<div class="body">
 	<div align="center">
-	<input type="button" class="submit"  onclick="location.href='persons'" value="Manage Persons" >
+	<input type="button" class="submit"  onclick="location.href='test'" value="Test" >
     <input type="button" class="submit" onclick="location.href='employees'" value="Manage Employees" >
 
 
