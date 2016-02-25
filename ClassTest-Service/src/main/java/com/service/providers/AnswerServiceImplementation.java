@@ -20,4 +20,8 @@ public class AnswerServiceImplementation implements AnswerService {
 		return dao.updateAnswer(answer);
 	}
 
+	public Answer getAnswerById(int id) {
+		return dao.getAnswerById(id);
+	}
+
 }

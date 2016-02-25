@@ -18,4 +18,8 @@ public class QuestionServiceImplementation implements QuestionService{
 dao.deleteQuestion(question);		
 	}
 
+	public Question getQuestionById(int id) {
+		return dao.getQuestionById(id);
+	}
+
 }

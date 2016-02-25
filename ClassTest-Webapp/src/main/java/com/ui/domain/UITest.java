@@ -9,8 +9,8 @@ public class UITest{
 	 */
 	private int testId;
 	private String name;
-	private Date startDate;
-	private Date endDate;
+	private String startDate;
+	private String endDate;
 	public int userId;
 	public int getTestId() {
 		return testId;
@@ -24,16 +24,16 @@ public class UITest{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 

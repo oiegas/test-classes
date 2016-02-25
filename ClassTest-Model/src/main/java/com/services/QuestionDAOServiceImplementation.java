@@ -1,8 +1,10 @@
 package com.services;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import com.domain.Question;
+import com.domain.Test;
 import com.repository.EntityManagerUtil;
 
 public class QuestionDAOServiceImplementation implements QuestionDAOService{
@@ -35,6 +37,21 @@ private EntityManager entityM;
 	}
 	public EntityManager getEntityManager() {
 		return this.entityM;
+	}
+	public Question getQuestionById(int id) {
+		try {
+			TypedQuery <Question> question = entityM.createQuery("Select x from Question x where x.question_id =:question_id",Question.class);
+			question.setParameter("question_id", id);	
+			if (question.getSingleResult() != null) 
+				return question.getSingleResult();
+			else 
+				return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

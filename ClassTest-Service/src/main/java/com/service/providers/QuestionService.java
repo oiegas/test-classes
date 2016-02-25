@@ -6,4 +6,5 @@ public interface QuestionService {
 	public Question addQuestion(Question question);
 	public Question updateQuestion(Question question);
 	public void deleteQuestion(Question question);
+	public Question getQuestionById(int id);
 }
