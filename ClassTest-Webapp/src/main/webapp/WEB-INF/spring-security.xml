@@ -7,10 +7,11 @@
 
 	<http auto-config="true">
 	
-	 <intercept-url pattern="/startup" access="ROLE_ADMIN" />
+	 <intercept-url pattern="/startup**" access="ROLE_ADMIN" />
+	 <intercept-url pattern="/test**" access="ROLE_ADMIN" />
 	 
 		<form-login login-page="/"
-			default-target-url="/default"
+			default-target-url="/startup"
 			authentication-failure-url="/?error" 
 			username-parameter="username"
 			password-parameter="password" />
