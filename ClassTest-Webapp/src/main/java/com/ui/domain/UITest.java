@@ -1,6 +1,5 @@
 package com.ui.domain;
 
-import java.sql.Date;
 
 public class UITest{
 
@@ -11,6 +10,41 @@ public class UITest{
 	private String name;
 	private String startDate;
 	private String endDate;
+	private UIQuestion firstQuestion;
+	private UIQuestion secondQuestion;
+	private UIQuestion thirdQuestion;
+	private UIQuestion fourthQuestion;
+	private UIQuestion fifthQuestion;
+	public UIQuestion getSecondQuestion() {
+		return secondQuestion;
+	}
+	public void setSecondQuestion(UIQuestion secondQuestion) {
+		this.secondQuestion = secondQuestion;
+	}
+	public UIQuestion getThirdQuestion() {
+		return thirdQuestion;
+	}
+	public void setThirdQuestion(UIQuestion thirdQuestion) {
+		this.thirdQuestion = thirdQuestion;
+	}
+	public UIQuestion getFourthQuestion() {
+		return fourthQuestion;
+	}
+	public void setFourthQuestion(UIQuestion fourthQuestion) {
+		this.fourthQuestion = fourthQuestion;
+	}
+	public UIQuestion getFifthQuestion() {
+		return fifthQuestion;
+	}
+	public void setFifthQuestion(UIQuestion fifthQuestion) {
+		this.fifthQuestion = fifthQuestion;
+	}
+	public UIQuestion getFirstQuestion() {
+		return firstQuestion;
+	}
+	public void setFirstQuestion(UIQuestion firstQuestion) {
+		this.firstQuestion = firstQuestion;
+	}
 	public int userId;
 	public int getTestId() {
 		return testId;

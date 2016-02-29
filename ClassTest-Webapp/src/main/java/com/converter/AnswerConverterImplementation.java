@@ -10,7 +10,8 @@ public class AnswerConverterImplementation implements AnswerConverter{
 	AnswerService service=new AnswerServiceImplementation();
 	public Answer createAnswer(UIAnswer ui) {
 		Answer answer=new Answer();
-		answer=service.getAnswerById(ui.getAnswerId());
+		if(service.getAnswerById(ui.getAnswerId())!=null)
+			answer=service.getAnswerById(ui.getAnswerId());
 		if(!ui.getAnswer().equals("")||ui.getAnswer()!=null)
 		answer.setAnswer(ui.getAnswer());
 		

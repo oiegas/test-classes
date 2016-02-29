@@ -15,6 +15,7 @@ public class QuestionConverterImplementation implements QuestionConverter{
 	public Question createQuestion(UIQuestion ui) {
 		
 		Question question=new Question();
+		if(service.getQuestionById(ui.getQuestionId())!=null)
 		question=service.getQuestionById(ui.getQuestionId());
 		if(ui.getQuestion()!=null || !ui.getQuestion().equals(""))
 			question.setQuestion(ui.getQuestion());

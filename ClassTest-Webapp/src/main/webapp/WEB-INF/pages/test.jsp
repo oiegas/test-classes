@@ -328,7 +328,7 @@ a {
 <div class="module">
 <c:url var="addAction" value="/test/add"></c:url>
 			<div id="dialogAddTest" title="Add test" hidden='true'>
-			<form:form action="${addAction}"  commandName="testAdd"
+			<form:form action="${addAction}"  commandName="test"
 				id="register-form" novalidate="novalidate">
 			<c:if test="${not empty testAdd}">
 				<table>
@@ -336,6 +336,116 @@ a {
 						<td>Name:</td>
 						<td><form:input path='name'></form:input></td>
 					</tr>
+					<tr>
+					<td>Start:</td>
+					<td><form:input path='startDate'></form:input></td>
+					</tr>
+					<tr>
+					<td>End:</td>
+					<td><form:input path='endDate'></form:input></td>
+					</tr>
+					<tr>
+					<td>First Question:</td>
+					<td><form:input path='firstQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 1:</td>
+					<td><form:input path='firstQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 2:</td>
+					<td><form:input path='firstQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 3:</td>
+					<td><form:input path='firstQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 4:</td>
+					<td><form:input path='firstQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Second Question:</td>
+					<td><form:input path='secondQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 1:</td>
+					<td><form:input path='secondQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 2:</td>
+					<td><form:input path='secondQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 3:</td>
+					<td><form:input path='secondQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 4:</td>
+					<td><form:input path='secondQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Third Question:</td>
+					<td><form:input path='thirdQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 1:</td>
+					<td><form:input path='thirdQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 2:</td>
+					<td><form:input path='thirdQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 3:</td>
+					<td><form:input path='thirdQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 4:</td>
+					<td><form:input path='thirdQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Fourth Question:</td>
+					<td><form:input path='fourthQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 1:</td>
+					<td><form:input path='fourthQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 2:</td>
+					<td><form:input path='fourthQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 3:</td>
+					<td><form:input path='fourthQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 4:</td>
+					<td><form:input path='fourthQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Fifth Question:</td>
+					<td><form:input path='fifthQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 1:</td>
+					<td><form:input path='fifthQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 2:</td>
+					<td><form:input path='fifthQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 3:</td>
+					<td><form:input path='fifthQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td>Answer 4:</td>
+					<td><form:input path='fifthQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					
+					
 					<tr>
 						<td colspan="2">
 								<input type="submit" class="button" value="Add Test" />

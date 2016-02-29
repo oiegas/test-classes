@@ -16,9 +16,12 @@ public class TestConverterImplementation implements TestConverter{
 	TestService service=new TestServiceImplementation();
 	
 	public Test createTest(UITest ui) {
-		
+		Test test;
 		Date date=null;
-		Test test=service.getTestById(ui.getTestId());
+		if(service.getTestById(ui.getTestId())!=null)
+			test=service.getTestById(ui.getTestId());
+		else
+			test=new Test();
 		if((!ui.getName().equals(""))||ui.getName()!=null)
 			test.setName(ui.getName());
 		if (ui.getStartDate() != null){
