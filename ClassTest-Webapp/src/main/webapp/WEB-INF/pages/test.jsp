@@ -321,7 +321,31 @@ a {
 }
 </style>
 <script>
+	$(function() {
+
+	// Setup form validation on the #register-form element
+	$("#register-form").validate({
+
+		rules : {
+			name : "required",
+			
+
+		},
+
+		messages : {
+			name : "Please enter your Yonder code ",
+			
+
+		},
+
+		submitHandler : function(form) {
+			form.submit();
+		}
+	});
+
+});
 </script>
+
 </head>
 <body>
 <div id="bg">
@@ -334,7 +358,7 @@ a {
 				<table>
 					<tr>
 						<td>Name:</td>
-						<td><form:input path='name'></form:input></td>
+						<td><form:input path='name' name="name"></form:input></td>
 					</tr>
 					<tr>
 					<td>Start:</td>
@@ -470,6 +494,36 @@ a {
             </span>
 			</form:form>
 		</div>
+		<c:if test="${!empty listTests}">
+			<div  class="listTabel">
+			
+			<ul class="list-group">
+					<c:forEach items="${listTests}" var="test">
+					
+					<li class="list-group-item">
+							<a class="buttons name"
+								href="<c:url value='/test/get/${test.test_id}' />"
+								>${test.name}</a>
+							<div class="user-icons">
+							<a class="buttons"
+								href="<c:url value='/test/edit/${test.test_id}' />"
+								>
+											  <img src=" http://icons.iconarchive.com/icons/fasticon/freestyle/48/pencil-icon.png" alt="Edit" class="iconAdd">
+								</a>
+							<a class="buttons"
+								href="<c:url value='/test/remove/${test.test_id}' />"
+								onclick='confirmUser()'>
+											  <img src="http://icons.iconarchive.com/icons/dryicons/aesthetica-2/48/user-remove-icon.png" alt="Remove" class="iconAdd">
+								</a>
+							
+							
+
+							</div> 
+						</li>
+					</c:forEach>
+				</ul>
+				    </div>
+			</c:if>
 </body>
 
 </html>

@@ -1,5 +1,8 @@
 package com.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -51,5 +54,16 @@ public class TestDAOServiceImplementation implements TestDAOService{
 			e.printStackTrace();
 			return null;
 		}
+	}
+	public List<Test> getAllTests() {
+		List<Test> allTests=new ArrayList<Test>();
+		try{
+			allTests=entityM.createQuery("Select x from Test x",Test.class).getResultList();
+			return allTests;
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

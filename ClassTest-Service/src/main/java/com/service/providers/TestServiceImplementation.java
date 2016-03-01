@@ -1,5 +1,7 @@
 package com.service.providers;
 
+import java.util.List;
+
 import com.domain.Test;
 import com.services.TestDAOService;
 import com.services.TestDAOServiceImplementation;
@@ -20,6 +22,10 @@ dao.removeTest(test);
 
 	public Test getTestById(int id) {
 		return dao.getTestById(id);
+	}
+
+	public List<Test> getAllTests() {
+		return dao.getAllTests();
 	}
 
 }
