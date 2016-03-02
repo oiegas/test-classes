@@ -9,6 +9,8 @@
 	
 	 <intercept-url pattern="/startup**" access="ROLE_ADMIN" />
 	 <intercept-url pattern="/test**" access="ROLE_ADMIN" />
+	 <intercept-url pattern="/class**" access="ROLE_ADMIN" />
+	 
 	 
 		<form-login login-page="/"
 			default-target-url="/startup"

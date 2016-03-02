@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -42,6 +43,9 @@ public class Test implements Serializable{
 	public Set<User> users;
 	@OneToMany(fetch = FetchType.LAZY)
 	public Set<Question> questions;
+	@ManyToOne
+	 @JoinColumn(name = "class_id")
+	private Clas classForTest;
 	
 	public Set<Question> getQuestions() {
 		return questions;
@@ -78,5 +82,11 @@ public class Test implements Serializable{
 	}
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+	public Clas getClassForTest() {
+		return classForTest;
+	}
+	public void setClassForTest(Clas classForTest) {
+		this.classForTest = classForTest;
 	}
 }

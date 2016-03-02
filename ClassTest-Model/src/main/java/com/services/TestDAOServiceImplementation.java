@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.domain.Test;
-import com.domain.User;
 import com.repository.EntityManagerUtil;
 
 public class TestDAOServiceImplementation implements TestDAOService{

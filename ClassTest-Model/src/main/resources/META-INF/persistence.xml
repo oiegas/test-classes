@@ -18,6 +18,7 @@
 			<class>com.domain.StudentAnswer</class>
 			<class>com.domain.Test</class>
 			<class>com.domain.User</class>
+			<class>com.domain.Clas</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

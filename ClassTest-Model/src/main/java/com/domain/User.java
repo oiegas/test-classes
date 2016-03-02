@@ -47,6 +47,9 @@ public class User implements Serializable{
 			inverseJoinColumns = { @JoinColumn(name = "test_id", 
 					nullable = false, updatable = false) })
 	private Set<Test> tests;
+	@ManyToOne
+	 @JoinColumn(name = "class_id")
+	private Clas classForUser;
 	public String getUsername() {
 		return username;
 	}
@@ -116,6 +119,12 @@ public class User implements Serializable{
 	}
 	public void setStudAnswer(Set<StudentAnswer> studAnswer) {
 		this.studAnswer = studAnswer;
+	}
+	public Clas getClassForUser() {
+		return classForUser;
+	}
+	public void setClassForUser(Clas classForUser) {
+		this.classForUser = classForUser;
 	}
 	
 
