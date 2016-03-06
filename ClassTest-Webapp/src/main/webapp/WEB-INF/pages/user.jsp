@@ -226,39 +226,65 @@ a {
 			
 
 
-			<c:url var="add" value="/class/add"></c:url>
+			<c:url var="add" value="/user/add"></c:url>
 
-			<form:form action="${add}" commandName="aClass"
+			<form:form action="${add}" commandName="user"
 				id="register-form" novalidate="novalidate" class="form">
 				<table>
 					<tr>
-						<td>Class Name:</td>
-						<td><form:input path='className'></form:input></td>
+						<td>User Name:</td>
+						<td><form:input path='name'></form:input></td>
+					</tr>
+					<tr>
+						<td>User Surname:</td>
+						<td><form:input path='surname'></form:input></td>
+					</tr>
+					<tr>
+						<td>Speciality:</td>
+						<td><form:input path='speciality'></form:input></td>
+					</tr>
+					<tr>
+						<td>Username:</td>
+						<td><form:input path='username'></form:input></td>
+					</tr>
+					<tr>
+						<td>Password:</td>
+						<td><form:input path='password'></form:input></td>
+					</tr>
+					<tr>
+						<td>The role will be ADMINISTRATOR</td>
+						
 					</tr>
 					<tr>
 						<td colspan="2">
-								<input type="submit" class="button" value="Add Class" />
+								<input type="submit" class="button" value="Add Admin" />
 						</td>
 					</tr>
 				</table>
 			</form:form>
 
 			<br>
-			<h3>Classes List</h3>
-			<c:if test="${!empty listClasses}">
+			<h3>Users List</h3>
+			<c:if test="${!empty listUsers}">
 				<table class="tg">
 					<tr>
-						<th width="80">Class ID</th>
-						<th width="80">Class Name</th>
+						<th width="80">User ID</th>
+						<th width="80">User Name</th>
+						<th width="80">User Surname</th>
+						<th width="80">User Speciality</th>
+						<th width="80">User Username</th>
 						<th width="60">Delete</th>
 					</tr>
-					<c:forEach items="${listClasses}" var="aClass">
+					<c:forEach items="${listUsers}" var="user">
 						<tr>
-							<td>${aClass.classId}</td>
-							<td>${aClass.className}</td>
+							<td>${user.userId}</td>
+							<td>${user.name}</td>
+							<td>${user.surname}</td>
+							<td>${user.speciality}</td>
+							<td>${user.username}</td>
 							
 							<td><a class="button"
-								href="<c:url value='/class/remove/${aClass.classId}' />"
+								href="<c:url value='/user/remove/${user.userId}' />"
 								onclick='confirmUser()'>Delete</a></td> 
 						</tr>
 					</c:forEach>

@@ -1,5 +1,7 @@
 package com.services;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -72,4 +74,32 @@ public class UserDAOServiceImplementation implements UserDAOService{
 			return false;
 		}
 	}
+	public User getUserById(int id) {
+		try {
+			TypedQuery <User> query = entityM.createQuery("Select x from User x where x.userId =:id",User.class);
+			query.setParameter("id", id);	
+			if (query.getSingleResult() != null) return query.getSingleResult();
+			else return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public List<User> getAllUsers() {
+		try {
+			TypedQuery <User> query = entityM.createQuery("Select x from User x",User.class);
+			if (query.getResultList() != null) 
+				return query.getResultList();
+			else 
+				return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }

@@ -28,7 +28,7 @@ public class ClassController{
 	@RequestMapping(method = RequestMethod.GET)
 	public String listClasses(Model model) {
 		UIClass ui=new UIClass();
-		model.addAttribute("class",ui);
+		model.addAttribute("aClass",ui);
 		List<UIClass> elist = transofrmList();
 		model.addAttribute("listClasses",elist);
 		return "class";
@@ -38,13 +38,14 @@ public class ClassController{
 	public String removeEmployee(@PathVariable("id") int code) {
 		if (classService.getClassById(code) != null){
 			Clas c=classService.getClassById(code);
+			System.out.println("this is the class:"+c.getName());
 			classService.deleteClass(c);
 		}
 		return "redirect:/class";
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addEmployee(@ModelAttribute("class") UIClass ui) {
+	public String addEmployee(@ModelAttribute("aClass") UIClass ui) {
 		
 		Clas c =converter.createClass(ui);
 		classService.addClass(c);

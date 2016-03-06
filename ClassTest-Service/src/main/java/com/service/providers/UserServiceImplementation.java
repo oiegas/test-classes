@@ -1,5 +1,7 @@
 package com.service.providers;
 
+import java.util.List;
+
 import com.domain.User;
 import com.services.UserDAOService;
 import com.services.UserDAOServiceImplementation;
@@ -29,5 +31,14 @@ public class UserServiceImplementation implements UserService{
 	public boolean verifyLogin(String username, String password) {
 		return dao.verifyLogin(username, password);
 	}
+
+	public User getUserById(int id) {
+		return dao.getUserById(id);
+	}
+
+	public List<User> getAllUsers() {
+		return dao.getAllUsers();
+	}
+	
 
 }

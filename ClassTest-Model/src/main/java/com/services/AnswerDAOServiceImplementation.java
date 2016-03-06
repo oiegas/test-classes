@@ -42,7 +42,7 @@ public class AnswerDAOServiceImplementation implements AnswerDAOService{
 	}
 	public Answer getAnswerById(int id) {
 		try {
-			TypedQuery <Answer> answer = entityM.createQuery("Select x from Answer x where x.answer_id =:answer_id",Answer.class);
+			TypedQuery <Answer> answer = entityM.createQuery("Select x from Answer x where x.answerId =:answer_id",Answer.class);
 			answer.setParameter("answer_id", id);	
 			if (answer.getSingleResult() != null) 
 				return answer.getSingleResult();

@@ -21,7 +21,7 @@ public class ClassConverterImplementation implements ClassConverter{
 
 	public UIClass createUIClass(Clas clas) {
 		UIClass ui=new UIClass();
-		if(!(clas.getClassId()!=0))
+		if((clas.getClassId()!=0))
 			ui.setClassId(clas.getClassId());
 		if((!clas.getName().equals(""))||clas.getName()!=null)
 			ui.setClassName(clas.getName());

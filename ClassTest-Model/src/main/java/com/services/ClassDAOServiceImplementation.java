@@ -38,8 +38,8 @@ public class ClassDAOServiceImplementation implements ClassDAOService{
 
 	public Clas getClassById(int id) {
 		try {
-			TypedQuery <Clas> query = entityM.createQuery("Select x from Clas x where x.class_id=:class_id",Clas.class);
-			query.setParameter("class_id", id);	
+			TypedQuery <Clas> query = entityM.createQuery("Select x from Clas x where x.classId=:id",Clas.class);
+			query.setParameter("id", id);	
 			if (query.getSingleResult() != null) 
 				return query.getSingleResult();
 			else return null;
@@ -50,17 +50,7 @@ public class ClassDAOServiceImplementation implements ClassDAOService{
 			return null;
 		}
 	}
-	/*public List<Clas> getAllClasses() {
-		List<Clas> classes = new ArrayList<Clas>();
-		try{
-			classes=entityM.createQuery("SELECT x FROM Class x",Clas.class).getResultList();
-			return classes;
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-		return null;
-	}*/
+	
 	public List<Clas> getAllClasses() {
 
 		List<Clas> employees = new ArrayList<Clas>();
