@@ -7,11 +7,18 @@ public class UIAnswer{
 	private String answer;
 	private int questionId;
 	private int studAnswerId;
+	private boolean good;
 	public int getAnswerId() {
 		return answerId;
 	}
 	public void setAnswerId(int answerId) {
 		this.answerId = answerId;
+	}
+	public boolean isGood() {
+		return good;
+	}
+	public void setGood(boolean good) {
+		this.good = good;
 	}
 	public String getAnswer() {
 		return answer;

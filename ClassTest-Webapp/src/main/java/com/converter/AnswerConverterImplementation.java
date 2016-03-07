@@ -14,6 +14,7 @@ public class AnswerConverterImplementation implements AnswerConverter{
 			answer=service.getAnswerById(ui.getAnswerId());
 		if(!ui.getAnswer().equals("")||ui.getAnswer()!=null)
 		answer.setAnswer(ui.getAnswer());
+		answer.setGood(ui.isGood());
 		
 		return answer;
 	}
@@ -24,6 +25,7 @@ public class AnswerConverterImplementation implements AnswerConverter{
 			ui.setAnswer(answer.getAnswer());
 		if(answer.getAnswerId()!=0)
 			ui.setAnswerId(answer.getAnswerId());
+		ui.setGood(answer.isGood());
 		return ui;
 	}
 

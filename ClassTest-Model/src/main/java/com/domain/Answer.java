@@ -27,10 +27,19 @@ public class Answer implements Serializable{
 	private int answerId;
 	@Column(name = "answer", unique = false, nullable = false, length = 30)
 	private String answer;
+	@Column(name = "true_or_false", unique = false, nullable = false)
+	private boolean good;
+	
 	@ManyToOne(optional = false)
 	private Question question;
 	@OneToMany(fetch = FetchType.LAZY)
 	private Set<StudentAnswer> studAnswer;
+	public boolean isGood() {
+		return good;
+	}
+	public void setGood(boolean good) {
+		this.good = good;
+	}
 	public int getAnswerId() {
 		return answerId;
 	}
