@@ -48,6 +48,7 @@ public class TestConverterImplementation implements TestConverter{
 	public UITest createUITest(Test test) {
 		
 		UITest ui=new UITest();
+		ui.setTestId(test.getTestId());
 		if((!test.getName().equals(""))||test.getName()!=null)
 			ui.setName(test.getName());
 		if(test.getStartDate()!=null){

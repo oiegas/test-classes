@@ -10,4 +10,5 @@ public interface TestService {
 	public void removeTest(Test test);
 	public Test getTestById(int id);
 	public List<Test> getAllTests();
+	public List<Test> getTestByName(String name);
 }

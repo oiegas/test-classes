@@ -65,4 +65,9 @@ public class TestDAOServiceImplementation implements TestDAOService{
 		}
 		return null;
 	}
+	public List<Test> getTestsByName(String name) {
+		List<Test> test=new ArrayList<Test>();
+		test=entityM.createQuery("Select x from Test x where x.name='"+name+"'", Test.class).getResultList();
+		return test;
+	}
 }

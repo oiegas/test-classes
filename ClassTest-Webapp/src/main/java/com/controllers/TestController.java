@@ -2,6 +2,7 @@ package com.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -243,23 +244,80 @@ public class TestController {
 
 	}
 
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public String editTest(@ModelAttribute("testEdit") UITest pui) {
+		Test p =converter.createTest(pui);
+		if (p.getTestId() == 0) {
+
+			this.testService.addTest(p);
+		} else {
+
+			this.testService.updateTest(p);
+		}
+		return "redirect:/test";
+
+	}
+	
+	@RequestMapping("/remove/{testId}")
+	public String removeTest(@PathVariable("testId") int id) {
+		Test test=testService.getTestById(id);
+		System.out.println(test.getName());
+		Set<Answer> answers=null;
+		Set<Question> questions= null;
+		questions=test.getQuestions();
+		if(questions!=null){
+			for(Question q: questions){
+				answers.addAll(q.getAnswers());
+			}
+			for(Answer a:answers){
+				answerService.deleteAnswe(a);
+			}
+			for(Question q : questions){
+			questionService.deleteQuestion(q);
+}
+		}
+		testService.removeTest(testService.getTestById(id));
+		return "redirect:/test";
+	}
+	
 	@RequestMapping("/search")
-	public String searchPerson(@ModelAttribute("testAdd") UITest person, Model model) {
+	public String searchPerson(@ModelAttribute("testAdd") UITest test, Model model) {
 		model.addAttribute("testAdd", new UITest());
-		
+		if(test.getName()!=null && !test.getName().equals("")){
+			List<UITest> tests=transformList(testService.getTestByName(test.getName()));
+			model.addAttribute("listTests", tests);
+		}
+		else{
+			List<UITest> tests=transformList(testService.getAllTests());
+			model.addAttribute("listTests", tests);
+		}
+			
 		return "test";
 
 	}
 	
-	@RequestMapping("/get/{id}")
-	public String getPerson(@PathVariable("id") int id, Model model) {
+	@RequestMapping("/get/{testId}")
+	public String getPerson(@PathVariable("testId") int id, Model model) {
 
 		model.addAttribute("test",new UITest());
 		model.addAttribute("testAdd",new UITest());
 		model.addAttribute("firstQuestion",new UIQuestion());
 		List<UITest> testList=transformList(testService.getAllTests());
 		model.addAttribute("listTests", testList);
+		UITest test=converter.createUITest(testService.getTestById(id));
+		model.addAttribute("testB", test);
 	
+		return "test";
+	}
+	
+	@RequestMapping("/edit/{testId}")
+	public String editPerson(@PathVariable("testId") int id, Model model) {
+		model.addAttribute("test",new UITest());
+		model.addAttribute("testAdd",new UITest());
+		UITest test = converter.createUITest(testService.getTestById(id));
+		model.addAttribute("testEdit", test);
+		List<UITest> puiList = transformList(testService.getAllTests());
+		model.addAttribute("listTests", puiList);
 		return "test";
 	}
 	

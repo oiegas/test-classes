@@ -509,6 +509,180 @@ a {
 				</c:if>
 			</form:form>
 			</div>
+			
+			
+			<c:url var="editAction" value="/test/edit"></c:url>
+				<c:if test="${not empty testEdit}">
+			<div id="dialogEditTest" title="Edit test" hidden='true'>
+			<form:form action="${editAction}"  commandName="testEdit"
+				id="register-form" novalidate="novalidate">
+				<table>
+				<tr>
+				<td></td>
+					<td><form:label path="testId">
+							<spring:message text="ID" />
+								</form:label></td>
+							<td><form:input path="testId" readonly="true" size="8"
+									disabled="true" /> <form:hidden path="testId" /></td>
+						</tr>	
+					<tr>
+					<td></td>
+						<td>Name:</td>
+						<td><form:input path='name'></form:input></td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>Start:</td>
+					<td><form:input path='startDate'></form:input></td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>End:</td>
+					<td><form:input path='endDate'></form:input></td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>First Question:</td>
+					<td><form:input path='firstQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="firstQuestion.firstAnswer.good"/>
+					<td>Answer 1:</td>
+					<td><form:input path='firstQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="firstQuestion.secondAnswer.good"/>
+					<td>Answer 2:</td>
+					<td><form:input path='firstQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="firstQuestion.thirdAnswer.good"/>
+					<td>Answer 3:</td>
+					<td><form:input path='firstQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="firstQuestion.fourthAnswer.good"/>
+					<td>Answer 4:</td>
+					<td><form:input path='firstQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>Second Question:</td>
+					<td><form:input path='secondQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="secondQuestion.firstAnswer.good"/>
+					<td>Answer 1:</td>
+					<td><form:input path='secondQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="secondQuestion.secondAnswer.good"/>
+					<td>Answer 2:</td>
+					<td><form:input path='secondQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="secondQuestion.thirdAnswer.good"/>
+					<td>Answer 3:</td>
+					<td><form:input path='secondQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="secondQuestion.fourthAnswer.good"/>
+					<td>Answer 4:</td>
+					<td><form:input path='secondQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>Third Question:</td>
+					<td><form:input path='thirdQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="thirdQuestion.firstAnswer.good"/>
+					<td>Answer 1:</td>
+					<td><form:input path='thirdQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="thirdQuestion.secondAnswer.good"/>
+					<td>Answer 2:</td>
+					<td><form:input path='thirdQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="thirdQuestion.thirdAnswer.good"/>
+					<td>Answer 3:</td>
+					<td><form:input path='thirdQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="thirdQuestion.fourthAnswer.good"/>
+					<td>Answer 4:</td>
+					<td><form:input path='thirdQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>Fourth Question:</td>
+					<td><form:input path='fourthQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="fourthQuestion.firstAnswer.good"/>
+					<td>Answer 1:</td>
+					<td><form:input path='fourthQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="fourthQuestion.secondAnswer.good"/>
+					<td>Answer 2:</td>
+					<td><form:input path='fourthQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="fourthQuestion.thirdAnswer.good"/>
+					<td>Answer 3:</td>
+					<td><form:input path='fourthQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="fourthQuestion.fourthAnswer.good"/>
+					<td>Answer 4:</td>
+					<td><form:input path='fourthQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>Fifth Question:</td>
+					<td><form:input path='fifthQuestion.question'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="fifthQuestion.firstAnswer.good"/>
+					<td>Answer 1:</td>
+					<td><form:input path='fifthQuestion.firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="fifthQuestion.secondAnswer.good"/>
+					<td>Answer 2:</td>
+					<td><form:input path='fifthQuestion.secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="fifthQuestion.thirdAnswer.good"/>
+					<td>Answer 3:</td>
+					<td><form:input path='fifthQuestion.thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="fifthQuestion.fourthAnswer.good"/>
+					<td>Answer 4:</td>
+					<td><form:input path='fifthQuestion.fourthAnswer.answer'></form:input></td>
+					</tr>
+					
+					<tr></tr>
+					<tr>
+					<td></td>
+					<td></td>
+						<td colspan="2">
+								<input type="submit" class="button" value="Edit Test" />
+						</td>
+					</tr>
+				</table>
+				
+			</form:form>
+			</div>
+			</c:if>
+			
+			
+			
+			
 			<br>
 			<div id="topListMenu" class="topListMenu">
 			<div class="searchTest">
@@ -532,16 +706,16 @@ a {
 					
 					<li class="list-group-item">
 							<a class="buttons name"
-								href="<c:url value='/test/get/${test.test_id}' />"
-								>${test.name}</a>
+								href="<c:url value='/test/get/${test.testId}' />"
+								>${test.testId}</a>
 							<div class="user-icons">
 							<a class="buttons"
-								href="<c:url value='/test/edit/${test.test_id}' />"
+								href="<c:url value='/test/edit/${test.testId}' />"
 								>
 											  <img src=" http://icons.iconarchive.com/icons/fasticon/freestyle/48/pencil-icon.png" alt="Edit" class="iconAdd">
 								</a>
 							<a class="buttons"
-								href="<c:url value='/test/remove/${test.test_id}' />"
+								href="<c:url value='/test/remove/${test.testId}' />"
 								onclick='confirmUser()'>
 											  <img src="http://icons.iconarchive.com/icons/dryicons/aesthetica-2/48/user-remove-icon.png" alt="Remove" class="iconAdd">
 								</a>
@@ -554,6 +728,54 @@ a {
 				</ul>
 				    </div>
 			</c:if>
+			
+			<c:if test="${not empty listTestsSearch}">
+				<h2>list search tests</h2>
+				<table class="tg">
+					<tr>
+
+						<th width="80">Test Name</th>
+						<th width="80">Test Date</th>
+						<th width="80">Question 1</th>
+						<th width="100">Question 2</th>
+						<th width="80">Question 3</th>
+						<th width="40">Question 4</th>
+						<th width="70">Question 5</th>
+					</tr>
+
+					<c:forEach items="${listTestsSearch}" var="test">
+						<tr>
+							<td>${test.name}</td>
+							<td>${test.startDate}</td>
+							<td>${test.firstQuestion.question}</td>
+							<td>${test.secondQuestion.question}</td>
+							<td>${test.thirdQuestion.question}</td>
+							<td>${test.fourthQuestion.question}</td>
+							<td>${test.fifthQuestion.question}</td>
+							</tr>
+					</c:forEach>
+				</table>
+			</c:if>
+			
+			<div class="rightPanel">
+			<c:if test="${not empty testB}">
+				<table>
+					<tr>
+						<h3>ID: ${testB.estId}</h3>
+						<h3>Name:${testB.name}</h3>
+						<h3>Surname:${testB.startDate}</h3>
+						<h3>Email:${testB.firstQuestion.question}</h3>
+						<h3>Address:${testB.secondQuestion.question}</h3>
+						<h3>Phone:${testB.thirdQuestion.question}</h3>
+						<h3>Recruiter Code:${testB.fourthQuestion.question}</h3>
+						<h3>Action:${personB.fifthQuestion.question}</h3>
+						<br></br>
+					</tr>
+				</table>
+				</c:if>
+			</div>
+			</div>
+			</div>
 </body>
 
 </html>

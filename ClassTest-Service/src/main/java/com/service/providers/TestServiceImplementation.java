@@ -28,4 +28,8 @@ dao.removeTest(test);
 		return dao.getAllTests();
 	}
 
+	public List<Test> getTestByName(String name) {
+		return dao.getTestsByName(name);
+	}
+
 }

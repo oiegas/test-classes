@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -41,7 +42,7 @@ public class Test implements Serializable{
 			inverseJoinColumns = { @JoinColumn(name = "user_id", 
 					nullable = false, updatable = false) })
 	public Set<User> users;
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY,orphanRemoval=true)
 	public Set<Question> questions;
 	@ManyToOne
 	 @JoinColumn(name = "class_id")

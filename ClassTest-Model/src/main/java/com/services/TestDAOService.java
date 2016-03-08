@@ -11,4 +11,5 @@ public interface TestDAOService {
 	public void removeTest(Test test);
 	public Test getTestById(int id);
 	public List<Test> getAllTests();
+	public List<Test> getTestsByName(String name);
 }
