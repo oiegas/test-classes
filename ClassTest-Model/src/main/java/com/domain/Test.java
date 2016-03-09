@@ -42,7 +42,7 @@ public class Test implements Serializable{
 			inverseJoinColumns = { @JoinColumn(name = "user_id", 
 					nullable = false, updatable = false) })
 	public Set<User> users;
-	@OneToMany(fetch = FetchType.LAZY,orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	public Set<Question> questions;
 	@ManyToOne
 	 @JoinColumn(name = "class_id")

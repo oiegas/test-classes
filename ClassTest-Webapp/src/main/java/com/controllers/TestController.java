@@ -258,6 +258,7 @@ public class TestController {
 
 	}
 	
+	@SuppressWarnings("null")
 	@RequestMapping("/remove/{testId}")
 	public String removeTest(@PathVariable("testId") int id) {
 		Test test=testService.getTestById(id);
@@ -265,6 +266,7 @@ public class TestController {
 		Set<Answer> answers=null;
 		Set<Question> questions= null;
 		questions=test.getQuestions();
+		System.out.println(questions.size());
 		if(questions!=null){
 			for(Question q: questions){
 				answers.addAll(q.getAnswers());

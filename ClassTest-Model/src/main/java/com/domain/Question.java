@@ -3,6 +3,7 @@ package com.domain;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -33,7 +34,7 @@ public class Question implements Serializable{
 	private Test test;
 	@OneToMany(fetch = FetchType.LAZY,orphanRemoval=true)
 	private Set<Answer> answers;
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<StudentAnswer> studAnswer;
 	public Set<Answer> getAnswers() {
 		return answers;
