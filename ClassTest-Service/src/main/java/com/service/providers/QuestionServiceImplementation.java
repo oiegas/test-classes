@@ -1,5 +1,7 @@
 package com.service.providers;
 
+import java.util.List;
+
 import com.domain.Question;
 import com.services.QuestionDAOService;
 import com.services.QuestionDAOServiceImplementation;
@@ -20,6 +22,10 @@ dao.deleteQuestion(question);
 
 	public Question getQuestionById(int id) {
 		return dao.getQuestionById(id);
+	}
+
+	public List<Question> getQuestionByTestId(int id) {
+		return dao.getQuestionByTestId(id);
 	}
 
 }

@@ -352,14 +352,14 @@ a {
 <div class="module">
 <c:url var="addAction" value="/test/add"></c:url>
 			<div id="dialogAddTest" title="Add test" hidden='true'>
-			<form:form action="${addAction}"  commandName="test"
+			<form:form action="${addAction}"  commandName="testAdd"
 				id="register-form" novalidate="novalidate">
 			<c:if test="${not empty testAdd}">
 				<table>
 					<tr>
 					<td></td>
 						<td>Name:</td>
-						<td><form:input path='name' name="name"></form:input></td>
+						<td><form:input path='name'></form:input></td>
 					</tr>
 					<tr>
 					<td></td>
@@ -707,7 +707,7 @@ a {
 					<li class="list-group-item">
 							<a class="buttons name"
 								href="<c:url value='/test/get/${test.testId}' />"
-								>${test.testId}</a>
+								>${test.name}</a>
 							<div class="user-icons">
 							<a class="buttons"
 								href="<c:url value='/test/edit/${test.testId}' />"

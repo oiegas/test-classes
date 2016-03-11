@@ -258,18 +258,22 @@ public class TestController {
 
 	}
 	
-	@SuppressWarnings("null")
 	@RequestMapping("/remove/{testId}")
 	public String removeTest(@PathVariable("testId") int id) {
 		Test test=testService.getTestById(id);
 		System.out.println(test.getName());
-		Set<Answer> answers=null;
-		Set<Question> questions= null;
-		questions=test.getQuestions();
+		List<Answer> answers=new ArrayList<Answer>();
+		List<Question> questions= null;
+		questions=questionService.getQuestionByTestId(test.getTestId());
 		System.out.println(questions.size());
+		List<Answer> particularAnswers=null;
 		if(questions!=null){
 			for(Question q: questions){
-				answers.addAll(q.getAnswers());
+				System.out.println(answerService.getAnswersByQuestionId(q.getQuestionId()).size());
+				particularAnswers=answerService.getAnswersByQuestionId(q.getQuestionId());
+				for(Answer a:particularAnswers){
+					answers.add(a);
+				}
 			}
 			for(Answer a:answers){
 				answerService.deleteAnswe(a);
@@ -293,7 +297,6 @@ public class TestController {
 			List<UITest> tests=transformList(testService.getAllTests());
 			model.addAttribute("listTests", tests);
 		}
-			
 		return "test";
 
 	}

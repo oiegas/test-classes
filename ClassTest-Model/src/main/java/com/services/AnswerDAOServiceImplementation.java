@@ -1,5 +1,7 @@
 package com.services;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -37,7 +39,6 @@ public class AnswerDAOServiceImplementation implements AnswerDAOService{
 	}
 
 	public EntityManager getEntityManager() {
-		// TODO Auto-generated method stub
 		return this.entityM;
 	}
 	public Answer getAnswerById(int id) {
@@ -46,6 +47,21 @@ public class AnswerDAOServiceImplementation implements AnswerDAOService{
 			answer.setParameter("answer_id", id);	
 			if (answer.getSingleResult() != null) 
 				return answer.getSingleResult();
+			else 
+				return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public List<Answer> getAnswersByQuestionId(int questionId) {
+		try {
+			TypedQuery <Answer> answer = entityM.createQuery("Select x from Answer x where x.question.questionId =:questionId",Answer.class);
+			answer.setParameter("questionId",questionId);	
+			if (answer.getResultList() != null) 
+				return answer.getResultList();
 			else 
 				return null;
 			

@@ -1,5 +1,7 @@
 package com.service.providers;
 
+import java.util.List;
+
 import com.domain.Answer;
 import com.services.AnswerDAOService;
 import com.services.AnswerDAOServiceImplementation;
@@ -22,6 +24,10 @@ public class AnswerServiceImplementation implements AnswerService {
 
 	public Answer getAnswerById(int id) {
 		return dao.getAnswerById(id);
+	}
+
+	public List<Answer> getAnswersByQuestionId(int questionId) {
+		return dao.getAnswersByQuestionId(questionId);
 	}
 
 }
