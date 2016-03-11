@@ -761,7 +761,7 @@ a {
 			<c:if test="${not empty testB}">
 				<table>
 					<tr>
-						<h3>ID: ${testB.estId}</h3>
+						<h3>ID: ${testB.testId}</h3>
 						<h3>Name:${testB.name}</h3>
 						<h3>Surname:${testB.startDate}</h3>
 						<h3>Email:${testB.firstQuestion.question}</h3>
