@@ -15,6 +15,8 @@ public class UITest{
 	private UIQuestion thirdQuestion;
 	private UIQuestion fourthQuestion;
 	private UIQuestion fifthQuestion;
+	public int userId;
+	public String nameClass;
 	public UIQuestion getSecondQuestion() {
 		return secondQuestion;
 	}
@@ -45,7 +47,7 @@ public class UITest{
 	public void setFirstQuestion(UIQuestion firstQuestion) {
 		this.firstQuestion = firstQuestion;
 	}
-	public int userId;
+	
 	public int getTestId() {
 		return testId;
 	}
@@ -69,6 +71,18 @@ public class UITest{
 	}
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public String getNameClass() {
+		return nameClass;
+	}
+	public void setNameClass(String nameClass) {
+		this.nameClass = nameClass;
 	}
 
 }

@@ -29,4 +29,8 @@ dao.deleteClass(c);
 		return dao.getAllClasses();
 	}
 
+	public Clas getClassByName(String name) {
+		return dao.getClassByName(name);
+	}
+
 }

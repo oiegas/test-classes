@@ -373,6 +373,12 @@ a {
 					</tr>
 					<tr>
 					<td></td>
+					<td>For Class:</td>
+					<td><form:select path='nameClass'>
+					<form:options items="${classList}" /></form:select></td>
+					</tr>
+					<tr>
+					<td></td>
 					<td>First Question:</td>
 					<td><form:input path='firstQuestion.question'></form:input></td>
 					</tr>
@@ -510,21 +516,70 @@ a {
 			</form:form>
 			</div>
 			
+			<c:url var="addQuestionAction" value="/test/addQuestion/"></c:url>
+			<div id="dialogAddQuestion" title="Add question" hidden='true'>
+			<form:form action="${addQuestionAction}"  commandName="questionAdd"
+				id="register-form">
+			<c:if test="${not empty questionAdd}">
+				<table>
+					<tr>
+					<td></td>
+					<td>First Question:</td>
+					<td><form:input path='question'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="firstAnswer.good"/>
+					<td>Answer 1:</td>
+					<td><form:input path='firstAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="secondAnswer.good"/>
+					<td>Answer 2:</td>
+					<td><form:input path='secondAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="thirdAnswer.good"/>
+					<td>Answer 3:</td>
+					<td><form:input path='thirdAnswer.answer'></form:input></td>
+					</tr>
+					<tr>
+					<td><form:checkbox path="fourthAnswer.good"/>
+					<td>Answer 4:</td>
+					<td><form:input path='fourthAnswer.answer'></form:input></td>
+					<td><form:input path='testId' type="hidden"></form:input></td>
+					</tr>
+					<tr>
+					<td></td>
+					<td></td>
+						<td colspan="2">
+								<input type="submit" class="button" value="Add Test" />
+						</td>
+					</tr>
+					</table>
+					</c:if>
+					</form:form>
+					</div>
+			
+			
+			<c:url var="cloneAction" value="/test/clone"></c:url>
+				<div id="dialogCloneQuestion" title="Clone test" hidden='true'>
+			<form:form class="form" commandName="testClone" id="testCloneid"			
+					action="${cloneAction}">
+						<c:if test="${not empty testClone}">
+					<form:select path='nameClass'>
+					<form:options items="${classList}" /></form:select>
+					<form:input path='testId' type="hidden"></form:input>
+					<input type="submit" class="button" value="Add Interview" />
+					</c:if>
+				</form:form>
+			</div>
 			
 			<c:url var="editAction" value="/test/edit"></c:url>
-				<c:if test="${not empty testEdit}">
 			<div id="dialogEditTest" title="Edit test" hidden='true'>
 			<form:form action="${editAction}"  commandName="testEdit"
 				id="register-form" novalidate="novalidate">
+					<c:if test="${not empty testEdit}">
 				<table>
-				<tr>
-				<td></td>
-					<td><form:label path="testId">
-							<spring:message text="ID" />
-								</form:label></td>
-							<td><form:input path="testId" readonly="true" size="8"
-									disabled="true" /> <form:hidden path="testId" /></td>
-						</tr>	
 					<tr>
 					<td></td>
 						<td>Name:</td>
@@ -676,9 +731,10 @@ a {
 					</tr>
 				</table>
 				
+					</c:if>
+			
 			</form:form>
 			</div>
-			</c:if>
 			
 			
 			
@@ -710,14 +766,22 @@ a {
 								>${test.name}</a>
 							<div class="user-icons">
 							<a class="buttons"
-								href="<c:url value='/test/edit/${test.testId}' />"
-								>
+							href="<c:url value='/editTest/${test.testId}' />"
+							>
 											  <img src=" http://icons.iconarchive.com/icons/fasticon/freestyle/48/pencil-icon.png" alt="Edit" class="iconAdd">
 								</a>
+								<a class="buttons"	onclick='loadAddQuestion(${test.testId})'>
+											  <img src=" http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/24/Comment-add-icon.png" alt="AddQuestion" class="iconAdd">
+								</a>
+								
 							<a class="buttons"
 								href="<c:url value='/test/remove/${test.testId}' />"
 								onclick='confirmUser()'>
 											  <img src="http://icons.iconarchive.com/icons/dryicons/aesthetica-2/48/user-remove-icon.png" alt="Remove" class="iconAdd">
+								</a>
+								
+								<a class="buttons" onclick='loadCloneQuestion(${test.testId})'>
+											  <img src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/24/Document-Copy-icon.png" alt="Clone" class="iconAdd">
 								</a>
 							
 							
@@ -728,6 +792,8 @@ a {
 				</ul>
 				    </div>
 			</c:if>
+			
+			
 			
 			<c:if test="${not empty listTestsSearch}">
 				<h2>list search tests</h2>
@@ -776,6 +842,28 @@ a {
 			</div>
 			</div>
 			</div>
+			
+			<script>
+				function loadEditTest(id) {
+					$('input[name="testId"]', '#dialogEditTest').val(id)
+					$("#dialogEditTest").dialog();
+					
+				}
+				
+			</script>
+			<script>
+				function loadAddQuestion(id) {
+					$('input[name="testId"]', '#dialogAddQuestion').val(id)
+					$("#dialogAddQuestion").dialog();
+				}
+			</script>
+			
+			<script>
+				function loadCloneQuestion(id) {
+					$('input[name="testId"]', '#dialogCloneQuestion').val(id)
+					$("#dialogCloneQuestion").dialog();
+				}
+			</script>
 </body>
 
 </html>

@@ -70,4 +70,9 @@ public class TestDAOServiceImplementation implements TestDAOService{
 		test=entityM.createQuery("Select x from Test x where x.name='"+name+"'", Test.class).getResultList();
 		return test;
 	}
+	public List<Test> getTestsByUserId(int id) {
+		List<Test> test=new ArrayList<Test>();
+		test=entityM.createQuery("Select x from Test x where x.userCreator.userId='"+id+"'", Test.class).getResultList();
+		return test;
+	}
 }

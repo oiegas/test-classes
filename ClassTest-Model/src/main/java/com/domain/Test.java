@@ -47,6 +47,9 @@ public class Test implements Serializable{
 	@ManyToOne
 	 @JoinColumn(name = "class_id")
 	private Clas classForTest;
+	@ManyToOne
+	 @JoinColumn(name = "user_id")
+	private User userCreator;
 	
 	public Set<Question> getQuestions() {
 		return questions;
@@ -89,5 +92,11 @@ public class Test implements Serializable{
 	}
 	public void setClassForTest(Clas classForTest) {
 		this.classForTest = classForTest;
+	}
+	public User getUserCreator() {
+		return userCreator;
+	}
+	public void setUserCreator(User userCreator) {
+		this.userCreator = userCreator;
 	}
 }

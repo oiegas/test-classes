@@ -12,4 +12,5 @@ public interface TestDAOService {
 	public Test getTestById(int id);
 	public List<Test> getAllTests();
 	public List<Test> getTestsByName(String name);
+	public List<Test> getTestsByUserId(int id);
 }

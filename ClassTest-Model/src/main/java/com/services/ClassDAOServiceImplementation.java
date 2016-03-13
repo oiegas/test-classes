@@ -66,5 +66,19 @@ public class ClassDAOServiceImplementation implements ClassDAOService{
 	public EntityManager getEntityManager() {
 		return this.entityM;
 	}
+	public Clas getClassByName(String name) {
+		try {
+			TypedQuery <Clas> query = entityM.createQuery("Select x from Clas x where x.name=:name",Clas.class);
+			query.setParameter("name", name);	
+			if (query.getSingleResult() != null) 
+				return query.getSingleResult();
+			else return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

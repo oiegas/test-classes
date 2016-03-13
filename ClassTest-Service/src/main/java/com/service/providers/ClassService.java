@@ -11,4 +11,5 @@ public interface ClassService {
 	public Clas updateClass(Clas c);
 	public Clas getClassById(int id);
 	public List<Clas> getAllClasses();
+	public Clas getClassByName(String name);
 }

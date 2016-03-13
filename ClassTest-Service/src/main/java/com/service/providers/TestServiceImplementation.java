@@ -32,4 +32,8 @@ dao.removeTest(test);
 		return dao.getTestsByName(name);
 	}
 
+	public List<Test> getTestsByUserId(int id) {
+		return dao.getTestsByUserId(id);
+	}
+
 }

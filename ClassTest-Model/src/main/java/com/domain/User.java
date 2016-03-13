@@ -3,6 +3,7 @@ package com.domain;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,6 +51,8 @@ public class User implements Serializable{
 	@ManyToOne
 	 @JoinColumn(name = "class_id")
 	private Clas classForUser;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	public Set<Test> testsMadeByUser;
 	public String getUsername() {
 		return username;
 	}
@@ -125,6 +128,12 @@ public class User implements Serializable{
 	}
 	public void setClassForUser(Clas classForUser) {
 		this.classForUser = classForUser;
+	}
+	public Set<Test> getTestsMadeByUser() {
+		return testsMadeByUser;
+	}
+	public void setTestsMadeByUser(Set<Test> testsMadeByUser) {
+		this.testsMadeByUser = testsMadeByUser;
 	}
 	
 
