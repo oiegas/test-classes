@@ -199,8 +199,8 @@ a {
 		<div class="module">
 
 			<c:url var="ediTest" value="/editTest/edit"></c:url>
-			<form:form action="${ediTest}" commandName="test"
-				id="register-form" novalidate="novalidate" class="form">
+			<form:form action="${ediTest}" commandName="test" id="register-form"
+				novalidate="novalidate" class="form">
 				<table>
 					<tr>
 						<td>Test Name:</td>
@@ -214,51 +214,48 @@ a {
 						<td>End Date:</td>
 						<td><form:input path='endDate'></form:input></td>
 					</tr>
-					<c:forEach items="${test.questions}" var="quest" varStatus="status">
-					<tr>
-						<td>Question:</td>
-						 <td><form:input path='quest.text'></form:input></td>
-					</tr>
-					<c:forEach items="${quest.answers}" var="answer">
-					<tr>
-						<td>Answer:</td>
-					<td><form:checkbox path="answer.good"/> 
-						<td><form:input path='answer.answer'></form:input></td>
-					</tr>
+					<c:forEach items="${test.questions}" varStatus="status">
+						<tr>
+							<td>Question:</td>
+							<td><form:input path="questions[${status.index}].text"></form:input></td>
+						</tr>
+						<c:forEach items="questions[${status.index}].answers" var="answer"
+							varStatus="loop">
+							<tr>
+								<td>Answer:</td>
+								<td><form:checkbox path="questions[${status.index}].answers[${loop.index}].good"></form:checkbox></td>
+								<td><form:input path="questions[${status.index}].answers[${loop.index}].answer"></form:input></td>
+							</tr>
+						</c:forEach>
 					</c:forEach>
-					</c:forEach>
 					<tr>
-						<td colspan="2">
-								<input type="submit" class="button" value="Edit Test" />
-						</td>
+						<td colspan="2"><input type="submit" class="button"
+							value="Edit Test" /></td>
 					</tr>
 				</table>
 			</form:form>
 
-			
+
 
 
 			<c:url value="/j_spring_security_logout" var="logoutUrl" />
 			<form action="${logoutUrl}" method="post" id="logoutForm"></form>
 			<script>
-	function confirmUser(){
-		
-	    var ask=confirm("Are you sure");
+				function confirmUser() {
 
-		   if(ask)
-			   {  alert("ok!");}}</script>
+					var ask = confirm("Are you sure");
+
+					if (ask) {
+						alert("ok!");
+					}
+				}
+			</script>
 			<script>
-		function formSubmit() {
-			document.getElementById("logoutForm").submit();
-		}
-	</script>
+				function formSubmit() {
+					document.getElementById("logoutForm").submit();
+				}
+			</script>
 
-			<c:if test="${pageContext.request.userPrincipal.name != null}">
-				<h4>
-					<a class="button" href="javascript:formSubmit()">Logout</a>
-
-				</h4>
-			</c:if>
 
 		</div>
 	</div>

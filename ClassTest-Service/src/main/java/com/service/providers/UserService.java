@@ -13,5 +13,7 @@ public interface UserService {
 	public User getUserById(int id);
 	public boolean verifyLogin(String username, String password);
 	public List<User> getAllUsers();
+	public List<User> getAllStudents();
+	public List<User> getStudentsByName(String name);
 	
 }

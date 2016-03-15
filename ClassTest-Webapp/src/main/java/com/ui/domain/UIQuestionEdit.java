@@ -2,7 +2,7 @@ package com.ui.domain;
 
 import java.util.List;
 
-public class UIQuestion2 {
+public class UIQuestionEdit {
 	private int questionId;
 	private String text;
 	private List<UIAnswer> answers;

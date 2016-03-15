@@ -67,7 +67,11 @@ public class User implements Serializable{
 	}
 	@OneToMany(fetch = FetchType.LAZY)
 	private Set<Grades> grades;
-	@OneToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "studentAnswer_user", joinColumns = { 
+			@JoinColumn(name = "user_id", nullable = false, updatable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "student_answer_id", 
+					nullable = false, updatable = false) })
 	private Set<StudentAnswer> studAnswer;
 	public Set<Test> getTests() {
 		return tests;

@@ -50,7 +50,19 @@ public class Test implements Serializable{
 	@ManyToOne
 	 @JoinColumn(name = "user_id")
 	private User userCreator;
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "studentAnswer_test", joinColumns = { 
+			@JoinColumn(name = "test_id", nullable = false, updatable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "student_answer_id", 
+					nullable = false, updatable = false) })
+	private Set<StudentAnswer> studentAnswers;
 	
+	public Set<StudentAnswer> getStudentAnswers() {
+		return studentAnswers;
+	}
+	public void setStudentAnswers(Set<StudentAnswer> studentAnswers) {
+		this.studentAnswers = studentAnswers;
+	}
 	public Set<Question> getQuestions() {
 		return questions;
 	}

@@ -351,7 +351,6 @@ public class TestController {
 
 	@RequestMapping(value = "/addQuestion", method = RequestMethod.POST)
 	public String addQuestion(@ModelAttribute("questionAdd") UIQuestion ui){
-		System.out.println("IIIIIIIIIIIIIIIIIID"+ui.getTestId());
 		if (ui.getQuestion() != null && !ui.getQuestion().equals("")) {
 			Question question=questionConverter.createQuestion(ui);
 			question.setTest(testService.getTestById(ui.getTestId()));
@@ -425,7 +424,7 @@ public class TestController {
 					.getName()));
 			model.addAttribute("listTests", tests);
 		} else {
-			List<UITest> tests = transformList(testService.getAllTests());
+			List<UITest> tests = transformList(testService.getTestsByUserId(LoginUtils.userLogedIn.getUserId()));
 			model.addAttribute("listTests", tests);
 		}
 		return "test";
@@ -438,7 +437,7 @@ public class TestController {
 		model.addAttribute("test", new UITest());
 		model.addAttribute("testAdd", new UITest());
 		model.addAttribute("firstQuestion", new UIQuestion());
-		List<UITest> testList = transformList(testService.getAllTests());
+		List<UITest> testList = transformList(testService.getTestsByUserId(LoginUtils.userLogedIn.getUserId()));
 		model.addAttribute("listTests", testList);
 		UITest test = converter.createUITest(testService.getTestById(id));
 		model.addAttribute("testB", test);
@@ -452,7 +451,7 @@ public class TestController {
 		model.addAttribute("testAdd", new UITest());
 		UITest test = converter.createUITest(testService.getTestById(id));
 		model.addAttribute("testEdit", test);
-		List<UITest> puiList = transformList(testService.getAllTests());
+		List<UITest> puiList = transformList(testService.getTestsByUserId(LoginUtils.userLogedIn.getUserId()));
 		model.addAttribute("listTests", puiList);
 		return "test";
 	}

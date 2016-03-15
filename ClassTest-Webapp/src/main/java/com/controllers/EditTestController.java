@@ -25,8 +25,8 @@ import com.service.providers.QuestionServiceImplementation;
 import com.service.providers.TestService;
 import com.service.providers.TestServiceImplementation;
 import com.ui.domain.UIAnswer;
-import com.ui.domain.UIQuestion2;
-import com.ui.domain.UITest2;
+import com.ui.domain.UIQuestionEdit;
+import com.ui.domain.UITestEdit;
 
 @Controller
 @RequestMapping(value = "/editTest")
@@ -38,7 +38,7 @@ public class EditTestController {
 	AnswerConverter answerConverter=new AnswerConverterImplementation();
 	
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
 	public String listPersons(@PathVariable("id") int id, Model model) {
 
 		Test test=testService.getTestById(id);
@@ -47,31 +47,33 @@ public class EditTestController {
 			List<Answer> answers=answerService.getAnswersByQuestionId(q.getQuestionId());
 			Set<Answer> ans=new HashSet<Answer>(answers);
 			q.setAnswers(ans);
+			System.out.println("RASPUNSURI:  "+ans.size());
 		}
-		UITest2 uiTest=new UITest2();
+		UITestEdit uiTest=new UITestEdit();
 		uiTest.setName(test.getName());
 		uiTest.setEndDate(formatter.format(test.getEndDate()));
 		uiTest.setStartDate(formatter.format(test.getStartDate()));
 		uiTest.setQuestions(convertQuestions(questions));
 		uiTest.setTestId(test.getTestId());
-		System.out.println("Intrebari"+questions.size());
+		
 		model.addAttribute("test", uiTest);
 		return "editTest";
 		
 	}
 	
-	public List<UIQuestion2> convertQuestions(List<Question> question){
+	public List<UIQuestionEdit> convertQuestions(List<Question> question){
 		
-		List<UIQuestion2> ui=new ArrayList<UIQuestion2>();
+		List<UIQuestionEdit> ui=new ArrayList<UIQuestionEdit>();
 		
 		for(Question q:question){
-			UIQuestion2 uiq=new UIQuestion2();
+			UIQuestionEdit uiq=new UIQuestionEdit();
 			uiq.setText(q.getQuestion());
 			List<UIAnswer> answers=new ArrayList<UIAnswer>();
 			for(Answer a:q.getAnswers()){
 				answers.add(answerConverter.createUIAnswer(a));
 			}
 			uiq.setAnswers(answers);
+			System.out.println("SE VOR PUNE :"+answers.size());
 			uiq.setQuestionId(q.getQuestionId());
 			ui.add(uiq);
 		}

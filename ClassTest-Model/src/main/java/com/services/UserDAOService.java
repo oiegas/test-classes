@@ -14,4 +14,6 @@ public interface UserDAOService {
 	public boolean verifyLogin(String username, String password);
 	public User getUserById(int id);
 	public List<User> getAllUsers();
+	public List<User> getAllStudents();
+	public List<User> getUsersByName(String name);
 }

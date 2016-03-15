@@ -3,7 +3,7 @@ package com.ui.domain;
 import java.util.List;
 
 
-public class UITest2{
+public class UITestEdit{
 
 	/**
 	 * 
@@ -12,7 +12,7 @@ public class UITest2{
 	private String name;
 	private String startDate;
 	private String endDate;
-	private List<UIQuestion2> questions;
+	private List<UIQuestionEdit> questions;
 
 	public int userId;
 	public int getTestId() {
@@ -39,10 +39,10 @@ public class UITest2{
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	public List<UIQuestion2> getQuestions() {
+	public List<UIQuestionEdit> getQuestions() {
 		return questions;
 	}
-	public void setQuestions(List<UIQuestion2> questions) {
+	public void setQuestions(List<UIQuestionEdit> questions) {
 		this.questions = questions;
 	}
 	public int getUserId() {

@@ -9,7 +9,8 @@ import com.domain.User;
 import com.repository.EntityManagerUtil;
 
 public class UserDAOServiceImplementation implements UserDAOService{
-
+	
+	private static final String STUDENTS_ACCOUNT="ROLE_STUDENT";
 	private EntityManager entityM;
 
 	public UserDAOServiceImplementation() {
@@ -98,6 +99,35 @@ public class UserDAOServiceImplementation implements UserDAOService{
 	public List<User> getAllUsers() {
 		try {
 			TypedQuery <User> query = entityM.createQuery("Select x from User x",User.class);
+			if (query.getResultList() != null) 
+				return query.getResultList();
+			else 
+				return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public List<User> getAllStudents() {
+		try {
+			TypedQuery <User> query = entityM.createQuery("Select x from User x where x.role.name =:name",User.class);
+			query.setParameter("name", STUDENTS_ACCOUNT);	
+			if (query.getResultList() != null) 
+				return query.getResultList();
+			else return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public List<User> getUsersByName(String name) {
+		try {
+			TypedQuery <User> query = entityM.createQuery("Select x from User x where x.name=:name",User.class);
+			query.setParameter("name", name);	
 			if (query.getResultList() != null) 
 				return query.getResultList();
 			else 

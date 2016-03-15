@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -34,7 +36,11 @@ public class Question implements Serializable{
 	private Test test;
 	@OneToMany(fetch = FetchType.LAZY,orphanRemoval=true)
 	private Set<Answer> answers;
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "studentAnswer_question", joinColumns = { 
+			@JoinColumn(name = "question_id", nullable = false, updatable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "student_answer_id", 
+					nullable = false, updatable = false) })
 	private Set<StudentAnswer> studAnswer;
 	public Set<Answer> getAnswers() {
 		return answers;
