@@ -20,14 +20,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Test")
-public class Test implements Serializable{
+public class Test implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "test_id", unique = true, nullable = false)
 	private int testId;
 	@Column(name = "name", nullable = false, length = 30)
@@ -37,77 +37,101 @@ public class Test implements Serializable{
 	@Column(name = "end_date", nullable = false, length = 30)
 	private Date endDate;
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "test_users", joinColumns = { 
-			@JoinColumn(name = "test_id", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "user_id", 
-					nullable = false, updatable = false) })
+	@JoinTable(name = "test_users", joinColumns = {
+			@JoinColumn(name = "test_id", nullable = false, updatable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "user_id", nullable = false, updatable = false) })
 	public Set<User> users;
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	public Set<Question> questions;
 	@ManyToOne
-	 @JoinColumn(name = "class_id")
+	@JoinColumn(name = "class_id")
 	private Clas classForTest;
+	@OneToMany(fetch = FetchType.LAZY)
+	private Set<Grades> grades;
 	@ManyToOne
-	 @JoinColumn(name = "user_id")
+	@JoinColumn(name = "user_id")
 	private User userCreator;
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "studentAnswer_test", joinColumns = { 
-			@JoinColumn(name = "test_id", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "student_answer_id", 
-					nullable = false, updatable = false) })
+	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
 	private Set<StudentAnswer> studentAnswers;
 	
+	
+
 	public Set<StudentAnswer> getStudentAnswers() {
 		return studentAnswers;
 	}
+
 	public void setStudentAnswers(Set<StudentAnswer> studentAnswers) {
 		this.studentAnswers = studentAnswers;
 	}
+
 	public Set<Question> getQuestions() {
 		return questions;
 	}
+
 	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
 	}
+
+	public Set<Grades> getGrades() {
+		return grades;
+	}
+
+	public void setGrades(Set<Grades> grades) {
+		this.grades = grades;
+	}
+
 	public int getTestId() {
 		return testId;
 	}
+
 	public void setTestId(int testId) {
 		this.testId = testId;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public Date getStartDate() {
 		return startDate;
 	}
+
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
+
 	public Date getEndDate() {
 		return endDate;
 	}
+
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
 	public Set<User> getUsers() {
 		return users;
 	}
+
 	public void setUsers(Set<User> users) {
 		this.users = users;
 	}
+
 	public Clas getClassForTest() {
 		return classForTest;
 	}
+
 	public void setClassForTest(Clas classForTest) {
 		this.classForTest = classForTest;
 	}
+
 	public User getUserCreator() {
 		return userCreator;
 	}
+
 	public void setUserCreator(User userCreator) {
 		this.userCreator = userCreator;
 	}

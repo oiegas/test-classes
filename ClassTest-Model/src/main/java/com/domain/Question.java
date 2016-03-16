@@ -36,11 +36,7 @@ public class Question implements Serializable{
 	private Test test;
 	@OneToMany(fetch = FetchType.LAZY,orphanRemoval=true)
 	private Set<Answer> answers;
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "studentAnswer_question", joinColumns = { 
-			@JoinColumn(name = "question_id", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "student_answer_id", 
-					nullable = false, updatable = false) })
+	@OneToMany(fetch = FetchType.LAZY,orphanRemoval=true)
 	private Set<StudentAnswer> studAnswer;
 	public Set<Answer> getAnswers() {
 		return answers;

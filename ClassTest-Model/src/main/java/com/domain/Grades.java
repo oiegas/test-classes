@@ -20,7 +20,16 @@ public class Grades {
 	private int grade;
 	@ManyToOne(optional = false)
 	private User user;
+	@ManyToOne(optional = false)
+	private Test test;
 	
+	
+	public Test getTest() {
+		return test;
+	}
+	public void setTest(Test test) {
+		this.test = test;
+	}
 	public int getGradeId() {
 		return gradeId;
 	}
