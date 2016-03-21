@@ -12,7 +12,7 @@
 		
 		<!-- hibernate specific -->
 			<class>com.domain.Answer</class>
-			<class>com.domain.Grades</class>
+			<class>com.domain.Grade</class>
 			<class>com.domain.Question</class>
 			<class>com.domain.Role</class>
 			<class>com.domain.StudentAnswer</class>

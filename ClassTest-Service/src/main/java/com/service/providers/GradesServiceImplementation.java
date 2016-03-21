@@ -2,27 +2,31 @@ package com.service.providers;
 
 import java.util.List;
 
-import com.domain.Grades;
+import com.domain.Grade;
 import com.services.GradesDAOService;
 import com.services.GradesDAOServiceImplementation;
 
 public class GradesServiceImplementation implements GradesService {
 
 	GradesDAOService dao=new GradesDAOServiceImplementation();
-	public Grades addGrade(Grades grade) {
+	public Grade addGrade(Grade grade) {
 		return dao.addGrade(grade);
 	}
 
-	public Grades updateGrade(Grades grade) {
+	public Grade updateGrade(Grade grade) {
 		return dao.updateGrade(grade);
 	}
 
-	public List<Grades> getGradesOfStudent(String name) {
+	public List<Grade> getGradesOfStudent(String name) {
 		return dao.getGradesOfStudent(name);
 	}
 
-	public void removeGrade(Grades grade) {
+	public void removeGrade(Grade grade) {
 		dao.removeGrade(grade);		
+	}
+
+	public List<Grade> getGradesOfStudentWithId(int id) {
+		return dao.getGradesOfStudentWithId(id);
 	}
 
 }

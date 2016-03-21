@@ -47,7 +47,7 @@ public class Test implements Serializable {
 	@JoinColumn(name = "class_id")
 	private Clas classForTest;
 	@OneToMany(fetch = FetchType.LAZY)
-	private Set<Grades> grades;
+	private Set<Grade> grades;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User userCreator;
@@ -72,11 +72,11 @@ public class Test implements Serializable {
 		this.questions = questions;
 	}
 
-	public Set<Grades> getGrades() {
+	public Set<Grade> getGrades() {
 		return grades;
 	}
 
-	public void setGrades(Set<Grades> grades) {
+	public void setGrades(Set<Grade> grades) {
 		this.grades = grades;
 	}
 

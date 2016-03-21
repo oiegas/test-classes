@@ -5,6 +5,7 @@ public class UIGrades {
 
 	private int gradeId;
 	private int grade;
+	private String testName;
 	private int userId;
 	
 	public int getGradeId() {
@@ -24,5 +25,11 @@ public class UIGrades {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+	public String getTestName() {
+		return testName;
+	}
+	public void setTestName(String testName) {
+		this.testName = testName;
 	}
 }

@@ -66,7 +66,7 @@ public class User implements Serializable{
 		this.password = password;
 	}
 	@OneToMany(fetch = FetchType.LAZY)
-	private Set<Grades> grades;
+	private Set<Grade> grades;
 	@OneToMany(fetch = FetchType.LAZY,orphanRemoval=true)
 	private Set<StudentAnswer> studAnswer;
 	public Set<Test> getTests() {
@@ -75,10 +75,10 @@ public class User implements Serializable{
 	public void setTests(Set<Test> tests) {
 		this.tests = tests;
 	}
-	public Set<Grades> getGrades() {
+	public Set<Grade> getGrades() {
 		return grades;
 	}
-	public void setGrades(Set<Grades> grades) {
+	public void setGrades(Set<Grade> grades) {
 		this.grades = grades;
 	}
 	public String getName() {
