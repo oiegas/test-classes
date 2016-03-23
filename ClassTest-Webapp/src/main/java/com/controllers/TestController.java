@@ -18,16 +18,22 @@ import com.converter.TestConverter;
 import com.converter.TestConverterImplementation;
 import com.domain.Answer;
 import com.domain.Clas;
+import com.domain.Grade;
 import com.domain.Question;
 import com.domain.Test;
+import com.domain.User;
 import com.service.providers.AnswerService;
 import com.service.providers.AnswerServiceImplementation;
 import com.service.providers.ClassService;
 import com.service.providers.ClassServiceImplementation;
+import com.service.providers.GradesService;
+import com.service.providers.GradesServiceImplementation;
 import com.service.providers.QuestionService;
 import com.service.providers.QuestionServiceImplementation;
 import com.service.providers.TestService;
 import com.service.providers.TestServiceImplementation;
+import com.service.providers.UserService;
+import com.service.providers.UserServiceImplementation;
 import com.ui.domain.UIAnswer;
 import com.ui.domain.UIQuestion;
 import com.ui.domain.UITest;
@@ -44,6 +50,8 @@ public class TestController {
 	QuestionService questionService = new QuestionServiceImplementation();
 	AnswerService answerService = new AnswerServiceImplementation();
 	ClassService classService = new ClassServiceImplementation();
+	GradesService gradesService=new GradesServiceImplementation();
+	UserService userService=new UserServiceImplementation();
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String listTest(Model model) {
@@ -252,6 +260,16 @@ public class TestController {
 			}
 		}
 
+		List<User> students=userService.getUsersByClass(clasForTest.getName());
+		System.out.println(clasForTest.getName());
+		for(User u:students){
+			Grade grade=new Grade();
+			grade.setGrade(0);
+			grade.setTest(test);
+			grade.setUser(u);
+			gradesService.addGrade(grade);
+		}
+	
 		System.out.println(pui.getName());
 		System.out.println(pui.getFirstQuestion().getQuestion());
 		return "redirect:/test";
@@ -340,7 +358,14 @@ public class TestController {
 				answer.setQuestion(question);
 				answerService.addAnswer(answer);
 			}
-		
+		}
+		List<User> students=userService.getUsersByClass(copyOfTest.getClassForTest().getName());
+		for(User u:students){
+			Grade grade=new Grade();
+			grade.setGrade(0);
+			grade.setTest(copyOfTest);
+			grade.setUser(u);
+			gradesService.addGrade(grade);
 		}
 	
 		
@@ -410,6 +435,10 @@ public class TestController {
 			for (Question q : questions) {
 				questionService.deleteQuestion(q);
 			}
+		}
+		List<Grade> gradesToRemove=gradesService.getGradesWithTestId(id);
+		for(Grade g:gradesToRemove){
+			gradesService.removeGrade(g);
 		}
 		testService.removeTest(testService.getTestById(id));
 		return "redirect:/test";

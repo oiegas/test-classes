@@ -10,4 +10,5 @@ public interface GradesService {
 	public List<Grade> getGradesOfStudent(String name);
 	public void removeGrade(Grade grade);
 	public List<Grade> getGradesOfStudentWithId(int id);
+	public List<Grade> getGradesWithTestId(int id);
 }

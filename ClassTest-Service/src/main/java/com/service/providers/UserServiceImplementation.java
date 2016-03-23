@@ -47,6 +47,10 @@ public class UserServiceImplementation implements UserService{
 	public List<User> getStudentsByName(String name) {
 		return dao.getUsersByName(name);
 	}
+
+	public List<User> getUsersByClass(String clas) {
+		return dao.getUsersByClass(clas);
+	}
 	
 
 }

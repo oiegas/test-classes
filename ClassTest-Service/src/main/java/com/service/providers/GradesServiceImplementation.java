@@ -29,4 +29,8 @@ public class GradesServiceImplementation implements GradesService {
 		return dao.getGradesOfStudentWithId(id);
 	}
 
+	public List<Grade> getGradesWithTestId(int id) {
+		return dao.getGradesWithTestId(id);
+	}
+
 }

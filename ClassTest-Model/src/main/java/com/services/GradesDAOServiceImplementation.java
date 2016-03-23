@@ -60,5 +60,19 @@ private EntityManager entityM;
 			return null;
 		}
 	}
+	public List<Grade> getGradesWithTestId(int id) {
+		try {
+			TypedQuery <Grade> query = entityM.createQuery("Select x from Grade x where x.test.testId=:testId",Grade.class);
+			query.setParameter("testId", id);	
+			if (query.getResultList() != null) 
+				return query.getResultList();
+			else return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }
