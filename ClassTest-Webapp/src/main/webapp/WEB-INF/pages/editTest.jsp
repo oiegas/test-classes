@@ -214,18 +214,17 @@ a {
 						<td>End Date:</td>
 						<td><form:input path='endDate'></form:input></td>
 					</tr>
-					<c:forEach items="${test.questions}" varStatus="status">
+					<c:forEach items="${test.questions}" varStatus="status" var="quest">
 						<tr>
 							<td>Question:</td>
 							<td><form:input path="questions[${status.index}].text"></form:input></td>
 						</tr>
-						<c:forEach items="questions[${status.index}].answers" var="answer"
+						<c:forEach items="${quest.answers}"
 							varStatus="loop">
 							<tr>
 								<td>Answer:</td>
-								<td><form:checkbox path="questions[${status.index}].answers[${loop.index}].good"></form:checkbox></td>
-								<td><form:input path="questions[${status.index}].answers[${loop.index}].answer"></form:input></td>
-							</tr>
+									<td><form:checkbox path="questions[${status.index}].answers[${loop.index}].good"></form:checkbox></td>
+								<td><form:input path="questions[${status.index}].answers[${loop.index}].answer"></form:input></td> 
 						</c:forEach>
 					</c:forEach>
 					<tr>

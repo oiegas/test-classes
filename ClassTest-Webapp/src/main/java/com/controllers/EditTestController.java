@@ -47,7 +47,6 @@ public class EditTestController {
 			List<Answer> answers=answerService.getAnswersByQuestionId(q.getQuestionId());
 			Set<Answer> ans=new HashSet<Answer>(answers);
 			q.setAnswers(ans);
-			System.out.println("RASPUNSURI:  "+ans.size());
 		}
 		UITestEdit uiTest=new UITestEdit();
 		uiTest.setName(test.getName());
