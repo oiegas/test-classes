@@ -50,15 +50,15 @@ public class TestController {
 	QuestionService questionService = new QuestionServiceImplementation();
 	AnswerService answerService = new AnswerServiceImplementation();
 	ClassService classService = new ClassServiceImplementation();
-	GradesService gradesService=new GradesServiceImplementation();
-	UserService userService=new UserServiceImplementation();
+	GradesService gradesService = new GradesServiceImplementation();
+	UserService userService = new UserServiceImplementation();
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String listTest(Model model) {
 		model.addAttribute("test", new UITest());
 		model.addAttribute("testClone", new UITest());
 		model.addAttribute("testAdd", new UITest());
-		model.addAttribute("questionAdd",new UIQuestion());
+		model.addAttribute("questionAdd", new UIQuestion());
 		model.addAttribute("firstQuestion", new UIQuestion());
 		List<Clas> classList = classService.getAllClasses();
 		ArrayList<String> allClasses = new ArrayList<String>();
@@ -66,8 +66,7 @@ public class TestController {
 			allClasses.add(c.getName());
 		}
 		model.addAttribute("classList", allClasses);
-		List<UITest> testList = transformList(testService
-				.getTestsByUserId(LoginUtils.userLogedIn.getUserId()));
+		List<UITest> testList = transformList(testService.getTestsByUserId(LoginUtils.userLogedIn.getUserId()));
 		model.addAttribute("listTests", testList);
 		return "test";
 	}
@@ -83,8 +82,7 @@ public class TestController {
 		test.setClassForTest(clasForTest);
 		UIQuestion uiquestion = pui.getFirstQuestion();
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
-			Question firstQuestion = questionConverter
-					.createQuestion(uiquestion);
+			Question firstQuestion = questionConverter.createQuestion(uiquestion);
 			firstQuestion.setTest(test);
 			questionService.addQuestion(firstQuestion);
 			uiAnswer = pui.getFirstQuestion().getFirstAnswer();
@@ -118,8 +116,7 @@ public class TestController {
 
 		uiquestion = pui.getSecondQuestion();
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
-			Question secondQuestion = questionConverter
-					.createQuestion(uiquestion);
+			Question secondQuestion = questionConverter.createQuestion(uiquestion);
 			secondQuestion.setTest(test);
 			questionService.addQuestion(secondQuestion);
 
@@ -154,8 +151,7 @@ public class TestController {
 
 		uiquestion = pui.getThirdQuestion();
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
-			Question thirdQuestion = questionConverter
-					.createQuestion(uiquestion);
+			Question thirdQuestion = questionConverter.createQuestion(uiquestion);
 			thirdQuestion.setTest(test);
 			questionService.addQuestion(thirdQuestion);
 
@@ -190,8 +186,7 @@ public class TestController {
 
 		uiquestion = pui.getFourthQuestion();
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
-			Question fourthQuestion = questionConverter
-					.createQuestion(uiquestion);
+			Question fourthQuestion = questionConverter.createQuestion(uiquestion);
 			fourthQuestion.setTest(test);
 			questionService.addQuestion(fourthQuestion);
 
@@ -226,8 +221,7 @@ public class TestController {
 
 		uiquestion = pui.getFifthQuestion();
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
-			Question fifthQuestion = questionConverter
-					.createQuestion(uiquestion);
+			Question fifthQuestion = questionConverter.createQuestion(uiquestion);
 			fifthQuestion.setTest(test);
 			questionService.addQuestion(fifthQuestion);
 
@@ -260,39 +254,24 @@ public class TestController {
 			}
 		}
 
-		List<User> students=userService.getUsersByClass(clasForTest.getName());
+		List<User> students = userService.getUsersByClass(clasForTest.getName());
 		System.out.println(clasForTest.getName());
-		for(User u:students){
-			Grade grade=new Grade();
+		for (User u : students) {
+			Grade grade = new Grade();
 			grade.setGrade(0);
 			grade.setTest(test);
 			grade.setUser(u);
 			gradesService.addGrade(grade);
 		}
-	
+
 		System.out.println(pui.getName());
 		System.out.println(pui.getFirstQuestion().getQuestion());
 		return "redirect:/test";
 
 	}
 
-	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-	public String editTest(@ModelAttribute("testEdit") UITest pui) {
-		Test p = converter.createTest(pui);
-		if (p.getTestId() == 0) {
-
-			this.testService.addTest(p);
-		} else {
-
-			this.testService.updateTest(p);
-		}
-		return "redirect:/test";
-
-	}
-
 	@RequestMapping(value = "/addQuestion/{testId}", method = RequestMethod.POST)
-	public String addQuestion(@ModelAttribute("question") UIQuestion pui,
-			@PathVariable("testId") int id) {
+	public String addQuestion(@ModelAttribute("question") UIQuestion pui, @PathVariable("testId") int id) {
 		UIAnswer uiAnswer = new UIAnswer();
 		Answer answer;
 		if (pui != null && !pui.getQuestion().equals("")) {
@@ -332,84 +311,79 @@ public class TestController {
 
 	}
 
-	
 	@RequestMapping(value = "/clone", method = RequestMethod.POST)
-	public String cloneTest(@ModelAttribute("testClone") UITest ui){
-		Test test=testService.getTestById(ui.getTestId());
-		Test copyOfTest=new Test();
+	public String cloneTest(@ModelAttribute("testClone") UITest ui) {
+		Test test = testService.getTestById(ui.getTestId());
+		Test copyOfTest = new Test();
 		copyOfTest.setName(test.getName());
 		copyOfTest.setUserCreator(test.getUserCreator());
 		copyOfTest.setStartDate(test.getStartDate());
 		copyOfTest.setEndDate(test.getEndDate());
 		copyOfTest.setClassForTest(classService.getClassByName(ui.getNameClass()));
 		testService.addTest(copyOfTest);
-		List<Question> questions=questionService.getQuestionByTestId(ui.getTestId());
-		for(Question q:questions)
-		{
-			Question question=new Question();
+		List<Question> questions = questionService.getQuestionByTestId(ui.getTestId());
+		for (Question q : questions) {
+			Question question = new Question();
 			question.setQuestion(q.getQuestion());
 			question.setTest(copyOfTest);
 			questionService.addQuestion(question);
-			List<Answer> answers=answerService.getAnswersByQuestionId(q.getQuestionId());
-			for(Answer a:answers){
-				Answer answer=new Answer();
+			List<Answer> answers = answerService.getAnswersByQuestionId(q.getQuestionId());
+			for (Answer a : answers) {
+				Answer answer = new Answer();
 				answer.setAnswer(a.getAnswer());
 				answer.setGood(a.isGood());
 				answer.setQuestion(question);
 				answerService.addAnswer(answer);
 			}
 		}
-		List<User> students=userService.getUsersByClass(copyOfTest.getClassForTest().getName());
-		for(User u:students){
-			Grade grade=new Grade();
+		List<User> students = userService.getUsersByClass(copyOfTest.getClassForTest().getName());
+		for (User u : students) {
+			Grade grade = new Grade();
 			grade.setGrade(0);
 			grade.setTest(copyOfTest);
 			grade.setUser(u);
 			gradesService.addGrade(grade);
 		}
-	
-		
+
 		return "redirect:/test";
 	}
-	
-	
 
 	@RequestMapping(value = "/addQuestion", method = RequestMethod.POST)
-	public String addQuestion(@ModelAttribute("questionAdd") UIQuestion ui){
+	public String addQuestion(@ModelAttribute("questionAdd") UIQuestion ui) {
 		if (ui.getQuestion() != null && !ui.getQuestion().equals("")) {
-			Question question=questionConverter.createQuestion(ui);
+			Question question = questionConverter.createQuestion(ui);
 			question.setTest(testService.getTestById(ui.getTestId()));
 			questionService.addQuestion(question);
-			Answer answer=new Answer();
-			UIAnswer uiAnswer=ui.getFirstAnswer();
+			Answer answer = new Answer();
+			UIAnswer uiAnswer = ui.getFirstAnswer();
 			if (uiAnswer != null && !uiAnswer.getAnswer().equals("")) {
 				answer = answerConverter.createAnswer(uiAnswer);
 				answer.setQuestion(question);
 				answerService.addAnswer(answer);
 			}
-			uiAnswer=ui.getSecondAnswer();
+			uiAnswer = ui.getSecondAnswer();
 			if (uiAnswer != null && !uiAnswer.getAnswer().equals("")) {
 				answer = answerConverter.createAnswer(uiAnswer);
 				answer.setQuestion(question);
 				answerService.addAnswer(answer);
 			}
-			uiAnswer=ui.getThirdAnswer();
+			uiAnswer = ui.getThirdAnswer();
 			if (uiAnswer != null && !uiAnswer.getAnswer().equals("")) {
 				answer = answerConverter.createAnswer(uiAnswer);
 				answer.setQuestion(question);
 				answerService.addAnswer(answer);
 			}
-			uiAnswer=ui.getFourthAnswer() ;
+			uiAnswer = ui.getFourthAnswer();
 			if (uiAnswer != null && !uiAnswer.getAnswer().equals("")) {
 				answer = answerConverter.createAnswer(uiAnswer);
 				answer.setQuestion(question);
 				answerService.addAnswer(answer);
 			}
 		}
-		
+
 		return "redirect:/test";
 	}
-	
+
 	@RequestMapping("/remove/{testId}")
 	public String removeTest(@PathVariable("testId") int id) {
 		Test test = testService.getTestById(id);
@@ -421,10 +395,8 @@ public class TestController {
 		List<Answer> particularAnswers = null;
 		if (questions != null) {
 			for (Question q : questions) {
-				System.out.println(answerService.getAnswersByQuestionId(
-						q.getQuestionId()).size());
-				particularAnswers = answerService.getAnswersByQuestionId(q
-						.getQuestionId());
+				System.out.println(answerService.getAnswersByQuestionId(q.getQuestionId()).size());
+				particularAnswers = answerService.getAnswersByQuestionId(q.getQuestionId());
 				for (Answer a : particularAnswers) {
 					answers.add(a);
 				}
@@ -436,8 +408,8 @@ public class TestController {
 				questionService.deleteQuestion(q);
 			}
 		}
-		List<Grade> gradesToRemove=gradesService.getGradesWithTestId(id);
-		for(Grade g:gradesToRemove){
+		List<Grade> gradesToRemove = gradesService.getGradesWithTestId(id);
+		for (Grade g : gradesToRemove) {
 			gradesService.removeGrade(g);
 		}
 		testService.removeTest(testService.getTestById(id));
@@ -445,12 +417,10 @@ public class TestController {
 	}
 
 	@RequestMapping("/search")
-	public String searchPerson(@ModelAttribute("testAdd") UITest test,
-			Model model) {
+	public String searchPerson(@ModelAttribute("testAdd") UITest test, Model model) {
 		model.addAttribute("testAdd", new UITest());
 		if (test.getName() != null && !test.getName().equals("")) {
-			List<UITest> tests = transformList(testService.getTestByName(test
-					.getName()));
+			List<UITest> tests = transformList(testService.getTestByName(test.getName()));
 			model.addAttribute("listTests", tests);
 		} else {
 			List<UITest> tests = transformList(testService.getTestsByUserId(LoginUtils.userLogedIn.getUserId()));

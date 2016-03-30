@@ -28,7 +28,6 @@ public class TestConverterImplementation implements TestConverter{
 			try {
 				date = formatter.parse(ui.getStartDate());
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			test.setStartDate(date);
@@ -37,7 +36,6 @@ public class TestConverterImplementation implements TestConverter{
 			try {
 				date = formatter.parse(ui.getEndDate());
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			test.setEndDate(date);

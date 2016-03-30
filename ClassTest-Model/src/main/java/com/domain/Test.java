@@ -41,7 +41,7 @@ public class Test implements Serializable {
 			@JoinColumn(name = "test_id", nullable = false, updatable = false) }, inverseJoinColumns = {
 					@JoinColumn(name = "user_id", nullable = false, updatable = false) })
 	public Set<User> users;
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY)
 	public Set<Question> questions;
 	@ManyToOne
 	@JoinColumn(name = "class_id")
@@ -51,7 +51,7 @@ public class Test implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User userCreator;
-	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY)
 	private Set<StudentAnswer> studentAnswers;
 	
 	

@@ -219,12 +219,13 @@ a {
 							<td>Question:</td>
 							<td><form:input path="questions[${status.index}].text"></form:input></td>
 						</tr>
-						<c:forEach items="${quest.answers}"
-							varStatus="loop">
+						<c:forEach items="${quest.answers}" varStatus="loop">
 							<tr>
 								<td>Answer:</td>
-									<td><form:checkbox path="questions[${status.index}].answers[${loop.index}].good"></form:checkbox></td>
-								<td><form:input path="questions[${status.index}].answers[${loop.index}].answer"></form:input></td> 
+								<td><form:checkbox
+										path="questions[${status.index}].answers[${loop.index}].good"></form:checkbox></td>
+								<td><form:input
+										path="questions[${status.index}].answers[${loop.index}].answer"></form:input></td>
 						</c:forEach>
 					</c:forEach>
 					<tr>

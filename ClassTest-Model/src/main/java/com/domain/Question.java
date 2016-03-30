@@ -34,9 +34,9 @@ public class Question implements Serializable{
 	@ManyToOne
 	 @JoinColumn(name = "test_id")
 	private Test test;
-	@OneToMany(fetch = FetchType.LAZY,orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY)
 	private Set<Answer> answers;
-	@OneToMany(fetch = FetchType.LAZY,orphanRemoval=true)
+	@OneToMany(fetch = FetchType.LAZY)
 	private Set<StudentAnswer> studAnswer;
 	public Set<Answer> getAnswers() {
 		return answers;

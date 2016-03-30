@@ -15,7 +15,8 @@
 	src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <!-- Load jQuery and the validate plugin -->
 <script src="//code.jquery.com/jquery-1.9.1.js"></script>
 <script
@@ -31,72 +32,81 @@
 	border-spacing: 0;
 	border-color: #ccc;
 }
+
 .iconAdd {
-  height: 24px;
-  width: 24px;
-  opacity: 4;
-}
-.searchTest {
-  float: left;
-  margin-left: 10;
-  margin-top: 0;
-  margin-bottom: 30;
-}
-.searchForm{
-  margin-top: 50;
+	height: 24px;
+	width: 24px;
+	opacity: 4;
 }
 
-.listTabel{
-  float: right;
-  position: absolute;
-  display: block;
-  padding: 10px 15px;
-  margin-top: 25;
-  margin-left: 10;
-  margin-right: 250;
-  }
-  
-  .buttons{
-  margin-top: 0;
-  margin-left: 10;
-  float: right;
-  }
-  a {
-  color: #337ab7;
-  text-decoration: none;
-  margin: 0;
-  display: inline-block;
+.searchTest {
+	float: left;
+	margin-left: 10;
+	margin-top: 0;
+	margin-bottom: 30;
 }
-  .list-group-item {
-  position: relative;
-  display: block; 
-  padding: 30px 15px;
-  margin-bottom: -1px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+
+.searchForm {
+	margin-top: 50;
 }
-  .rightPanel{
-  float:left;
-  margin-left: 250;
-  margin-top: 50;
-  }
-  
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-  background-color: rgb(128, 201, 38) !important;
+
+.listTabel {
+	float: right;
+	position: absolute;
+	display: block;
+	padding: 10px 15px;
+	margin-top: 25;
+	margin-left: 10;
+	margin-right: 250;
 }
+
+.buttons {
+	margin-top: 0;
+	margin-left: 10;
+	float: right;
+}
+
+a {
+	color: #337ab7;
+	text-decoration: none;
+	margin: 0;
+	display: inline-block;
+}
+
+.list-group-item {
+	position: relative;
+	display: block;
+	padding: 30px 15px;
+	margin-bottom: -1px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+
+.rightPanel {
+	float: left;
+	margin-left: 250;
+	margin-top: 50;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
+	{
+	background-color: rgb(128, 201, 38) !important;
+}
+
 .nav-tabs>li>a:hover {
-  border-color: rgb(132, 202, 104);
+	border-color: rgb(132, 202, 104);
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
-  background-color: #ACEF91;
+	background-color: #ACEF91;
 }
-  
-  .rightPanelEdit {
-  float: right;
-  margin-right: 200;
-  margin-top: 80;
+
+.rightPanelEdit {
+	float: right;
+	margin-right: 200;
+	margin-top: 80;
 }
+
 .tg td {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
@@ -161,7 +171,8 @@ a {
 	position: relative;
 	top: 20px;
 	background:
-		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg')  repeat-x fixed center top;
+		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg')
+		repeat-x fixed center top;
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
@@ -268,56 +279,63 @@ a {
 .button:hover {
 	background: #80b438;
 }
+
 .rightPanel {
-  float: none;
-  margin-left: 0;
-  margin-top: 0;
-  border: 1px solid rgb(209, 240, 196);
-  width: auto;
-  position: absolute;
-  top: 150px;
-  left: 450px;
-  bottom: 10px;
-  right: 10px;
-  padding: 10px;
-  border-radius: 5px;
+	float: none;
+	margin-left: 0;
+	margin-top: 0;
+	border: 1px solid rgb(209, 240, 196);
+	width: auto;
+	position: absolute;
+	top: 150px;
+	left: 450px;
+	bottom: 10px;
+	right: 10px;
+	padding: 10px;
+	border-radius: 5px;
 }
+
 .listTabel {
-   float: none;
-  position: absolute;
-  padding: 0;
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
-  top: 150px;
-  bottom: 10px;
-  left: 10px;
-  width: 420px;
+	float: none;
+	position: absolute;
+	padding: 0;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	top: 150px;
+	bottom: 10px;
+	left: 10px;
+	width: 420px;
 }
+
 .list-group-item {
-  position: static;
-  display: block;
-  padding: 10px;
-  margin-bottom: 0;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  height: 50px;
+	position: static;
+	display: block;
+	padding: 10px;
+	margin-bottom: 0;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	height: 50px;
 }
+
 a {
-  display: inline-block;
-  margin-top: 0;
+	display: inline-block;
+	margin-top: 0;
 }
+
 .buttons {
-  margin-top: 0;
-  margin-left: 0;
-  float: none;
+	margin-top: 0;
+	margin-left: 0;
+	float: none;
 }
-.name{
- width: 50px;
+
+.name {
+	width: 50px;
 }
-.user-icons{
+
+.user-icons {
 	margin-left: 200px;
-	display:inline-block;
+	display: inline-block;
 }
 </style>
 <script>
@@ -348,453 +366,291 @@ a {
 
 </head>
 <body>
-<div id="bg">
-<div class="module">
-<c:url var="addAction" value="/test/add"></c:url>
+	<div id="bg">
+		<div class="module">
+			<c:url var="addAction" value="/test/add"></c:url>
 			<div id="dialogAddTest" title="Add test" hidden='true'>
-			<form:form action="${addAction}"  commandName="testAdd"
-				id="register-form" novalidate="novalidate">
-			<c:if test="${not empty testAdd}">
-				<table>
-					<tr>
-					<td></td>
-						<td>Name:</td>
-						<td><form:input path='name'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Start:</td>
-					<td><form:input path='startDate'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>End:</td>
-					<td><form:input path='endDate'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>For Class:</td>
-					<td><form:select path='nameClass'>
-					<form:options items="${classList}" /></form:select></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>First Question:</td>
-					<td><form:input path='firstQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="firstQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='firstQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="firstQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='firstQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="firstQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='firstQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="firstQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='firstQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Second Question:</td>
-					<td><form:input path='secondQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="secondQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='secondQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="secondQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='secondQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="secondQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='secondQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="secondQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='secondQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Third Question:</td>
-					<td><form:input path='thirdQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="thirdQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='thirdQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="thirdQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='thirdQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="thirdQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='thirdQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="thirdQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='thirdQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Fourth Question:</td>
-					<td><form:input path='fourthQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fourthQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='fourthQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fourthQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='fourthQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fourthQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='fourthQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fourthQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='fourthQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Fifth Question:</td>
-					<td><form:input path='fifthQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fifthQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='fifthQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fifthQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='fifthQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fifthQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='fifthQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fifthQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='fifthQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					
-					<tr></tr>
-					<tr>
-					<td></td>
-					<td></td>
-						<td colspan="2">
-								<input type="submit" class="button" value="Add Test" />
-						</td>
-					</tr>
-				</table>
-				</c:if>
-			</form:form>
-			</div>
-			
-			<c:url var="addQuestionAction" value="/test/addQuestion/"></c:url>
-			<div id="dialogAddQuestion" title="Add question" hidden='true'>
-			<form:form action="${addQuestionAction}"  commandName="questionAdd"
-				id="register-form">
-			<c:if test="${not empty questionAdd}">
-				<table>
-					<tr>
-					<td></td>
-					<td>First Question:</td>
-					<td><form:input path='question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='fourthAnswer.answer'></form:input></td>
-					<td><form:input path='testId' type="hidden"></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td></td>
-						<td colspan="2">
-								<input type="submit" class="button" value="Add Test" />
-						</td>
-					</tr>
-					</table>
-					</c:if>
-					</form:form>
-					</div>
-			
-			
-			<c:url var="cloneAction" value="/test/clone"></c:url>
-				<div id="dialogCloneQuestion" title="Clone test" hidden='true'>
-			<form:form class="form" commandName="testClone" id="testCloneid"			
-					action="${cloneAction}">
-						<c:if test="${not empty testClone}">
-					<form:select path='nameClass'>
-					<form:options items="${classList}" /></form:select>
-					<form:input path='testId' type="hidden"></form:input>
-					<input type="submit" class="button" value="Add Interview" />
+				<form:form action="${addAction}" commandName="testAdd"
+					id="register-form" novalidate="novalidate">
+					<c:if test="${not empty testAdd}">
+						<table>
+							<tr>
+								<td></td>
+								<td>Name:</td>
+								<td><form:input path='name'></form:input></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Start:</td>
+								<td><form:input path='startDate'></form:input></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>End:</td>
+								<td><form:input path='endDate'></form:input></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>For Class:</td>
+								<td><form:select path='nameClass'>
+										<form:options items="${classList}" />
+									</form:select></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>First Question:</td>
+								<td><form:input path='firstQuestion.question'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="firstQuestion.firstAnswer.good" />
+								<td>Answer 1:</td>
+								<td><form:input path='firstQuestion.firstAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="firstQuestion.secondAnswer.good" />
+								<td>Answer 2:</td>
+								<td><form:input path='firstQuestion.secondAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="firstQuestion.thirdAnswer.good" />
+								<td>Answer 3:</td>
+								<td><form:input path='firstQuestion.thirdAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="firstQuestion.fourthAnswer.good" />
+								<td>Answer 4:</td>
+								<td><form:input path='firstQuestion.fourthAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Second Question:</td>
+								<td><form:input path='secondQuestion.question'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="secondQuestion.firstAnswer.good" />
+								<td>Answer 1:</td>
+								<td><form:input path='secondQuestion.firstAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="secondQuestion.secondAnswer.good" />
+								<td>Answer 2:</td>
+								<td><form:input path='secondQuestion.secondAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="secondQuestion.thirdAnswer.good" />
+								<td>Answer 3:</td>
+								<td><form:input path='secondQuestion.thirdAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="secondQuestion.fourthAnswer.good" />
+								<td>Answer 4:</td>
+								<td><form:input path='secondQuestion.fourthAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Third Question:</td>
+								<td><form:input path='thirdQuestion.question'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="thirdQuestion.firstAnswer.good" />
+								<td>Answer 1:</td>
+								<td><form:input path='thirdQuestion.firstAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="thirdQuestion.secondAnswer.good" />
+								<td>Answer 2:</td>
+								<td><form:input path='thirdQuestion.secondAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="thirdQuestion.thirdAnswer.good" />
+								<td>Answer 3:</td>
+								<td><form:input path='thirdQuestion.thirdAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="thirdQuestion.fourthAnswer.good" />
+								<td>Answer 4:</td>
+								<td><form:input path='thirdQuestion.fourthAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Fourth Question:</td>
+								<td><form:input path='fourthQuestion.question'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="fourthQuestion.firstAnswer.good" />
+								<td>Answer 1:</td>
+								<td><form:input path='fourthQuestion.firstAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="fourthQuestion.secondAnswer.good" />
+								<td>Answer 2:</td>
+								<td><form:input path='fourthQuestion.secondAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="fourthQuestion.thirdAnswer.good" />
+								<td>Answer 3:</td>
+								<td><form:input path='fourthQuestion.thirdAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="fourthQuestion.fourthAnswer.good" />
+								<td>Answer 4:</td>
+								<td><form:input path='fourthQuestion.fourthAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Fifth Question:</td>
+								<td><form:input path='fifthQuestion.question'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="fifthQuestion.firstAnswer.good" />
+								<td>Answer 1:</td>
+								<td><form:input path='fifthQuestion.firstAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="fifthQuestion.secondAnswer.good" />
+								<td>Answer 2:</td>
+								<td><form:input path='fifthQuestion.secondAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="fifthQuestion.thirdAnswer.good" />
+								<td>Answer 3:</td>
+								<td><form:input path='fifthQuestion.thirdAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="fifthQuestion.fourthAnswer.good" />
+								<td>Answer 4:</td>
+								<td><form:input path='fifthQuestion.fourthAnswer.answer'></form:input></td>
+							</tr>
+
+							<tr></tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td colspan="2"><input type="submit" class="button"
+									value="Add Test" /></td>
+							</tr>
+						</table>
 					</c:if>
 				</form:form>
 			</div>
-			
-			<c:url var="editAction" value="/test/edit"></c:url>
-			<div id="dialogEditTest" title="Edit test" hidden='true'>
-			<form:form action="${editAction}"  commandName="testEdit"
-				id="register-form" novalidate="novalidate">
-					<c:if test="${not empty testEdit}">
-				<table>
-					<tr>
-					<td></td>
-						<td>Name:</td>
-						<td><form:input path='name'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Start:</td>
-					<td><form:input path='startDate'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>End:</td>
-					<td><form:input path='endDate'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>First Question:</td>
-					<td><form:input path='firstQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="firstQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='firstQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="firstQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='firstQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="firstQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='firstQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="firstQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='firstQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Second Question:</td>
-					<td><form:input path='secondQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="secondQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='secondQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="secondQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='secondQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="secondQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='secondQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="secondQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='secondQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Third Question:</td>
-					<td><form:input path='thirdQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="thirdQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='thirdQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="thirdQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='thirdQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="thirdQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='thirdQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="thirdQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='thirdQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Fourth Question:</td>
-					<td><form:input path='fourthQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fourthQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='fourthQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fourthQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='fourthQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fourthQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='fourthQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fourthQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='fourthQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>Fifth Question:</td>
-					<td><form:input path='fifthQuestion.question'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fifthQuestion.firstAnswer.good"/>
-					<td>Answer 1:</td>
-					<td><form:input path='fifthQuestion.firstAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fifthQuestion.secondAnswer.good"/>
-					<td>Answer 2:</td>
-					<td><form:input path='fifthQuestion.secondAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fifthQuestion.thirdAnswer.good"/>
-					<td>Answer 3:</td>
-					<td><form:input path='fifthQuestion.thirdAnswer.answer'></form:input></td>
-					</tr>
-					<tr>
-					<td><form:checkbox path="fifthQuestion.fourthAnswer.good"/>
-					<td>Answer 4:</td>
-					<td><form:input path='fifthQuestion.fourthAnswer.answer'></form:input></td>
-					</tr>
-					
-					<tr></tr>
-					<tr>
-					<td></td>
-					<td></td>
-						<td colspan="2">
-								<input type="submit" class="button" value="Edit Test" />
-						</td>
-					</tr>
-				</table>
-				
+
+			<c:url var="addQuestionAction" value="/test/addQuestion/"></c:url>
+			<div id="dialogAddQuestion" title="Add question" hidden='true'>
+				<form:form action="${addQuestionAction}" commandName="questionAdd"
+					id="register-form">
+					<c:if test="${not empty questionAdd}">
+						<table>
+							<tr>
+								<td></td>
+								<td>First Question:</td>
+								<td><form:input path='question'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="firstAnswer.good" />
+								<td>Answer 1:</td>
+								<td><form:input path='firstAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="secondAnswer.good" />
+								<td>Answer 2:</td>
+								<td><form:input path='secondAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="thirdAnswer.good" />
+								<td>Answer 3:</td>
+								<td><form:input path='thirdAnswer.answer'></form:input></td>
+							</tr>
+							<tr>
+								<td><form:checkbox path="fourthAnswer.good" />
+								<td>Answer 4:</td>
+								<td><form:input path='fourthAnswer.answer'></form:input></td>
+								<td><form:input path='testId' type="hidden"></form:input></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td colspan="2"><input type="submit" class="button"
+									value="Add Test" /></td>
+							</tr>
+						</table>
 					</c:if>
-			
-			</form:form>
+				</form:form>
 			</div>
-			
-			
-			
-			
+
+
+			<c:url var="cloneAction" value="/test/clone"></c:url>
+			<div id="dialogCloneQuestion" title="Clone test" hidden='true'>
+				<form:form class="form" commandName="testClone" id="testCloneid"
+					action="${cloneAction}">
+					<c:if test="${not empty testClone}">
+						<form:select path='nameClass'>
+							<form:options items="${classList}" />
+						</form:select>
+						<form:input path='testId' type="hidden"></form:input>
+						<input type="submit" class="button" value="Add Interview" />
+					</c:if>
+				</form:form>
+			</div>
+
+
 			<br>
 			<div id="topListMenu" class="topListMenu">
-			<div class="searchTest">
-		 <img src="http://icons.iconarchive.com/icons/custom-icon-design/office/48/add-2-icon.png" onclick='$("#dialogAddTest").dialog({width: 500});' alt="" class="iconAdd">
-			<c:url var="searchAction" value="/test/search/"></c:url>
+				<div class="searchTest">
+					<img
+						src="http://icons.iconarchive.com/icons/custom-icon-design/office/48/add-2-icon.png"
+						onclick='$("#dialogAddTest").dialog({width: 500});' alt=""
+						class="iconAdd">
+					<c:url var="searchAction" value="/test/search/"></c:url>
+				</div>
+				<form:form action="${searchAction}" commandName="testAdd"
+					id="searchForm" class="searchForm">
+					<span><form:input type="text" path="name" placeholder="Name"
+							class="searchTest" style="width:20%" /></span>
+					<span> <a class="searchTest"> <img
+							src=" http://icons.iconarchive.com/icons/fasticon/isimple-system/128/search-icon.png"
+							onclick='document.getElementById("searchForm").submit();' alt=""
+							class="iconAdd">
+					</a>
+					</span>
+				</form:form>
 			</div>
-			<form:form action="${searchAction}"  commandName="testAdd" id="searchForm" class="searchForm">
-						<span><form:input type="text" path="name" placeholder="Name" class="searchTest" style="width:20%"/></span>
-						<span>
-						  <a class="searchTest">
-						  <img src=" http://icons.iconarchive.com/icons/fasticon/isimple-system/128/search-icon.png" onclick='document.getElementById("searchForm").submit();' alt="" class="iconAdd">
-            </a>
-            </span>
-			</form:form>
-		</div>
-		<c:if test="${!empty listTests}">
-			<div  class="listTabel">
-			
-			<ul class="list-group">
-					<c:forEach items="${listTests}" var="test">
-					
-					<li class="list-group-item">
-							<a class="buttons name"
-								href="<c:url value='/test/get/${test.testId}' />"
-								>${test.name}</a>
-							<div class="user-icons">
-							<a class="buttons"
-							href="<c:url value='/editTest/${test.testId}' />"
-							>
-											  <img src=" http://icons.iconarchive.com/icons/fasticon/freestyle/48/pencil-icon.png" alt="Edit" class="iconAdd">
-								</a>
-								<a class="buttons"	onclick='loadAddQuestion(${test.testId})'>
-											  <img src=" http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/24/Comment-add-icon.png" alt="AddQuestion" class="iconAdd">
-								</a>
-								
-							<a class="buttons"
-								href="<c:url value='/test/remove/${test.testId}' />"
-								onclick='confirmUser()'>
-											  <img src="http://icons.iconarchive.com/icons/dryicons/aesthetica-2/48/user-remove-icon.png" alt="Remove" class="iconAdd">
-								</a>
-								
-								<a class="buttons" onclick='loadCloneQuestion(${test.testId})'>
-											  <img src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/24/Document-Copy-icon.png" alt="Clone" class="iconAdd">
-								</a>
-							
-							
+			<c:if test="${!empty listTests}">
+				<div class="listTabel">
 
-							</div> 
-						</li>
-					</c:forEach>
-				</ul>
-				    </div>
+					<ul class="list-group">
+						<c:forEach items="${listTests}" var="test">
+
+							<li class="list-group-item"><a class="buttons name"
+								href="<c:url value='/test/get/${test.testId}' />">${test.name}</a>
+								<div class="user-icons">
+									<a class="buttons"
+										href="<c:url value='/editTest/${test.testId}' />">
+										<img
+										src=" http://icons.iconarchive.com/icons/fasticon/freestyle/48/pencil-icon.png"
+										alt="Edit" class="iconAdd">
+									</a> <a class="buttons" onclick='loadAddQuestion(${test.testId})'>
+										<img
+										src=" http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/24/Comment-add-icon.png"
+										alt="AddQuestion" class="iconAdd">
+									</a> <a class="buttons"
+										href="<c:url value='/test/remove/${test.testId}' />"
+										onclick='confirmUser()'> <img
+										src="http://icons.iconarchive.com/icons/dryicons/aesthetica-2/48/user-remove-icon.png"
+										alt="Remove" class="iconAdd">
+									</a> <a class="buttons" onclick='loadCloneQuestion(${test.testId})'>
+										<img
+										src="http://icons.iconarchive.com/icons/hopstarter/soft-scraps/24/Document-Copy-icon.png"
+										alt="Clone" class="iconAdd">
+									</a>
+
+								</div></li>
+						</c:forEach>
+					</ul>
+				</div>
 			</c:if>
-			
-			
-			
+
+
+
 			<c:if test="${not empty listTestsSearch}">
 				<h2>list search tests</h2>
 				<table class="tg">
@@ -818,32 +674,32 @@ a {
 							<td>${test.thirdQuestion.question}</td>
 							<td>${test.fourthQuestion.question}</td>
 							<td>${test.fifthQuestion.question}</td>
-							</tr>
+						</tr>
 					</c:forEach>
 				</table>
 			</c:if>
-			
+
 			<div class="rightPanel">
-			<c:if test="${not empty testB}">
-				<table>
-					<tr>
-						<h3>ID: ${testB.testId}</h3>
-						<h3>Name:${testB.name}</h3>
-						<h3>Surname:${testB.startDate}</h3>
-						<h3>Email:${testB.firstQuestion.question}</h3>
-						<h3>Address:${testB.secondQuestion.question}</h3>
-						<h3>Phone:${testB.thirdQuestion.question}</h3>
-						<h3>Recruiter Code:${testB.fourthQuestion.question}</h3>
-						<h3>Action:${personB.fifthQuestion.question}</h3>
-						<br></br>
-					</tr>
-				</table>
+				<c:if test="${not empty testB}">
+					<table>
+						<tr>
+							<h3>ID: ${testB.testId}</h3>
+							<h3>Name:${testB.name}</h3>
+							<h3>Surname:${testB.startDate}</h3>
+							<h3>Email:${testB.firstQuestion.question}</h3>
+							<h3>Address:${testB.secondQuestion.question}</h3>
+							<h3>Phone:${testB.thirdQuestion.question}</h3>
+							<h3>Recruiter Code:${testB.fourthQuestion.question}</h3>
+							<h3>Action:${personB.fifthQuestion.question}</h3>
+							<br></br>
+						</tr>
+					</table>
 				</c:if>
 			</div>
-			</div>
-			</div>
-			
-			<script>
+		</div>
+	</div>
+
+	<script>
 				function loadEditTest(id) {
 					$('input[name="testId"]', '#dialogEditTest').val(id)
 					$("#dialogEditTest").dialog();
@@ -851,14 +707,14 @@ a {
 				}
 				
 			</script>
-			<script>
+	<script>
 				function loadAddQuestion(id) {
 					$('input[name="testId"]', '#dialogAddQuestion').val(id)
 					$("#dialogAddQuestion").dialog();
 				}
 			</script>
-			
-			<script>
+
+	<script>
 				function loadCloneQuestion(id) {
 					$('input[name="testId"]', '#dialogCloneQuestion').val(id)
 					$("#dialogCloneQuestion").dialog();
