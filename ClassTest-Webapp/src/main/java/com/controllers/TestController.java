@@ -1,7 +1,11 @@
 package com.controllers;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,13 +40,16 @@ import com.service.providers.UserService;
 import com.service.providers.UserServiceImplementation;
 import com.ui.domain.UIAnswer;
 import com.ui.domain.UIQuestion;
+import com.ui.domain.UIQuestionEdit;
 import com.ui.domain.UITest;
+import com.ui.domain.UITestEdit;
 import com.utils.LoginUtils;
 
 @Controller
 @RequestMapping(value = "/test")
 public class TestController {
 
+	DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	TestConverter converter = new TestConverterImplementation();
 	QuestionConverter questionConverter = new QuestionConverterImplementation();
 	AnswerConverter answerConverter = new AnswerConverterImplementation();
@@ -431,29 +438,29 @@ public class TestController {
 	}
 
 	@RequestMapping("/get/{testId}")
-	public String getPerson(@PathVariable("testId") int id, Model model) {
-
+	public String getTest(@PathVariable("testId") int id, Model model) {
 		model.addAttribute("test", new UITest());
 		model.addAttribute("testAdd", new UITest());
 		model.addAttribute("firstQuestion", new UIQuestion());
 		List<UITest> testList = transformList(testService.getTestsByUserId(LoginUtils.userLogedIn.getUserId()));
 		model.addAttribute("listTests", testList);
-		UITest test = converter.createUITest(testService.getTestById(id));
-		model.addAttribute("testB", test);
-
+		Test test=testService.getTestById(id);
+		List<Question> questions=questionService.getQuestionByTestId(id);
+		for(Question q:questions){
+			List<Answer> answers=answerService.getAnswersByQuestionId(q.getQuestionId());
+			Set<Answer> ans=new LinkedHashSet<Answer>(answers);
+			q.setAnswers(ans);
+		}
+		UITestEdit uiTest=new UITestEdit();
+		uiTest.setName(test.getName());
+		uiTest.setEndDate(formatter.format(test.getEndDate()));
+		uiTest.setStartDate(formatter.format(test.getStartDate()));
+		uiTest.setQuestions(convertQuestions(questions));
+		uiTest.setTestId(test.getTestId());
+		model.addAttribute("testB", uiTest);
 		return "test";
 	}
 
-	@RequestMapping("/edit/{testId}")
-	public String editPerson(@PathVariable("testId") int id, Model model) {
-		model.addAttribute("test", new UITest());
-		model.addAttribute("testAdd", new UITest());
-		UITest test = converter.createUITest(testService.getTestById(id));
-		model.addAttribute("testEdit", test);
-		List<UITest> puiList = transformList(testService.getTestsByUserId(LoginUtils.userLogedIn.getUserId()));
-		model.addAttribute("listTests", puiList);
-		return "test";
-	}
 
 	public List<UITest> transformList(List<Test> list) {
 		List<Test> tlist = list;
@@ -462,5 +469,22 @@ public class TestController {
 			uiList.add(converter.createUITest(t));
 		}
 		return uiList;
+	}
+	
+	public List<UIQuestionEdit> convertQuestions(List<Question> question){
+		List<UIQuestionEdit> ui=new ArrayList<UIQuestionEdit>();
+		for(Question q:question){
+			UIQuestionEdit uiq=new UIQuestionEdit();
+			uiq.setText(q.getQuestion());
+			List<UIAnswer> answers=new ArrayList<UIAnswer>();
+			for(Answer a:q.getAnswers()){
+				answers.add(answerConverter.createUIAnswer(a));
+			}
+			uiq.setAnswers(answers);
+			System.out.println("SE VOR PUNE :"+answers.size());
+			uiq.setQuestionId(q.getQuestionId());
+			ui.add(uiq);
+		}
+		return ui;
 	}
 }

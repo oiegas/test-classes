@@ -341,27 +341,25 @@ a {
 <script>
 	$(function() {
 
-	// Setup form validation on the #register-form element
-	$("#register-form").validate({
+		// Setup form validation on the #register-form element
+		$("#register-form").validate({
 
-		rules : {
-			name : "required",
-			
+			rules : {
+				name : "required",
 
-		},
+			},
 
-		messages : {
-			name : "Please enter your Yonder code ",
-			
+			messages : {
+				name : "Please enter your Yonder code ",
 
-		},
+			},
 
-		submitHandler : function(form) {
-			form.submit();
-		}
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+
 	});
-
-});
 </script>
 
 </head>
@@ -396,10 +394,6 @@ a {
 								href="<c:url value='/studentStatistics/get/${student.userId}' />">${student.name}</a>
 								<div class="user-icons">
 									<a class="buttons"
-										href="<c:url value='/editTest/${test.testId}' />"> <img
-										src=" http://icons.iconarchive.com/icons/fasticon/freestyle/48/pencil-icon.png"
-										alt="Edit" class="iconAdd">
-									</a> <a class="buttons"
 										href="<c:url value='/studentStatistics/remove/${student.userId}' />"
 										onclick='confirmUser()'> <img
 										src="http://icons.iconarchive.com/icons/dryicons/aesthetica-2/48/user-remove-icon.png"
@@ -422,9 +416,13 @@ a {
 								<td>
 									<h3>Test:${grade.testName}</h3>
 								</td>
-								<td><span style="padding-left:68px;"></span></td>
+								<td><span style="padding-left: 68px;"></span></td>
 								<td>
 									<h3>Grade:${grade.grade}</h3>
+								</td>
+								<td><span style="padding-left: 68px;"></span></td>
+								<td>
+									<h3>${grade.present}</h3>
 								</td>
 							</tr>
 						</c:forEach>

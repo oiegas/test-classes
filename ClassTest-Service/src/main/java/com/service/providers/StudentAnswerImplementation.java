@@ -30,4 +30,9 @@ StudentAnswerDAOService dao=new StudentAnswerDAOServiceImplementation();
 dao.removeAnswer(answer);		
 	}
 
+	public List<StudentAnswer> getAllAnswersOfStudentAndTest(int studentId,
+			int testId) {
+		return dao.getAllAnswersOfStudentAndTest(studentId, testId);
+	}
+
 }

@@ -12,4 +12,5 @@ public interface StudentAnswerService {
 	public List<StudentAnswer> getAllAnswersOfStudent(User student);
 	public List<StudentAnswer> getAllAnswersOfQuestion(Question question);
 	public void removeAnswer(StudentAnswer answer);
+	public List<StudentAnswer> getAllAnswersOfStudentAndTest(int studentId, int testId);
 }

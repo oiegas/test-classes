@@ -88,7 +88,7 @@ a {
 	margin-top: 50;
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
+.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover
 	{
 	background-color: rgb(128, 201, 38) !important;
 }
@@ -97,7 +97,7 @@ a {
 	border-color: rgb(132, 202, 104);
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
+.nav>li>a:focus,.nav>li>a:hover {
 	background-color: #ACEF91;
 }
 
@@ -624,8 +624,7 @@ a {
 								href="<c:url value='/test/get/${test.testId}' />">${test.name}</a>
 								<div class="user-icons">
 									<a class="buttons"
-										href="<c:url value='/editTest/${test.testId}' />">
-										<img
+										href="<c:url value='/editTest/${test.testId}' />"> <img
 										src=" http://icons.iconarchive.com/icons/fasticon/freestyle/48/pencil-icon.png"
 										alt="Edit" class="iconAdd">
 									</a> <a class="buttons" onclick='loadAddQuestion(${test.testId})'>
@@ -649,68 +648,52 @@ a {
 				</div>
 			</c:if>
 
-
-
-			<c:if test="${not empty listTestsSearch}">
-				<h2>list search tests</h2>
-				<table class="tg">
-					<tr>
-
-						<th width="80">Test Name</th>
-						<th width="80">Test Date</th>
-						<th width="80">Question 1</th>
-						<th width="100">Question 2</th>
-						<th width="80">Question 3</th>
-						<th width="40">Question 4</th>
-						<th width="70">Question 5</th>
-					</tr>
-
-					<c:forEach items="${listTestsSearch}" var="test">
-						<tr>
-							<td>${test.name}</td>
-							<td>${test.startDate}</td>
-							<td>${test.firstQuestion.question}</td>
-							<td>${test.secondQuestion.question}</td>
-							<td>${test.thirdQuestion.question}</td>
-							<td>${test.fourthQuestion.question}</td>
-							<td>${test.fifthQuestion.question}</td>
-						</tr>
-					</c:forEach>
-				</table>
-			</c:if>
-
 			<div class="rightPanel">
 				<c:if test="${not empty testB}">
 					<table>
 						<tr>
-							<h3>ID: ${testB.testId}</h3>
-							<h3>Name:${testB.name}</h3>
-							<h3>Surname:${testB.startDate}</h3>
-							<h3>Email:${testB.firstQuestion.question}</h3>
-							<h3>Address:${testB.secondQuestion.question}</h3>
-							<h3>Phone:${testB.thirdQuestion.question}</h3>
-							<h3>Recruiter Code:${testB.fourthQuestion.question}</h3>
-							<h3>Action:${personB.fifthQuestion.question}</h3>
-							<br></br>
+							<td>ID:</td>
+							<td>${testB.testId}</td>
 						</tr>
+						<tr>
+							<td>Name:</td>
+							<td>${testB.name}</td>
+						</tr>
+						<tr>
+							<td>Start date:</td>
+							<td>${testB.startDate}</td>
+						</tr>
+						<tr>
+							<td>End date:</td>
+							<td>${testB.endDate}</td>
+						</tr>
+						<c:forEach items="${testB.questions}" varStatus="status"
+							var="quest">
+							<tr>
+								<td></td>
+								<td>Question:</td>
+								<td>${quest.text}</td>
+							</tr>
+							<c:forEach items="${quest.answers}" varStatus="loop" var="answer">
+								<tr>
+									<td>${answers.good}</td>
+									<td>Answer:</td>
+									<td>${answer.answer}</td>
+							</c:forEach>
+						</c:forEach>
+
+
 					</table>
 				</c:if>
 			</div>
 		</div>
 	</div>
 
-	<script>
-				function loadEditTest(id) {
-					$('input[name="testId"]', '#dialogEditTest').val(id)
-					$("#dialogEditTest").dialog();
-					
-				}
-				
-			</script>
+
 	<script>
 				function loadAddQuestion(id) {
 					$('input[name="testId"]', '#dialogAddQuestion').val(id)
-					$("#dialogAddQuestion").dialog();
+					$("#dialogAddQuestion").dialog({width: 400});
 				}
 			</script>
 

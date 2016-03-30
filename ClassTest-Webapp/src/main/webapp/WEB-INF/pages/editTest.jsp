@@ -191,6 +191,32 @@ a {
 
 <!-- jQuery Form Validation code -->
 
+<script>
+
+   $(function() {
+   
+     // Setup form validation on the #register-form element
+     $("#register-form").validate({
+     
+         rules: {
+             name:{ 
+                 	required: true},
+         },
+         
+
+         messages: {
+        	 name: {
+                 required: "Please enter a name",
+         },
+         
+         submitHandler: function(form) {
+             form.submit();
+         }
+     },
+
+   });
+   
+   </script>
 </head>
 <body>
 
@@ -203,59 +229,71 @@ a {
 				novalidate="novalidate" class="form">
 				<table>
 					<tr>
+						<td></td>
 						<td>Test Name:</td>
 						<td><form:input path='name'></form:input></td>
 					</tr>
 					<tr>
+						<td></td>
 						<td>Start Date:</td>
 						<td><form:input path='startDate'></form:input></td>
 					</tr>
 					<tr>
+						<td></td>
 						<td>End Date:</td>
 						<td><form:input path='endDate'></form:input></td>
 					</tr>
 					<c:forEach items="${test.questions}" varStatus="status" var="quest">
 						<tr>
+							<td></td>
 							<td>Question:</td>
 							<td><form:input path="questions[${status.index}].text"></form:input></td>
 						</tr>
 						<c:forEach items="${quest.answers}" varStatus="loop">
 							<tr>
-								<td>Answer:</td>
 								<td><form:checkbox
 										path="questions[${status.index}].answers[${loop.index}].good"></form:checkbox></td>
+								<td>Answer:</td>
+
 								<td><form:input
 										path="questions[${status.index}].answers[${loop.index}].answer"></form:input></td>
 						</c:forEach>
 					</c:forEach>
 					<tr>
+						<td></td>
+						<td></td>
 						<td colspan="2"><input type="submit" class="button"
 							value="Edit Test" /></td>
 					</tr>
 				</table>
 			</form:form>
-
-
+<br>
+			<h3>sd</h3>
 
 
 			<c:url value="/j_spring_security_logout" var="logoutUrl" />
 			<form action="${logoutUrl}" method="post" id="logoutForm"></form>
 			<script>
-				function confirmUser() {
+	function confirmUser(){
+		
+	    var ask=confirm("Are you sure");
 
-					var ask = confirm("Are you sure");
-
-					if (ask) {
-						alert("ok!");
-					}
-				}
-			</script>
+		   if(ask)
+			   {  alert("ok!");}
+						}
+	</script>
 			<script>
-				function formSubmit() {
-					document.getElementById("logoutForm").submit();
-				}
-			</script>
+		function formSubmit() {
+			document.getElementById("logoutForm").submit();
+		}
+	</script>
 
+			<c:if test="${pageContext.request.userPrincipal.name != null}">
+				<h4>
+					<a class="button" href="javascript:formSubmit()">Logout</a>
+
+				</h4>
+			</c:if>
 
 		</div>
 	</div>

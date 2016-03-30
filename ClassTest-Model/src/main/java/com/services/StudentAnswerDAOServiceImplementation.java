@@ -3,7 +3,9 @@ package com.services;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
+import com.domain.Grade;
 import com.domain.Question;
 import com.domain.StudentAnswer;
 import com.domain.User;
@@ -51,6 +53,20 @@ public class StudentAnswerDAOServiceImplementation implements StudentAnswerDAOSe
 	}
 	public EntityManager getEntityManager() {
 		return this.entityM;
+	}
+	public List<StudentAnswer> getAllAnswersOfStudentAndTest(int studentId,
+			int testId) {
+		try {
+			TypedQuery <StudentAnswer> query = entityM.createQuery("Select x from StudentAnswer x where x.user.userId=:userId and x.test.testId=:testId",StudentAnswer.class);
+			query.setParameter("userId", studentId);
+			query.setParameter("testId", testId);
+			if (query.getResultList() != null) 
+				return query.getResultList();
+			else return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }
