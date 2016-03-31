@@ -57,6 +57,7 @@ body {
     <input type="button" class="submit" onclick="location.href='class'" value="Classes" >
     <input type="button" class="submit" onclick="location.href='user'" value="Users" >
      <input type="button" class="submit" onclick="location.href='studentStatistics'" value="Statistics" >
+     <input type="button" class="submit" onclick="location.href='testStatistics'" value=" Test Statistics" >
 
 
 	</div>	

@@ -12,6 +12,7 @@
 	 <intercept-url pattern="/class**" access="ROLE_ADMIN" />
 	  <intercept-url pattern="/user**" access="ROLE_ADMIN" />
 	    <intercept-url pattern="/editTest**" access="ROLE_ADMIN" />
+	    <intercept-url pattern="/testStatistics**" access="ROLE_ADMIN"/>
 	 
 	 
 		<form-login login-page="/"
