@@ -223,25 +223,21 @@ a {
 	<div id="bg">
 
 		<div class="module">
-			
+
 
 
 			<c:url var="add" value="/user/add"></c:url>
 
-			<form:form action="${add}" commandName="user"
-				id="register-form" novalidate="novalidate" class="form">
+			<form:form action="${add}" commandName="user" id="register-form"
+				novalidate="novalidate" class="form">
 				<table>
 					<tr>
 						<td>User Name:</td>
 						<td><form:input path='name'></form:input></td>
 					</tr>
 					<tr>
-						<td>User Surname:</td>
-						<td><form:input path='surname'></form:input></td>
-					</tr>
-					<tr>
-						<td>Speciality:</td>
-						<td><form:input path='speciality'></form:input></td>
+						<td>Email:</td>
+						<td><form:input path='email'></form:input></td>
 					</tr>
 					<tr>
 						<td>Username:</td>
@@ -253,12 +249,11 @@ a {
 					</tr>
 					<tr>
 						<td>The role will be ADMINISTRATOR</td>
-						
+
 					</tr>
 					<tr>
-						<td colspan="2">
-								<input type="submit" class="button" value="Add Admin" />
-						</td>
+						<td colspan="2"><input type="submit" class="button"
+							value="Add Admin" /></td>
 					</tr>
 				</table>
 			</form:form>
@@ -270,8 +265,7 @@ a {
 					<tr>
 						<th width="80">User ID</th>
 						<th width="80">User Name</th>
-						<th width="80">User Surname</th>
-						<th width="80">User Speciality</th>
+						<th width="80">User Email</th>
 						<th width="80">User Username</th>
 						<th width="60">Delete</th>
 					</tr>
@@ -279,13 +273,12 @@ a {
 						<tr>
 							<td>${user.userId}</td>
 							<td>${user.name}</td>
-							<td>${user.surname}</td>
-							<td>${user.speciality}</td>
+							<td>${user.email}</td>
 							<td>${user.username}</td>
-							
+
 							<td><a class="button"
 								href="<c:url value='/user/remove/${user.userId}' />"
-								onclick='confirmUser()'>Delete</a></td> 
+								onclick='confirmUser()'>Delete</a></td>
 						</tr>
 					</c:forEach>
 				</table>

@@ -16,5 +16,5 @@ public interface UserService {
 	public List<User> getAllStudents();
 	public List<User> getStudentsByName(String name);
 	public List<User> getUsersByClass(String clas);
-	
+	public User getUserByUsername(String username);
 }

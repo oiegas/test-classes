@@ -6,11 +6,9 @@ public class UIUser{
 	 */
 	private int userId;
 	private String name;
-	private String surname;
 	private String username;
 	private String password;
-	private String speciality;
-	private int year;
+	private String email;
 	private int roleId;
 	private int testId;
 	public String getUsername() {
@@ -37,24 +35,6 @@ public class UIUser{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getSurname() {
-		return surname;
-	}
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-	public String getSpeciality() {
-		return speciality;
-	}
-	public void setSpeciality(String speciality) {
-		this.speciality = speciality;
-	}
-	public int getYear() {
-		return year;
-	}
-	public void setYear(int year) {
-		this.year = year;
-	}
 	public int getRoleId() {
 		return roleId;
 	}
@@ -66,6 +46,12 @@ public class UIUser{
 	}
 	public void setTestId(int testId) {
 		this.testId = testId;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 

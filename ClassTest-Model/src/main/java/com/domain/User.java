@@ -30,16 +30,12 @@ public class User implements Serializable{
 	private int userId;
 	@Column(name = "name", nullable = false, length = 30)
 	private String name;
-	@Column(name = "surname", nullable = false, length = 30)
-	private String surname;
 	@Column(name = "username", nullable = false,unique = true, length = 30)
 	private String username;
 	@Column(name = "password", nullable = false, length = 30)
 	private String password;
-	@Column(name = "speciality", nullable = false, length = 30)
-	private String speciality;
-	@Column(name = "year", nullable = false, length = 30)
-	private int year;
+	@Column(name = "email", nullable = false, length = 30)
+	private String email;
 	@ManyToOne(optional = false,targetEntity = Role.class)
 	private Role role;
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -99,24 +95,7 @@ public class User implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getSurname() {
-		return surname;
-	}
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-	public String getSpeciality() {
-		return speciality;
-	}
-	public void setSpeciality(String speciality) {
-		this.speciality = speciality;
-	}
-	public int getYear() {
-		return year;
-	}
-	public void setYear(int year) {
-		this.year = year;
-	}
+
 	public Set<StudentAnswer> getStudAnswer() {
 		return studAnswer;
 	}
@@ -134,6 +113,12 @@ public class User implements Serializable{
 	}
 	public void setTestsMadeByUser(Set<Test> testsMadeByUser) {
 		this.testsMadeByUser = testsMadeByUser;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 

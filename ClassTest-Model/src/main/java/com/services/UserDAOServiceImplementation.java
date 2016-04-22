@@ -154,4 +154,17 @@ public class UserDAOServiceImplementation implements UserDAOService{
 			return null;
 		}
 	}
+	public User getUserByUsername(String username) {
+		try {
+			TypedQuery <User> query = entityM.createQuery("Select x from User x where x.username =:username",User.class);
+			query.setParameter("username", username);	
+			if (query.getSingleResult() != null) return query.getSingleResult();
+			else return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

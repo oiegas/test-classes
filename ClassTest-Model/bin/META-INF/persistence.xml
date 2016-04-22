@@ -12,12 +12,13 @@
 		
 		<!-- hibernate specific -->
 			<class>com.domain.Answer</class>
-			<class>com.domain.Grades</class>
+			<class>com.domain.Grade</class>
 			<class>com.domain.Question</class>
 			<class>com.domain.Role</class>
 			<class>com.domain.StudentAnswer</class>
 			<class>com.domain.Test</class>
 			<class>com.domain.User</class>
+			<class>com.domain.Clas</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
