@@ -18,4 +18,5 @@ public interface UserDAOService {
 	public List<User> getUsersByName(String name);
 	public List<User> getUsersByClass(String clas);
 	public User getUserByUsername(String username);
+	public User getUserByEmail(String email);
 }

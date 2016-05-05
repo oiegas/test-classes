@@ -36,6 +36,12 @@ public class Test implements Serializable {
 	private Date startDate;
 	@Column(name = "end_date", nullable = false, length = 30)
 	private Date endDate;
+	@Column(name = "opened", nullable = false, length = 30)
+	private boolean opened;
+	@Column(name = "available", nullable = false, length = 30)
+	private boolean available;
+
+
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "test_users", joinColumns = {
 			@JoinColumn(name = "test_id", nullable = false, updatable = false) }, inverseJoinColumns = {
@@ -134,5 +140,20 @@ public class Test implements Serializable {
 
 	public void setUserCreator(User userCreator) {
 		this.userCreator = userCreator;
+	}
+	public boolean isOpened() {
+		return opened;
+	}
+
+	public void setOpened(boolean opened) {
+		this.opened = opened;
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

@@ -81,6 +81,8 @@ public class TestController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addPerson(@ModelAttribute("test") UITest pui) {
 		Test test = converter.createTest(pui);
+		test.setAvailable(false);
+		test.setOpened(true);
 		test.setUserCreator(LoginUtils.getUserLogedIn());
 		testService.addTest(test);
 		UIAnswer uiAnswer;
@@ -91,6 +93,7 @@ public class TestController {
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
 			Question firstQuestion = questionConverter.createQuestion(uiquestion);
 			firstQuestion.setTest(test);
+			firstQuestion.setAvailable(false);
 			questionService.addQuestion(firstQuestion);
 			uiAnswer = pui.getFirstQuestion().getFirstAnswer();
 			if (uiAnswer != null && !uiAnswer.getAnswer().equals("")) {
@@ -125,6 +128,7 @@ public class TestController {
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
 			Question secondQuestion = questionConverter.createQuestion(uiquestion);
 			secondQuestion.setTest(test);
+			secondQuestion.setAvailable(false);
 			questionService.addQuestion(secondQuestion);
 
 			uiAnswer = pui.getSecondQuestion().getFirstAnswer();
@@ -160,6 +164,7 @@ public class TestController {
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
 			Question thirdQuestion = questionConverter.createQuestion(uiquestion);
 			thirdQuestion.setTest(test);
+			thirdQuestion.setAvailable(false);
 			questionService.addQuestion(thirdQuestion);
 
 			uiAnswer = pui.getThirdQuestion().getFirstAnswer();
@@ -195,6 +200,7 @@ public class TestController {
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
 			Question fourthQuestion = questionConverter.createQuestion(uiquestion);
 			fourthQuestion.setTest(test);
+			fourthQuestion.setAvailable(false);
 			questionService.addQuestion(fourthQuestion);
 
 			uiAnswer = pui.getFourthQuestion().getFirstAnswer();
@@ -230,6 +236,7 @@ public class TestController {
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
 			Question fifthQuestion = questionConverter.createQuestion(uiquestion);
 			fifthQuestion.setTest(test);
+			fifthQuestion.setAvailable(false);
 			questionService.addQuestion(fifthQuestion);
 
 			uiAnswer = pui.getFifthQuestion().getFirstAnswer();
@@ -284,6 +291,7 @@ public class TestController {
 		if (pui != null && !pui.getQuestion().equals("")) {
 			Question question = questionConverter.createQuestion(pui);
 			question.setTest(testService.getTestById(id));
+			question.setAvailable(false);
 			questionService.addQuestion(question);
 
 			uiAnswer = pui.getFirstAnswer();
@@ -327,6 +335,8 @@ public class TestController {
 		copyOfTest.setStartDate(test.getStartDate());
 		copyOfTest.setEndDate(test.getEndDate());
 		copyOfTest.setClassForTest(classService.getClassByName(ui.getNameClass()));
+		copyOfTest.setAvailable(false);
+		copyOfTest.setOpened(true);
 		testService.addTest(copyOfTest);
 		List<Question> questions = questionService.getQuestionByTestId(ui.getTestId());
 		for (Question q : questions) {
@@ -360,6 +370,7 @@ public class TestController {
 		if (ui.getQuestion() != null && !ui.getQuestion().equals("")) {
 			Question question = questionConverter.createQuestion(ui);
 			question.setTest(testService.getTestById(ui.getTestId()));
+			question.setAvailable(false);
 			questionService.addQuestion(question);
 			Answer answer = new Answer();
 			UIAnswer uiAnswer = ui.getFirstAnswer();

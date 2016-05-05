@@ -6,8 +6,9 @@ import com.domain.User;
 import com.services.UserDAOService;
 import com.services.UserDAOServiceImplementation;
 
-public class UserServiceImplementation implements UserService{
-	UserDAOService dao=new UserDAOServiceImplementation();
+public class UserServiceImplementation implements UserService {
+	UserDAOService dao = new UserDAOServiceImplementation();
+
 	public User addUser(User user) {
 		return dao.addUser(user);
 	}
@@ -55,6 +56,10 @@ public class UserServiceImplementation implements UserService{
 	public User getUserByUsername(String username) {
 		return dao.getUserByUsername(username);
 	}
-	
+
+	@Override
+	public User getUserByEmail(String email) {
+		return dao.getUserByEmail(email);
+	}
 
 }

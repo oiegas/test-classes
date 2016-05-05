@@ -31,6 +31,9 @@ public class Question implements Serializable{
 	private int questionId;
 	@Column(name = "question", unique = false, nullable = false)
 	private String question;
+	@Column(name = "available", unique = false, nullable = false)
+	private boolean available;
+
 	@ManyToOne
 	 @JoinColumn(name = "test_id")
 	private Test test;
@@ -68,5 +71,10 @@ public class Question implements Serializable{
 	public void setStudAnswer(Set<StudentAnswer> studAnswer) {
 		this.studAnswer = studAnswer;
 	}
-
+	public boolean isAvailable() {
+		return available;
+	}
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
 }
