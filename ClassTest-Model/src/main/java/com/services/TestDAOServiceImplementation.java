@@ -54,6 +54,22 @@ public class TestDAOServiceImplementation implements TestDAOService{
 			return null;
 		}
 	}
+	
+	public Test getAvailableTestForClass(int classId) {
+		try {
+			TypedQuery <Test> query = entityM.createQuery("Select x from Test x where x.classForTest.classId=:classId and x.available=:available",Test.class);
+			query.setParameter("classId", classId);	
+			query.setParameter("available", true);
+			if (query.getSingleResult() != null) 
+				return query.getSingleResult();
+			else return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	public List<Test> getAllTests() {
 		List<Test> allTests=new ArrayList<Test>();
 		try{

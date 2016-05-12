@@ -3,6 +3,7 @@ package com.android.domain;
 public class StudentGrade {
 
 	private int userId;
+	private String userName;
 	private String testName;
 	private float grade;
 
@@ -28,5 +29,13 @@ public class StudentGrade {
 
 	public void setGrade(float grade) {
 		this.grade = grade;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 }

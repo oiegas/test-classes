@@ -12,5 +12,6 @@ public interface GradesDAOService {
 	public void removeGrade(Grade grade);
 	public List<Grade> getGradesOfStudentWithId(int id);
 	public List<Grade> getGradesWithTestId(int id);
+	public Grade getGradeOfStudentFromTest(int userId, int testId);
 
 }

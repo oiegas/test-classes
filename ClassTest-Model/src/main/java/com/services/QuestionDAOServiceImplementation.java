@@ -41,6 +41,7 @@ private EntityManager entityM;
 		return this.entityM;
 	}
 	public Question getQuestionById(int id) {
+		entityM.clear();
 		try {
 			TypedQuery <Question> question = entityM.createQuery("Select x from Question x where x.questionId=:question_id",Question.class);
 			question.setParameter("question_id", id);	

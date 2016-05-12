@@ -14,4 +14,5 @@ public interface StudentAnswerDAOService {
 	public List<StudentAnswer> getAllAnswersOfQuestion(Question question);
 	public List<StudentAnswer> getAllAnswersOfStudentAndTest(int studentId, int testId);
 	public void removeAnswer(StudentAnswer answer);
+	public List<StudentAnswer> getAllAnsweresOfQuestionsAndStudent(int questionId, int userId);
 }

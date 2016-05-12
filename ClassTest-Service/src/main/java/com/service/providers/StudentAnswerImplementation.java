@@ -8,8 +8,9 @@ import com.domain.User;
 import com.services.StudentAnswerDAOService;
 import com.services.StudentAnswerDAOServiceImplementation;
 
-public class StudentAnswerImplementation implements StudentAnswerService{
-StudentAnswerDAOService dao=new StudentAnswerDAOServiceImplementation();
+public class StudentAnswerImplementation implements StudentAnswerService {
+	StudentAnswerDAOService dao = new StudentAnswerDAOServiceImplementation();
+
 	public StudentAnswer addStudentAnswer(StudentAnswer answer) {
 		return dao.addStudentAnswer(answer);
 	}
@@ -27,12 +28,16 @@ StudentAnswerDAOService dao=new StudentAnswerDAOServiceImplementation();
 	}
 
 	public void removeAnswer(StudentAnswer answer) {
-dao.removeAnswer(answer);		
+		dao.removeAnswer(answer);
 	}
 
-	public List<StudentAnswer> getAllAnswersOfStudentAndTest(int studentId,
-			int testId) {
+	public List<StudentAnswer> getAllAnswersOfStudentAndTest(int studentId, int testId) {
 		return dao.getAllAnswersOfStudentAndTest(studentId, testId);
+	}
+
+	@Override
+	public List<StudentAnswer> getAllAnsweresOfQuestionsAndStudent(int questionId, int userId) {
+		return dao.getAllAnsweresOfQuestionsAndStudent(questionId, userId);
 	}
 
 }

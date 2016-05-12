@@ -84,11 +84,11 @@ public class TestController {
 		test.setAvailable(false);
 		test.setOpened(true);
 		test.setUserCreator(LoginUtils.getUserLogedIn());
+		Clas clasForTest = classService.getClassByName(pui.getNameClass());
+		test.setClassForTest(clasForTest);
 		testService.addTest(test);
 		UIAnswer uiAnswer;
 		Answer answer;
-		Clas clasForTest = classService.getClassByName(pui.getNameClass());
-		test.setClassForTest(clasForTest);
 		UIQuestion uiquestion = pui.getFirstQuestion();
 		if (uiquestion != null && !uiquestion.getQuestion().equals("")) {
 			Question firstQuestion = questionConverter.createQuestion(uiquestion);
@@ -455,14 +455,14 @@ public class TestController {
 		model.addAttribute("firstQuestion", new UIQuestion());
 		List<UITest> testList = transformList(testService.getTestsByUserId(LoginUtils.userLogedIn.getUserId()));
 		model.addAttribute("listTests", testList);
-		Test test=testService.getTestById(id);
-		List<Question> questions=questionService.getQuestionByTestId(id);
-		for(Question q:questions){
-			List<Answer> answers=answerService.getAnswersByQuestionId(q.getQuestionId());
-			Set<Answer> ans=new LinkedHashSet<Answer>(answers);
+		Test test = testService.getTestById(id);
+		List<Question> questions = questionService.getQuestionByTestId(id);
+		for (Question q : questions) {
+			List<Answer> answers = answerService.getAnswersByQuestionId(q.getQuestionId());
+			Set<Answer> ans = new LinkedHashSet<Answer>(answers);
 			q.setAnswers(ans);
 		}
-		UITestEdit uiTest=new UITestEdit();
+		UITestEdit uiTest = new UITestEdit();
 		uiTest.setName(test.getName());
 		uiTest.setEndDate(formatter.format(test.getEndDate()));
 		uiTest.setStartDate(formatter.format(test.getStartDate()));
@@ -472,7 +472,6 @@ public class TestController {
 		return "test";
 	}
 
-
 	public List<UITest> transformList(List<Test> list) {
 		List<Test> tlist = list;
 		List<UITest> uiList = new ArrayList<UITest>();
@@ -481,18 +480,18 @@ public class TestController {
 		}
 		return uiList;
 	}
-	
-	public List<UIQuestionEdit> convertQuestions(List<Question> question){
-		List<UIQuestionEdit> ui=new ArrayList<UIQuestionEdit>();
-		for(Question q:question){
-			UIQuestionEdit uiq=new UIQuestionEdit();
+
+	public List<UIQuestionEdit> convertQuestions(List<Question> question) {
+		List<UIQuestionEdit> ui = new ArrayList<UIQuestionEdit>();
+		for (Question q : question) {
+			UIQuestionEdit uiq = new UIQuestionEdit();
 			uiq.setText(q.getQuestion());
-			List<UIAnswer> answers=new ArrayList<UIAnswer>();
-			for(Answer a:q.getAnswers()){
+			List<UIAnswer> answers = new ArrayList<UIAnswer>();
+			for (Answer a : q.getAnswers()) {
 				answers.add(answerConverter.createUIAnswer(a));
 			}
 			uiq.setAnswers(answers);
-			System.out.println("SE VOR PUNE :"+answers.size());
+			System.out.println("SE VOR PUNE :" + answers.size());
 			uiq.setQuestionId(q.getQuestionId());
 			ui.add(uiq);
 		}

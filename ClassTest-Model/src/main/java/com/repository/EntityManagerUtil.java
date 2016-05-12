@@ -6,13 +6,18 @@ import javax.persistence.Persistence;
 
 public class EntityManagerUtil {
 	public static final EntityManager entityM = getEntityManager();
+	public static final EntityManagerFactory entityF = getEntityManagerFactory();
 	
 
 	  private static EntityManagerFactory entityManagerFactory;
 	  
 	  public static EntityManager getEntityManager() {
-		   EntityManagerFactory emFactory = getEntityManagerFactoryApp("testclasses");
+		   EntityManagerFactory emFactory = getEntityManagerFactory();
 		    return emFactory.createEntityManager();
+	  }
+	  
+	  public static EntityManagerFactory getEntityManagerFactory() {
+		  return getEntityManagerFactoryApp("testclasses");
 	  }
 	
 	  private static EntityManagerFactory getEntityManagerFactoryApp(String name) {

@@ -17,6 +17,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.android.domain.PasswordChanger;
 import com.domain.User;
 import com.service.providers.UserService;
 import com.service.providers.UserServiceImplementation;
@@ -75,10 +76,10 @@ public class ForgotPasswordService {
 	@Path("/changePassword")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response changePassword(String email, String code, String newPassword) {
-		User user = userService.getUserByEmail(email);
-		if(code.equals(user.getPassword())){
-			user.setPassword(newPassword);
+	public Response changePassword(PasswordChanger changer) {
+		User user = userService.getUserByEmail(changer.getEmail());
+		if(changer.getCode().equals(user.getPassword())){
+			user.setPassword(changer.getPassword());
 			userService.updateUser(user);
 		}
 		else{

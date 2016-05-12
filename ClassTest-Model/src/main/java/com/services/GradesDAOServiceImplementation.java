@@ -74,5 +74,21 @@ private EntityManager entityM;
 			return null;
 		}
 	}
+	@Override
+	public Grade getGradeOfStudentFromTest(int userId, int testId) {
+		try {
+			TypedQuery <Grade> query = entityM.createQuery("Select x from Grade x where x.test.testId=:testId and x.user.userId=:userId",Grade.class);
+			query.setParameter("testId", testId);	
+			query.setParameter("userId", userId);
+			if (query.getSingleResult() != null) 
+				return query.getSingleResult();
+			else return null;
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

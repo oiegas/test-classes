@@ -33,4 +33,9 @@ public class GradesServiceImplementation implements GradesService {
 		return dao.getGradesWithTestId(id);
 	}
 
+	@Override
+	public Grade getGradeOfStudentFromTest(int userId, int testId) {
+		return dao.getGradeOfStudentFromTest(userId, testId);
+	}
+
 }
