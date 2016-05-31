@@ -10,7 +10,6 @@ public class TestAndroid {
 	private int testId;
 	private String name;
 	private Date startDate;
-	private Date endDate;
 	private boolean opened;
 	private boolean available;
 	public List<QuestionAndroid> questions;
@@ -33,12 +32,6 @@ public class TestAndroid {
 	}
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
-	}
-	public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
 	}
 	public boolean isOpened() {
 		return opened;

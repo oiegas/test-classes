@@ -238,11 +238,6 @@ a {
 						<td>Start Date:</td>
 						<td><form:input path='startDate'></form:input></td>
 					</tr>
-					<tr>
-						<td></td>
-						<td>End Date:</td>
-						<td><form:input path='endDate'></form:input></td>
-					</tr>
 					<c:forEach items="${test.questions}" varStatus="status" var="quest">
 						<tr>
 							<td></td>

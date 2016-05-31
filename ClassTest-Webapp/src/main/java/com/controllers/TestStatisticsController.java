@@ -72,8 +72,7 @@ public class TestStatisticsController {
 			UITestGrade testGrade = new UITestGrade();
 			testGrade.setGrade(g.getGrade());
 			testGrade.setStudentName(g.getUser().getName());
-			List<StudentAnswer> answers = null;
-			answers = answerService.getAllAnswersOfStudentAndTest(id, g.getTest().getTestId());
+			List<StudentAnswer> answers = answerService.getAllAnswersOfStudentAndTest(id, g.getTest().getTestId());
 			System.out.println(answers.size());
 			if (answers.size() == 0)
 				testGrade.setPresentOrNot(STUDENT_ABSENT);

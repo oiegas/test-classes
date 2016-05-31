@@ -11,7 +11,6 @@ public class UITestEdit{
 	private int testId;
 	private String name;
 	private String startDate;
-	private String endDate;
 	private List<UIQuestionEdit> questions;
 
 	public int userId;
@@ -32,12 +31,6 @@ public class UITestEdit{
 	}
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
-	}
-	public String getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
 	}
 	public List<UIQuestionEdit> getQuestions() {
 		return questions;

@@ -34,8 +34,6 @@ public class Test implements Serializable {
 	private String name;
 	@Column(name = "start_date", nullable = false, length = 30)
 	private Date startDate;
-	@Column(name = "end_date", nullable = false, length = 30)
-	private Date endDate;
 	@Column(name = "opened", nullable = false, length = 30)
 	private boolean opened;
 	@Column(name = "available", nullable = false, length = 30)
@@ -108,14 +106,6 @@ public class Test implements Serializable {
 
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
-	}
-
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
 	}
 
 	public Set<User> getUsers() {

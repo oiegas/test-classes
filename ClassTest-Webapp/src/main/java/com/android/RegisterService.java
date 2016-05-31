@@ -33,6 +33,7 @@ public class RegisterService {
 		return classService.getAllClasses();
 	}
 
+	
 	@POST
 	@Path("/createUser")
 	@Consumes(MediaType.APPLICATION_JSON)

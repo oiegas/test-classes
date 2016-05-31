@@ -7,9 +7,10 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import com.android.domain.StudentAnswerResponse;
+import com.android.domain.StudentAnswerToken;
+import com.android.domain.TokenResponse;
 import com.domain.Answer;
 import com.domain.Question;
 import com.domain.StudentAnswer;
@@ -31,7 +32,7 @@ public class AnswerService {
 	StudentAnswerService service = new StudentAnswerImplementation();
 	UserService userService = new UserServiceImplementation();
 	TestService testService = new TestServiceImplementation();
-
+	LoginService loginService=new LoginService();
 	QuestionService questionService = new QuestionServiceImplementation();
 	AnswerServiceImplementation answerService = new AnswerServiceImplementation();
 
@@ -39,7 +40,9 @@ public class AnswerService {
 	@Path("/studentAnswer")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response sendAnswer(List<StudentAnswerResponse> answers) {
+	public TokenResponse sendAnswer(StudentAnswerToken answerToken) {
+		if(loginService.verifyIfTokenIsAvailable(answerToken.getToken()).isAvailability()){
+			List<StudentAnswerResponse> answers=answerToken.getStudentResponse();
 		for (StudentAnswerResponse s : answers) {
 			StudentAnswer studentAnswer = new StudentAnswer();
 			Test test = testService.getTestById(s.getTestId());
@@ -51,12 +54,9 @@ public class AnswerService {
 			User user = userService.getUserById(s.getUserId());
 			studentAnswer.setUser(user);
 			service.addStudentAnswer(studentAnswer);
-			System.out.println("TEST ID" + test.getTestId());
-			System.out.println("USER ID" + user.getUserId());
-			System.out.println("ANSWER ID" + s.getAnswerId());
-			System.out.println("QUESTION ID" + question.getQuestionId());
 		}
-		return Response.status(201).entity(answers).build();
+		}
+		return loginService.verifyIfTokenIsAvailable(answerToken.getToken());
 	}
 
 }

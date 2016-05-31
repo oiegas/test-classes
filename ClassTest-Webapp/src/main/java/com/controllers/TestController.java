@@ -333,7 +333,6 @@ public class TestController {
 		copyOfTest.setName(test.getName());
 		copyOfTest.setUserCreator(test.getUserCreator());
 		copyOfTest.setStartDate(test.getStartDate());
-		copyOfTest.setEndDate(test.getEndDate());
 		copyOfTest.setClassForTest(classService.getClassByName(ui.getNameClass()));
 		copyOfTest.setAvailable(false);
 		copyOfTest.setOpened(true);
@@ -464,7 +463,6 @@ public class TestController {
 		}
 		UITestEdit uiTest = new UITestEdit();
 		uiTest.setName(test.getName());
-		uiTest.setEndDate(formatter.format(test.getEndDate()));
 		uiTest.setStartDate(formatter.format(test.getStartDate()));
 		uiTest.setQuestions(convertQuestions(questions));
 		uiTest.setTestId(test.getTestId());

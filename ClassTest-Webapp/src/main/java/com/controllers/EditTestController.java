@@ -53,7 +53,6 @@ public class EditTestController {
 		}
 		UITestEdit uiTest=new UITestEdit();
 		uiTest.setName(test.getName());
-		uiTest.setEndDate(formatter.format(test.getEndDate()));
 		uiTest.setStartDate(formatter.format(test.getStartDate()));
 		uiTest.setQuestions(convertQuestions(questions));
 		uiTest.setTestId(test.getTestId());
@@ -68,14 +67,6 @@ public class EditTestController {
 	public String editTest(@ModelAttribute("test") UITestEdit test){
 		Date date=null;
 		Test dbTest=testService.getTestById(testId);
-		try {
-			date = formatter.parse(test.getEndDate());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		if(!date.equals(dbTest.getEndDate())){
-			dbTest.setEndDate(date);
-		}
 		try {
 			date = formatter.parse(test.getStartDate());
 		} catch (ParseException e) {

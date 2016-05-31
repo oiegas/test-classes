@@ -386,11 +386,6 @@ a {
 							</tr>
 							<tr>
 								<td></td>
-								<td>End:</td>
-								<td><form:input path='endDate'></form:input></td>
-							</tr>
-							<tr>
-								<td></td>
 								<td>For Class:</td>
 								<td><form:select path='nameClass'>
 										<form:options items="${classList}" />
@@ -662,10 +657,6 @@ a {
 						<tr>
 							<td>Start date:</td>
 							<td>${testB.startDate}</td>
-						</tr>
-						<tr>
-							<td>End date:</td>
-							<td>${testB.endDate}</td>
 						</tr>
 						<c:forEach items="${testB.questions}" varStatus="status"
 							var="quest">

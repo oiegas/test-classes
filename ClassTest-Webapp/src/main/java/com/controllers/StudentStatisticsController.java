@@ -73,12 +73,12 @@ public class StudentStatisticsController {
 	}
 
 	@RequestMapping("/get/{userId}")
-	public String getPerson(@PathVariable("userId") int id, Model model) {
+	public String getPerson(@PathVariable("userId") int userId, Model model) {
 
 		model.addAttribute("studentSearch", new UIUser());
 		List<UIUser> studentsList = convertList(userService.getAllStudents());
 		model.addAttribute("listStudents", studentsList);
-		List<Grade> gradesOfStudent = gradeService.getGradesOfStudentWithId(id);
+		List<Grade> gradesOfStudent = gradeService.getGradesOfStudentWithId(userId);
 		List<UIGrades> gradesForUi = new ArrayList<UIGrades>();
 		for (Grade g : gradesOfStudent) {
 			UIGrades uiGrade = new UIGrades();
@@ -86,7 +86,7 @@ public class StudentStatisticsController {
 			uiGrade.setTestName(testService
 					.getTestById(g.getTest().getTestId()).getName());
 			List<StudentAnswer> answers=null;
-			answers=answerService.getAllAnswersOfStudentAndTest(id, g.getTest().getTestId());
+			answers=answerService.getAllAnswersOfStudentAndTest(userId, g.getTest().getTestId());
 			System.out.println(answers.size());
 			if(answers.size()==0)
 				uiGrade.setPresent(STUDENT_ABSENT);

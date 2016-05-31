@@ -32,14 +32,6 @@ public class TestConverterImplementation implements TestConverter{
 			}
 			test.setStartDate(date);
 		}
-		if (ui.getEndDate() != null){
-			try {
-				date = formatter.parse(ui.getEndDate());
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-			test.setEndDate(date);
-		}
 		return test;
 	}
 
@@ -52,8 +44,6 @@ public class TestConverterImplementation implements TestConverter{
 		if(test.getStartDate()!=null){
 			ui.setStartDate(formatter.format(test.getStartDate()));
 		}
-		if(test.getEndDate()!=null)
-			ui.setEndDate(formatter.format(test.getEndDate()));
 		return ui;
 	}
 

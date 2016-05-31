@@ -9,7 +9,6 @@ public class UITest{
 	private int testId;
 	private String name;
 	private String startDate;
-	private String endDate;
 	private UIQuestion firstQuestion;
 	private UIQuestion secondQuestion;
 	private UIQuestion thirdQuestion;
@@ -65,12 +64,6 @@ public class UITest{
 	}
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
-	}
-	public String getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
 	}
 	public int getUserId() {
 		return userId;
