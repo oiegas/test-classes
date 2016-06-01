@@ -39,6 +39,12 @@
 	opacity: 4;
 }
 
+.iconHome {
+	height: 40px;
+	width: 40px;
+	opacity: 4;
+}
+
 .searchTest {
 	float: left;
 	margin-left: 10;
@@ -88,7 +94,7 @@ a {
 	margin-top: 50;
 }
 
-.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
 	{
 	background-color: rgb(128, 201, 38) !important;
 }
@@ -97,7 +103,7 @@ a {
 	border-color: rgb(132, 202, 104);
 }
 
-.nav>li>a:focus,.nav>li>a:hover {
+.nav>li>a:focus, .nav>li>a:hover {
 	background-color: #ACEF91;
 }
 
@@ -154,7 +160,7 @@ a {
 }
 
 body {
-	background-color: #f0f0f0;
+	background-color: #000000;
 	font-family: helvetica;
 }
 
@@ -167,22 +173,20 @@ a {
 	text-align: center;
 }
 
-#bg {
+.bg {
 	position: relative;
-	top: 20px;
 	background:
 		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg')
 		repeat-x fixed center top;
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
-	border: #fff 15px solid;
 }
 
 .module {
 	position: relative;
 	top: 5%;
-	height: 150%;
+	height: 180%;
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
@@ -271,7 +275,7 @@ a {
 	background: #90c843;
 	color: #FFF;
 	font-weight: bold;
-	font-size: 12pt;
+	font-size: 18pt;
 	transition: background .4s;
 	cursor: pointer;
 }
@@ -289,10 +293,17 @@ a {
 	position: absolute;
 	top: 150px;
 	left: 450px;
-	bottom: 10px;
+	bottom: 120px;
 	right: 10px;
 	padding: 10px;
 	border-radius: 5px;
+}
+
+.logoutButton {
+	bottom: 0px;
+	position: absolute;
+	width: 260px;
+	left: 40%;
 }
 
 .listTabel {
@@ -303,7 +314,7 @@ a {
 	margin-left: 0;
 	margin-right: 0;
 	top: 150px;
-	bottom: 10px;
+	bottom: 80px;
 	left: 10px;
 	width: 420px;
 }
@@ -336,6 +347,9 @@ a {
 .user-icons {
 	margin-left: 200px;
 	display: inline-block;
+}
+.inputs{
+ height:30px;
 }
 </style>
 <script>
@@ -382,7 +396,7 @@ a {
 							<tr>
 								<td></td>
 								<td>Start:</td>
-								<td><form:input path='startDate'></form:input></td>
+								<td><form:input path='startDate' class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td></td>
@@ -529,6 +543,14 @@ a {
 				</form:form>
 			</div>
 
+			<div class="homepage">
+				 <a class="buttons"
+					href="<c:url value='/startup' />"
+					onclick='confirmUser()'> <img
+					src="http://icons.iconarchive.com/icons/custom-icon-design/mono-general-3/72/home-icon.png"
+					alt="Home" class="iconHome"></a>
+			</div>
+
 			<c:url var="addQuestionAction" value="/test/addQuestion/"></c:url>
 			<div id="dialogAddQuestion" title="Add question" hidden='true'>
 				<form:form action="${addQuestionAction}" commandName="questionAdd"
@@ -643,6 +665,18 @@ a {
 				</div>
 			</c:if>
 
+			<div class="logoutButton">
+				<c:url value="/j_spring_security_logout" var="logoutUrl" />
+				<form action="${logoutUrl}" method="post" id="logoutForm"></form>
+				<c:if test="${pageContext.request.userPrincipal.name != null}">
+					<h4>
+						<a class="button" href="javascript:formSubmit()">Logout</a>
+
+					</h4>
+				</c:if>
+
+			</div>
+
 			<div class="rightPanel">
 				<c:if test="${not empty testB}">
 					<table>
@@ -694,6 +728,11 @@ a {
 					$("#dialogCloneQuestion").dialog();
 				}
 			</script>
+	<script>
+		function formSubmit() {
+			document.getElementById("logoutForm").submit();
+		}
+	</script>
 </body>
 
 </html>

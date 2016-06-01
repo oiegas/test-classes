@@ -7,15 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Choose</title>
 <style>
-body {
-	margin: 0;
-	padding: 0;
-	background: #fff;
-	color: #fff;
-	font-family: Arial;
-	font-size: 12px;
-}
-
 .body {
 	position: absolute;
 	top: -5px;
@@ -32,7 +23,7 @@ body {
 
 .submit {
 	width: 260px;
-	height: 35px;
+	height: 50px;
 	background: #fff;
 	border: 1px solid #fff;
 	cursor: pointer;
@@ -49,19 +40,37 @@ body {
 	opacity: 0.8;
 }
 
-.logout {
+.welcome {
+	color: #fff;
+	font-size: 30px;
+}
+
+.buttons {
 	position: absolute;
-	top: calc(50% - 75px);
-	left: calc(50% - 120px);
+	top: 40%;
+	left: 15%;
+}
+
+.logout {
+position:absolute;
+	color: #fff;
+	top: calc(100% - 120px);
 	width: 260px;
+	left: 45%;
 	height: 35px;
 }
 </style>
 </head>
 <body>
 
+
 	<div class="body">
-		<div align="center">
+		<div class="welcome" align="center">
+			<c:if test="${pageContext.request.userPrincipal.name != null}">
+				<h2>Welcome ${pageContext.request.userPrincipal.name}</h2>
+			</c:if>
+		</div>
+		<div class="buttons" align="center">
 			<input type="button" class="submit" onclick="location.href='test'"
 				value="Test"> <input type="button" class="submit"
 				onclick="location.href='class'" value="Classes"> <input
@@ -70,17 +79,14 @@ body {
 				onclick="location.href='studentStatistics'" value="Statistics">
 			<input type="button" class="submit"
 				onclick="location.href='testStatistics'" value=" Test Statistics">
-
-
 		</div>
-		<div class="logout">
+		<div class="logout" align="center">
 			<c:if test="${pageContext.request.userPrincipal.name != null}">
-				<h2>
-					Welcome : ${pageContext.request.userPrincipal.name} | <a
-						href="javascript:formSubmit()" class="submit"> Logout </a>
-				</h2>
+				<a href="javascript:formSubmit()" class="submit"> Logout </a>
 			</c:if>
 		</div>
+		<c:url value="/j_spring_security_logout" var="logoutUrl" />
+		<form action="${logoutUrl}" method="post" id="logoutForm"></form>
 		<script>
 			function formSubmit() {
 				document.getElementById("logoutForm").submit();
