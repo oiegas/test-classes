@@ -21,9 +21,9 @@ body {
 .body {
 	position: absolute;
 	top: -20px;
-	left: -20px;
-	right: -40px;
-	bottom: -40px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
 	width: auto;
 	height: auto;
 	background-image:
@@ -56,9 +56,9 @@ body {
 .grad {
 	position: absolute;
 	top: -20px;
-	left: -20px;
-	right: -40px;
-	bottom: -40px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
 	width: auto;
 	height: auto;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0
@@ -90,7 +90,7 @@ body {
 .login {
 	position: absolute;
 	top: calc(50% - 75px);
-	left: calc(50% - 50px);
+	left: calc(50% - 120px);
 	height: 150px;
 	width: 350px;
 	padding: 10px;
@@ -198,7 +198,7 @@ body {
         
 
         messages: {
-            username: "Please enter your Yonder code ",
+            username: "Please enter your username ",
             password: {
                 required: "Please provide a password",
                 minlength: "Your password must be at least 3 characters long"

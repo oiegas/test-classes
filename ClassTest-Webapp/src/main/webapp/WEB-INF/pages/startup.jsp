@@ -29,6 +29,7 @@ body {
 	background-size: cover;
 	z-index: 0;
 }
+
 .submit {
 	width: 260px;
 	height: 35px;
@@ -47,31 +48,44 @@ body {
 .submit:hover {
 	opacity: 0.8;
 }
+
+.logout {
+	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(50% - 120px);
+	width: 260px;
+	height: 35px;
+}
 </style>
 </head>
 <body>
 
 	<div class="body">
-	<div align="center">
-	<input type="button" class="submit"  onclick="location.href='test'" value="Test" >
-    <input type="button" class="submit" onclick="location.href='class'" value="Classes" >
-    <input type="button" class="submit" onclick="location.href='user'" value="Users" >
-     <input type="button" class="submit" onclick="location.href='studentStatistics'" value="Statistics" >
-     <input type="button" class="submit" onclick="location.href='testStatistics'" value=" Test Statistics" >
+		<div align="center">
+			<input type="button" class="submit" onclick="location.href='test'"
+				value="Test"> <input type="button" class="submit"
+				onclick="location.href='class'" value="Classes"> <input
+				type="button" class="submit" onclick="location.href='user'"
+				value="Users"> <input type="button" class="submit"
+				onclick="location.href='studentStatistics'" value="Statistics">
+			<input type="button" class="submit"
+				onclick="location.href='testStatistics'" value=" Test Statistics">
 
 
-	</div>	
-	<script>
-		function formSubmit() {
-			document.getElementById("logoutForm").submit();
-		}
-	</script>
-	<c:if test="${pageContext.request.userPrincipal.name != null}">
-		<h2>
-			Welcome : ${pageContext.request.userPrincipal.name} | 
-			<a href="javascript:formSubmit()" class="submit"> Logout </a>
-		</h2>
-	</c:if>
+		</div>
+		<div class="logout">
+			<c:if test="${pageContext.request.userPrincipal.name != null}">
+				<h2>
+					Welcome : ${pageContext.request.userPrincipal.name} | <a
+						href="javascript:formSubmit()" class="submit"> Logout </a>
+				</h2>
+			</c:if>
+		</div>
+		<script>
+			function formSubmit() {
+				document.getElementById("logoutForm").submit();
+			}
+		</script>
 	</div>
 </body>
 </html>
