@@ -7,7 +7,7 @@
 <head>
 <script
 	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<title>Employee Page</title>
+<title>Classes Page</title>
 <style type="text/css">
 .tg {
 	border-collapse: collapse;
@@ -18,7 +18,7 @@
 .tg td {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
-	padding: 10px 5px;
+	text-align: center;
 	border-style: solid;
 	border-width: 1px;
 	overflow: hidden;
@@ -51,6 +51,10 @@
 	padding: 0;
 }
 
+.h4 {
+	width: 40px;
+}
+
 body {
 	background-color: #f0f0f0;
 	font-family: helvetica;
@@ -67,13 +71,11 @@ a {
 
 #bg {
 	position: relative;
-	top: 20px;
 	background:
 		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg');
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
-	border: #fff 15px solid;
 }
 
 .module {
@@ -173,6 +175,35 @@ a {
 	cursor: pointer;
 }
 
+.classname {
+	margin-top: 100px;
+	margin-left: 150px;
+}
+
+.submitbutton {
+	margin-top: 25px;
+	margin-left: 270px;
+}
+
+.classesList {
+	margin-left: 280px;
+}
+
+.tableList {
+	margin-left: 220px;
+	margin-top: 40px;
+}
+
+.iconHome {
+	height: 40px;
+	width: 40px;
+	opacity: 4;
+	
+}
+.a:iconHome{
+margin-top:0px;
+}
+
 .button:hover {
 	background: #80b438;
 }
@@ -223,48 +254,56 @@ a {
 	<div id="bg">
 
 		<div class="module">
-			
-
+			<div class="homepage">
+				<a class="buttons" href="<c:url value='/startup' />"
+					onclick='confirmUser()'> <img
+					src="http://icons.iconarchive.com/icons/custom-icon-design/mono-general-3/72/home-icon.png"
+					alt="Home" class="iconHome"></a>
+			</div>
 
 			<c:url var="add" value="/class/add"></c:url>
 
-			<form:form action="${add}" commandName="aClass"
-				id="register-form" novalidate="novalidate" class="form">
-				<table>
-					<tr>
-						<td>Class Name:</td>
-						<td><form:input path='className'></form:input></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-								<input type="submit" class="button" value="Add Class" />
-						</td>
-					</tr>
-				</table>
+			<form:form action="${add}" commandName="aClass" id="register-form"
+				novalidate="novalidate" class="form">
+				<div class="classname">
+					<h4>
+						Class Name:
+						<form:input path='className'></form:input>
+					</h4>
+				</div>
+				<div class="submitbutton">
+					<input type="submit" class="button" value="Add Class" />
+				</div>
+
+
 			</form:form>
 
 			<br>
-			<h3>Classes List</h3>
-			<c:if test="${!empty listClasses}">
-				<table class="tg">
-					<tr>
-						<th width="80">Class ID</th>
-						<th width="80">Class Name</th>
-						<th width="60">Delete</th>
-					</tr>
-					<c:forEach items="${listClasses}" var="aClass">
-						<tr>
-							<td>${aClass.classId}</td>
-							<td>${aClass.className}</td>
-							
-							<td><a class="button"
-								href="<c:url value='/class/remove/${aClass.classId}' />"
-								onclick='confirmUser()'>Delete</a></td> 
-						</tr>
-					</c:forEach>
-				</table>
-			</c:if>
+			<div class="classesList">
+				<h3>Classes List</h3>
+			</div>
 
+			<div class="tableList">
+				<c:if test="${!empty listClasses}">
+					<table class="tg">
+						<tr>
+							<th width="80">Class ID</th>
+							<th width="80">Class Name</th>
+							<th width="60">Delete</th>
+						</tr>
+						<c:forEach items="${listClasses}" var="aClass">
+							<tr>
+								<td>${aClass.classId}</td>
+								<td>${aClass.className}</td>
+
+								<td><a class="button"
+									href="<c:url value='/class/remove/${aClass.classId}' />"
+									onclick='confirmUser()'>Delete</a></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</c:if>
+			</div>
 
 			<c:url value="/j_spring_security_logout" var="logoutUrl" />
 			<form action="${logoutUrl}" method="post" id="logoutForm"></form>

@@ -67,13 +67,11 @@ a {
 
 #bg {
 	position: relative;
-	top: 20px;
 	background:
 		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg');
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
-	border: #fff 15px solid;
 }
 
 .module {
@@ -135,7 +133,7 @@ a {
 }
 
 .form {
-    margin-left: 160px;
+	margin-left: 160px;
 	float: left;
 	height: 50%;
 	width: 100%;
@@ -263,8 +261,8 @@ a {
 					</tr>
 				</table>
 			</form:form>
-<br>
-		 	<h3>sd</h3> 
+			<br>
+			<h3>sd</h3>
 
 
 			<c:url value="/j_spring_security_logout" var="logoutUrl" />
