@@ -135,6 +135,7 @@ a {
 }
 
 .form {
+    margin-left: 160px;
 	float: left;
 	height: 50%;
 	width: 100%;
@@ -263,7 +264,7 @@ a {
 				</table>
 			</form:form>
 <br>
-			<h3>sd</h3>
+		 	<h3>sd</h3> 
 
 
 			<c:url value="/j_spring_security_logout" var="logoutUrl" />
