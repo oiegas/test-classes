@@ -22,7 +22,7 @@ import com.ui.domain.UIUser;
 
 @Controller
 @RequestMapping(value = "/user")
-public class UserController {
+public class UserController{
 
 	UserService service = new UserServiceImplementation();
 	UserConverter converter = new UserConverterImplementation();

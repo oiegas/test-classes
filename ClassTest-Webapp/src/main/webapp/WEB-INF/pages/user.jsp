@@ -175,6 +175,15 @@ a {
 	margin-top: 100px;
 	margin-left: 150px;
 }
+.userEmail {
+	margin-left: 195px;
+}
+.userPassword {
+	margin-left: 158px;
+}
+.userUserName {
+	margin-left: 157px;
+}
 
 .submitbutton {
 	margin-top: 25px;
@@ -265,23 +274,31 @@ a {
 				<div class="userName">
 					<h4>
 						User Name:
-						<form:input path='name'></form:input>
+						<form:errors path="name" cssClass="error"/>
+						<form:input path='name' required="required"></form:input>
 					</h4>
+				</div>
+				<div class="userEmail">
 					<h4>
 						Email:
 						<form:input path='email'></form:input>
 					</h4>
+				</div>
+				<div class="userUserName">
 					<h4>
 						Username:
 						<form:input path='username'></form:input>
 					</h4>
+				</div>
+				<div class="userPassword">
 					<h4>
 						Password:
 						<form:input path='password'></form:input>
 					</h4>
-					<h4>The role will be ADMINISTRATOR</h4>
-
 				</div>
+				<h5>The role will be ADMINISTRATOR</h5>
+
+
 				<div class="submitbutton">
 					<input type="submit" class="button" value="Add Admin" />
 				</div>
