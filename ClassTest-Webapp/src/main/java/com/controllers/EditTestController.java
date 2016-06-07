@@ -100,7 +100,7 @@ public class EditTestController {
 			i++;
 		}
 		
-		return "test";
+		return "redirect:/test";
 	}
 	
 	public List<UIQuestionEdit> convertQuestions(List<Question> question){

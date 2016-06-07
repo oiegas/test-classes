@@ -43,6 +43,7 @@
 	height: 40px;
 	width: 40px;
 	opacity: 4;
+	
 }
 
 .searchTest {
@@ -86,6 +87,10 @@ a {
 	margin-bottom: -1px;
 	background-color: #fff;
 	border: 1px solid #ddd;
+}
+
+.h3 {
+	margin-left: 15px;
 }
 
 .rightPanel {
@@ -340,8 +345,8 @@ a {
 	float: none;
 }
 
-.button1{
-height: 50px;
+.button1 {
+	height: 50px;
 	width: 100%;
 	border-radius: 3px;
 	border: rgba(0, 0, 0, .3) 0px solid;
@@ -357,6 +362,7 @@ height: 50px;
 	transition: background .4s;
 	cursor: pointer;
 }
+
 .name {
 	width: 50px;
 }
@@ -364,6 +370,18 @@ height: 50px;
 .user-icons {
 	margin-left: 200px;
 	display: inline-block;
+}
+
+.testDiv {
+	margin-left: 15px;
+}
+
+.questionDiv {
+margin-top:10px;
+	margin-left: 45px;
+}
+.answerDiv{
+margin-left:55px;
 }
 
 .inputs {
@@ -424,135 +442,160 @@ height: 50px;
 							<tr>
 								<td></td>
 								<td>First Question:</td>
-								<td><form:input path='firstQuestion.question' class="inputs"></form:input></td>
+								<td><form:input path='firstQuestion.question'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="firstQuestion.firstAnswer.good" />
 								<td>Answer 1:</td>
-								<td><form:input path='firstQuestion.firstAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='firstQuestion.firstAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="firstQuestion.secondAnswer.good" />
 								<td>Answer 2:</td>
-								<td><form:input path='firstQuestion.secondAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='firstQuestion.secondAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="firstQuestion.thirdAnswer.good" />
 								<td>Answer 3:</td>
-								<td><form:input path='firstQuestion.thirdAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='firstQuestion.thirdAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="firstQuestion.fourthAnswer.good" />
 								<td>Answer 4:</td>
-								<td><form:input path='firstQuestion.fourthAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='firstQuestion.fourthAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td></td>
 								<td>Second Question:</td>
-								<td><form:input path='secondQuestion.question' class="inputs"></form:input></td>
+								<td><form:input path='secondQuestion.question'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="secondQuestion.firstAnswer.good" />
 								<td>Answer 1:</td>
-								<td><form:input path='secondQuestion.firstAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='secondQuestion.firstAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="secondQuestion.secondAnswer.good" />
 								<td>Answer 2:</td>
-								<td><form:input path='secondQuestion.secondAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='secondQuestion.secondAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="secondQuestion.thirdAnswer.good" />
 								<td>Answer 3:</td>
-								<td><form:input path='secondQuestion.thirdAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='secondQuestion.thirdAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="secondQuestion.fourthAnswer.good" />
 								<td>Answer 4:</td>
-								<td><form:input path='secondQuestion.fourthAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='secondQuestion.fourthAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td></td>
 								<td>Third Question:</td>
-								<td><form:input path='thirdQuestion.question' class="inputs"></form:input></td>
+								<td><form:input path='thirdQuestion.question'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="thirdQuestion.firstAnswer.good" />
 								<td>Answer 1:</td>
-								<td><form:input path='thirdQuestion.firstAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='thirdQuestion.firstAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="thirdQuestion.secondAnswer.good" />
 								<td>Answer 2:</td>
-								<td><form:input path='thirdQuestion.secondAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='thirdQuestion.secondAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="thirdQuestion.thirdAnswer.good" />
 								<td>Answer 3:</td>
-								<td><form:input path='thirdQuestion.thirdAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='thirdQuestion.thirdAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="thirdQuestion.fourthAnswer.good" />
 								<td>Answer 4:</td>
-								<td><form:input path='thirdQuestion.fourthAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='thirdQuestion.fourthAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td></td>
 								<td>Fourth Question:</td>
-								<td><form:input path='fourthQuestion.question' class="inputs"></form:input></td>
+								<td><form:input path='fourthQuestion.question'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="fourthQuestion.firstAnswer.good" />
 								<td>Answer 1:</td>
-								<td><form:input path='fourthQuestion.firstAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='fourthQuestion.firstAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="fourthQuestion.secondAnswer.good" />
 								<td>Answer 2:</td>
-								<td><form:input path='fourthQuestion.secondAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='fourthQuestion.secondAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="fourthQuestion.thirdAnswer.good" />
 								<td>Answer 3:</td>
-								<td><form:input path='fourthQuestion.thirdAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='fourthQuestion.thirdAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="fourthQuestion.fourthAnswer.good" />
 								<td>Answer 4:</td>
-								<td><form:input path='fourthQuestion.fourthAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='fourthQuestion.fourthAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td></td>
 								<td>Fifth Question:</td>
-								<td><form:input path='fifthQuestion.question' class="inputs"></form:input></td>
+								<td><form:input path='fifthQuestion.question'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="fifthQuestion.firstAnswer.good" />
 								<td>Answer 1:</td>
-								<td><form:input path='fifthQuestion.firstAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='fifthQuestion.firstAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="fifthQuestion.secondAnswer.good" />
 								<td>Answer 2:</td>
-								<td><form:input path='fifthQuestion.secondAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='fifthQuestion.secondAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="fifthQuestion.thirdAnswer.good" />
 								<td>Answer 3:</td>
-								<td><form:input path='fifthQuestion.thirdAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='fifthQuestion.thirdAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td><form:checkbox path="fifthQuestion.fourthAnswer.good" />
 								<td>Answer 4:</td>
-								<td><form:input path='fifthQuestion.fourthAnswer.answer' class="inputs"></form:input></td>
+								<td><form:input path='fifthQuestion.fourthAnswer.answer'
+										class="inputs"></form:input></td>
 							</tr>
 
 							<tr></tr>
 							<tr>
 								<td></td>
 								<td></td>
-								<td colspan="2"><input name="submit" type="submit" class="button"
-									value="Add Test" /></td>
+								<td colspan="2"><input name="submit" type="submit"
+									class="button" value="Add Test" /></td>
 							</tr>
 						</table>
 					</c:if>
@@ -694,36 +737,24 @@ height: 50px;
 
 			<div class="rightPanel">
 				<c:if test="${not empty testB}">
-					<table>
-						<tr>
-							<td>ID:</td>
-							<td>${testB.testId}</td>
-						</tr>
-						<tr>
-							<td>Name:</td>
-							<td>${testB.name}</td>
-						</tr>
-						<tr>
-							<td>Start date:</td>
-							<td>${testB.startDate}</td>
-						</tr>
-						<c:forEach items="${testB.questions}" varStatus="status"
-							var="quest">
-							<tr>
-								<td></td>
-								<td>Question:</td>
-								<td>${quest.text}</td>
-							</tr>
+					<div class="testDiv">
+						<h4>ID: ${testB.testId}</h4>
+						<h4>Name: ${testB.name}</h4>
+						<h4>Start date: ${testB.startDate}</h4>
+					</div>
+
+					<c:forEach items="${testB.questions}" varStatus="status"
+						var="quest">
+						<div class="questionDiv">
+							<h5>Question: ${quest.text}</h5>
 							<c:forEach items="${quest.answers}" varStatus="loop" var="answer">
-								<tr>
-									<td>${answers.good}</td>
-									<td>Answer:</td>
-									<td>${answer.answer}</td>
+								<div class="answerDiv">
+									<h5>- ${answer.answer}</h5>
+									</div>
 							</c:forEach>
-						</c:forEach>
+						</div>
+					</c:forEach>
 
-
-					</table>
 				</c:if>
 			</div>
 		</div>
