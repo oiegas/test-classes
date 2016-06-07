@@ -200,6 +200,10 @@ a {
 	opacity: 4;
 	
 }
+.homepage {
+	margin-top: -40px;
+}
+
 .a:iconHome{
 margin-top:0px;
 }
@@ -255,8 +259,7 @@ margin-top:0px;
 
 		<div class="module">
 			<div class="homepage">
-				<a class="buttons" href="<c:url value='/startup' />"
-					onclick='confirmUser()'> <img
+				<a class="buttons" href="<c:url value='/startup' />"> <img
 					src="http://icons.iconarchive.com/icons/custom-icon-design/mono-general-3/72/home-icon.png"
 					alt="Home" class="iconHome"></a>
 			</div>

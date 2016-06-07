@@ -420,7 +420,7 @@ a {
 				</form:form>
 			</div>
 			<c:if test="${!empty listTests}">
-				<div class="listTabel">
+				<div class="listTabel" style="overflow-y:scroll">
 
 					<ul class="list-group">
 						<c:forEach items="${listTests}" var="test">
@@ -445,7 +445,7 @@ a {
 
 			</div>
 
-			<div class="rightPanel">
+			<div class="rightPanel" style="overflow-y:scroll">
 				<c:if test="${not empty listGrades}">
 					<table>
 						<c:forEach items="${listGrades}" var="grade">

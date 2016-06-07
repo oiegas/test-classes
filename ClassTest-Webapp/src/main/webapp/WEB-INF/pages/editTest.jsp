@@ -7,7 +7,7 @@
 <head>
 <script
 	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<title>Employee Page</title>
+<title>Edit Test</title>
 <style type="text/css">
 .tg {
 	border-collapse: collapse;

@@ -7,7 +7,7 @@
 <head>
 <script
 	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<title>Employee Page</title>
+<title>User</title>
 <style type="text/css">
 .tg {
 	border-collapse: collapse;
@@ -67,13 +67,11 @@ a {
 
 #bg {
 	position: relative;
-	top: 20px;
 	background:
 		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg');
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
-	border: #fff 15px solid;
 }
 
 .module {
@@ -173,6 +171,35 @@ a {
 	cursor: pointer;
 }
 
+.userName {
+	margin-top: 100px;
+	margin-left: 150px;
+}
+
+.submitbutton {
+	margin-top: 25px;
+	margin-left: 270px;
+}
+
+.userList {
+	margin-left: 280px;
+}
+
+.tableList {
+	margin-left: 120px;
+	margin-top: 40px;
+}
+
+.iconHome {
+	height: 40px;
+	width: 40px;
+	opacity: 4;
+}
+
+.homepage {
+	margin-top: -40px;
+}
+
 .button:hover {
 	background: #80b438;
 }
@@ -224,65 +251,71 @@ a {
 
 		<div class="module">
 
-
+			<div class="homepage">
+				<a class="buttons" href="<c:url value='/startup' />"> <img
+					src="http://icons.iconarchive.com/icons/custom-icon-design/mono-general-3/72/home-icon.png"
+					alt="Home" class="iconHome"></a>
+			</div>
 
 			<c:url var="add" value="/user/add"></c:url>
 
 			<form:form action="${add}" commandName="user" id="register-form"
 				novalidate="novalidate" class="form">
-				<table>
-					<tr>
-						<td>User Name:</td>
-						<td><form:input path='name'></form:input></td>
-					</tr>
-					<tr>
-						<td>Email:</td>
-						<td><form:input path='email'></form:input></td>
-					</tr>
-					<tr>
-						<td>Username:</td>
-						<td><form:input path='username'></form:input></td>
-					</tr>
-					<tr>
-						<td>Password:</td>
-						<td><form:input path='password'></form:input></td>
-					</tr>
-					<tr>
-						<td>The role will be ADMINISTRATOR</td>
 
-					</tr>
-					<tr>
-						<td colspan="2"><input type="submit" class="button"
-							value="Add Admin" /></td>
-					</tr>
-				</table>
+				<div class="userName">
+					<h4>
+						User Name:
+						<form:input path='name'></form:input>
+					</h4>
+					<h4>
+						Email:
+						<form:input path='email'></form:input>
+					</h4>
+					<h4>
+						Username:
+						<form:input path='username'></form:input>
+					</h4>
+					<h4>
+						Password:
+						<form:input path='password'></form:input>
+					</h4>
+					<h4>The role will be ADMINISTRATOR</h4>
+
+				</div>
+				<div class="submitbutton">
+					<input type="submit" class="button" value="Add Admin" />
+				</div>
 			</form:form>
 
 			<br>
-			<h3>Users List</h3>
-			<c:if test="${!empty listUsers}">
-				<table class="tg">
-					<tr>
-						<th width="80">User ID</th>
-						<th width="80">User Name</th>
-						<th width="80">User Email</th>
-						<th width="80">User Username</th>
-						<th width="60">Delete</th>
-					</tr>
-					<c:forEach items="${listUsers}" var="user">
+			<div class="userList">
+				<h3>Users List</h3>
+			</div>
+			<div class="tableList">
+				<c:if test="${!empty listUsers}">
+					<table class="tg">
 						<tr>
-							<td>${user.userId}</td>
-							<td>${user.name}</td>
-							<td>${user.email}</td>
-							<td>${user.username}</td>
-
-							<td><a class="button"
-								href="<c:url value='/user/remove/${user.userId}' />"
-								onclick='confirmUser()'>Delete</a></td>
+							<th width="80">User ID</th>
+							<th width="80">User Name</th>
+							<th width="80">User Email</th>
+							<th width="80">User Username</th>
+							<th width="60">Delete</th>
 						</tr>
-					</c:forEach>
-				</table>
-			</c:if>
+						<c:forEach items="${listUsers}" var="user">
+							<tr>
+								<td>${user.userId}</td>
+								<td>${user.name}</td>
+								<td>${user.email}</td>
+								<td>${user.username}</td>
+
+								<td><a class="button"
+									href="<c:url value='/user/remove/${user.userId}' />"
+									onclick='confirmUser()'>Delete</a></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</c:if>
+			</div>
 
 
 			<c:url value="/j_spring_security_logout" var="logoutUrl" />

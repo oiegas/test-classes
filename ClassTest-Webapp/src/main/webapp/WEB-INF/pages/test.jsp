@@ -690,7 +690,7 @@ margin-left:55px;
 				</form:form>
 			</div>
 			<c:if test="${!empty listTests}">
-				<div class="listTabel">
+				<div class="listTabel" style="overflow-y:scroll">
 
 					<ul class="list-group">
 						<c:forEach items="${listTests}" var="test">
@@ -735,7 +735,7 @@ margin-left:55px;
 
 			</div>
 
-			<div class="rightPanel">
+			<div class="rightPanel" style="overflow-y:scroll">
 				<c:if test="${not empty testB}">
 					<div class="testDiv">
 						<h4>ID: ${testB.testId}</h4>
@@ -749,7 +749,7 @@ margin-left:55px;
 							<h5>Question: ${quest.text}</h5>
 							<c:forEach items="${quest.answers}" varStatus="loop" var="answer">
 								<div class="answerDiv">
-									<h5>- ${answer.answer}</h5>
+									<h3>- ${answer.answer}</h3>
 									</div>
 							</c:forEach>
 						</div>
