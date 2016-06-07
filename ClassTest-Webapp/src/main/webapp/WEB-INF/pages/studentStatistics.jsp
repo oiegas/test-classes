@@ -6,7 +6,7 @@
 <head>
 <script
 	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<title>Test Page</title>
+<title>Student Statistics</title>
 
 <link
 	href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
@@ -48,6 +48,7 @@
 
 .searchForm {
 	margin-top: 50;
+	margin-left:20px;
 }
 
 .listTabel {
@@ -88,7 +89,7 @@ a {
 	margin-top: 50;
 }
 
-.nav-tabs>li.active>a,.nav-tabs>li.active>a:focus,.nav-tabs>li.active>a:hover
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
 	{
 	background-color: rgb(128, 201, 38) !important;
 }
@@ -97,7 +98,7 @@ a {
 	border-color: rgb(132, 202, 104);
 }
 
-.nav>li>a:focus,.nav>li>a:hover {
+.nav>li>a:focus, .nav>li>a:hover {
 	background-color: #ACEF91;
 }
 
@@ -154,7 +155,7 @@ a {
 }
 
 body {
-	background-color: #f0f0f0;
+	background-color: #000000;
 	font-family: helvetica;
 }
 
@@ -167,22 +168,20 @@ a {
 	text-align: center;
 }
 
-#bg {
+.bg {
 	position: relative;
-	top: 20px;
 	background:
 		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg')
 		repeat-x fixed center top;
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
-	border: #fff 15px solid;
 }
 
 .module {
 	position: relative;
 	top: 5%;
-	height: 150%;
+	height: 180%;
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
@@ -271,7 +270,7 @@ a {
 	background: #90c843;
 	color: #FFF;
 	font-weight: bold;
-	font-size: 12pt;
+	font-size: 18pt;
 	transition: background .4s;
 	cursor: pointer;
 }
@@ -289,7 +288,7 @@ a {
 	position: absolute;
 	top: 150px;
 	left: 450px;
-	bottom: 10px;
+	bottom: 120px;
 	right: 10px;
 	padding: 10px;
 	border-radius: 5px;
@@ -303,7 +302,7 @@ a {
 	margin-left: 0;
 	margin-right: 0;
 	top: 150px;
-	bottom: 10px;
+	bottom: 80px;
 	left: 10px;
 	width: 420px;
 }
@@ -329,8 +328,39 @@ a {
 	float: none;
 }
 
+.iconHome {
+	height: 40px;
+	width: 40px;
+	opacity: 4;
+}
+
 .name {
 	width: 50px;
+}
+
+.logoutButton {
+	bottom: 0px;
+	position: absolute;
+	width: 260px;
+	left: 40%;
+}
+
+.button1 {
+	height: 50px;
+	width: 100%;
+	border-radius: 3px;
+	border: rgba(0, 0, 0, .3) 0px solid;
+	box-sizing: border-box;
+	padding: 15px;
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-bottom: 30px;
+	background: #90c843;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 18pt;
+	transition: background .4s;
+	cursor: pointer;
 }
 
 .user-icons {
@@ -366,6 +396,13 @@ a {
 <body>
 	<div id="bg">
 		<div class="module">
+
+			<div class="homepage">
+				<a class="buttons" href="<c:url value='/startup' />"
+					onclick='confirmUser()'> <img
+					src="http://icons.iconarchive.com/icons/custom-icon-design/mono-general-3/72/home-icon.png"
+					alt="Home" class="iconHome"></a>
+			</div>
 
 			<br>
 			<div id="topListMenu" class="topListMenu">
@@ -408,6 +445,18 @@ a {
 				</div>
 			</c:if>
 
+			<div class="logoutButton">
+				<c:url value="/j_spring_security_logout" var="logoutUrl" />
+				<form action="${logoutUrl}" method="post" id="logoutForm"></form>
+				<c:if test="${pageContext.request.userPrincipal.name != null}">
+					<h4>
+						<a class="button" href="javascript:formSubmit()">Logout</a>
+
+					</h4>
+				</c:if>
+
+			</div>
+
 			<div class="rightPanel">
 				<c:if test="${not empty listGrades}">
 					<table>
@@ -431,6 +480,12 @@ a {
 			</div>
 		</div>
 	</div>
+
+	<script>
+		function formSubmit() {
+			document.getElementById("logoutForm").submit();
+		}
+	</script>
 </body>
 
 </html>
