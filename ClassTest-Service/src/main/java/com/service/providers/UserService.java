@@ -20,6 +20,7 @@ public interface UserService {
 	public boolean verifyLogin(String username, String password);
 
 	public List<User> getAllUsers();
+	public List<User> getAllProfesors();
 
 	public List<User> getAllStudents();
 

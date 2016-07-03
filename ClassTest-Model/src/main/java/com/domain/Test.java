@@ -30,7 +30,7 @@ public class Test implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "test_id", unique = true, nullable = false)
 	private int testId;
-	@Column(name = "name", nullable = false, length = 30)
+	@Column(name = "name", nullable = false, length = 120)
 	private String name;
 	@Column(name = "start_date", nullable = false, length = 30)
 	private Date startDate;

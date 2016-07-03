@@ -18,7 +18,7 @@
 .tg td {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
-	padding: 10px 5px;
+	text-align: center;
 	border-style: solid;
 	border-width: 1px;
 	overflow: hidden;
@@ -59,25 +59,30 @@ body {
 a {
 	display: block;
 	color: #ad5482;
+	margin-top: 60px;
 	text-decoration: none;
 	font-weight: bold;
-	margin-top: 40px;
 	text-align: center;
 }
 
 #bg {
-	position: relative;
+	position: absolute;
 	background:
 		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg');
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
 }
 
 .module {
 	position: relative;
 	top: 5%;
 	height: 95%;
+	margin-top: 20px;
 	width: 750px;
 	margin-left: auto;
 	margin-right: auto;
@@ -133,7 +138,7 @@ a {
 }
 
 .form {
-	margin-left: 160px;
+	margin-left: 25%;
 	float: left;
 	height: 50%;
 	width: 100%;
@@ -172,6 +177,10 @@ a {
 	cursor: pointer;
 }
 
+.warning {
+	text-align: center;
+}
+
 .button:hover {
 	background: #80b438;
 }
@@ -191,31 +200,30 @@ a {
 <!-- jQuery Form Validation code -->
 
 <script>
+	$(function() {
 
-   $(function() {
-   
-     // Setup form validation on the #register-form element
-     $("#register-form").validate({
-     
-         rules: {
-             name:{ 
-                 	required: true},
-         },
-         
+		// Setup form validation on the #register-form element
+		$("#register-form").validate({
 
-         messages: {
-        	 name: {
-                 required: "Please enter a name",
-         },
-         
-         submitHandler: function(form) {
-             form.submit();
-         }
-     },
+			rules : {
+				name : "required",
+				startDate : "required"
 
-   });
-   
-   </script>
+			},
+
+			messages : {
+				name : "Please enter a class name!!!",
+				startDate : "Please enter a date of start!!!"
+
+			},
+
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+
+	});
+</script>
 </head>
 <body>
 
@@ -230,12 +238,14 @@ a {
 					<tr>
 						<td></td>
 						<td>Test Name:</td>
-						<td><form:input path='name'></form:input></td>
+						<td><form:input path='name' placeholder="Test Name"
+								name="name"></form:input></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td>Start Date:</td>
-						<td><form:input path='startDate'></form:input></td>
+						<td><form:input path='startDate'
+								placeholder="ex: 1999-02-02 12:30" name="startDate"></form:input></td>
 					</tr>
 					<c:forEach items="${test.questions}" varStatus="status" var="quest">
 						<tr>
@@ -262,25 +272,24 @@ a {
 				</table>
 			</form:form>
 			<br>
-			<h3>sd</h3>
-
+			<div class="warning">
+				<h4>Please complete all fields!!!</h4>
+			</div>
 
 			<c:url value="/j_spring_security_logout" var="logoutUrl" />
 			<form action="${logoutUrl}" method="post" id="logoutForm"></form>
 			<script>
-	function confirmUser(){
-		
-	    var ask=confirm("Are you sure");
+				function confirmUser() {
 
-		   if(ask)
-			   {  alert("ok!");}
-						}
-	</script>
+					var ask = confirm("Are you sure?");
+
+				}
+			</script>
 			<script>
-		function formSubmit() {
-			document.getElementById("logoutForm").submit();
-		}
-	</script>
+				function formSubmit() {
+					document.getElementById("logoutForm").submit();
+				}
+			</script>
 
 			<c:if test="${pageContext.request.userPrincipal.name != null}">
 				<h4>

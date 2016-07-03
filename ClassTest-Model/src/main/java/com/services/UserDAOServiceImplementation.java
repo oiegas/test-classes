@@ -11,6 +11,7 @@ import com.repository.EntityManagerUtil;
 public class UserDAOServiceImplementation implements UserDAOService {
 
 	private static final String STUDENTS_ACCOUNT = "ROLE_STUDENT";
+	private static final String ADMIN_ACCOUNT = "ROLE_ADMIN";
 	private EntityManager entityM;
 
 	public UserDAOServiceImplementation() {
@@ -191,6 +192,22 @@ public class UserDAOServiceImplementation implements UserDAOService {
 			query.setParameter("email", email);
 			if (query.getSingleResult() != null)
 				return query.getSingleResult();
+			else
+				return null;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public List<User> getAllProfesors() {
+		try {
+			TypedQuery<User> query = entityM.createQuery("Select x from User x where x.role.name =:name", User.class);
+			query.setParameter("name", ADMIN_ACCOUNT);
+			if (query.getResultList() != null)
+				return query.getResultList();
 			else
 				return null;
 

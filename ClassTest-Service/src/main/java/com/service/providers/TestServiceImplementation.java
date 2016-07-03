@@ -41,4 +41,9 @@ dao.removeTest(test);
 		return dao.getAvailableTestForClass(classId);
 	}
 
+	@Override
+	public List<Test> getTestForClass(int classId) {
+		return dao.getTestForClass(classId);
+	}
+
 }

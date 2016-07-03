@@ -76,7 +76,7 @@ position:absolute;
 				onclick="location.href='class'" value="Classes"> <input
 				type="button" class="submit" onclick="location.href='user'"
 				value="Users"> <input type="button" class="submit"
-				onclick="location.href='studentStatistics'" value="Statistics">
+				onclick="location.href='studentStatistics'" value=" Student Statistics">
 			<input type="button" class="submit"
 				onclick="location.href='testStatistics'" value=" Test Statistics">
 		</div>

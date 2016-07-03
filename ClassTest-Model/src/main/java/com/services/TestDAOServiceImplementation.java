@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 import com.domain.Test;
 import com.repository.EntityManagerUtil;
 
-public class TestDAOServiceImplementation implements TestDAOService{
+public class TestDAOServiceImplementation implements TestDAOService {
 	private EntityManager entityM;
 
 	public TestDAOServiceImplementation() {
@@ -17,6 +17,7 @@ public class TestDAOServiceImplementation implements TestDAOService{
 		entityM = EntityManagerUtil.entityM;
 
 	}
+
 	public Test addTest(Test test) {
 		entityM.getTransaction().begin();
 		entityM.persist(test);
@@ -33,62 +34,83 @@ public class TestDAOServiceImplementation implements TestDAOService{
 
 	public void removeTest(Test test) {
 		entityM.getTransaction().begin();
-		entityM.remove(test);
+		entityM.remove(entityM.merge(test));
 		entityM.getTransaction().commit();
-		
+
 	}
+
 	public EntityManager getEntityManager() {
 		return this.entityM;
 	}
+
 	public Test getTestById(int id) {
 		try {
-			TypedQuery <Test> query = entityM.createQuery("Select x from Test x where x.testId=:test_id",Test.class);
-			query.setParameter("test_id", id);	
-			if (query.getSingleResult() != null) 
+			TypedQuery<Test> query = entityM.createQuery("Select x from Test x where x.testId=:test_id", Test.class);
+			query.setParameter("test_id", id);
+			if (query.getSingleResult() != null)
 				return query.getSingleResult();
-			else return null;
-			
+			else
+				return null;
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
+
 	public Test getAvailableTestForClass(int classId) {
-		try {
-			TypedQuery <Test> query = entityM.createQuery("Select x from Test x where x.classForTest.classId=:classId and x.available=:available",Test.class);
-			query.setParameter("classId", classId);	
-			query.setParameter("available", true);
-			if (query.getSingleResult() != null) 
-				return query.getSingleResult();
-			else return null;
-			
-
-		} catch (Exception e) {
-			e.printStackTrace();
+try{
+		TypedQuery<Test> query = entityM.createQuery(
+				"Select x from Test x where x.classForTest.classId=:classId and x.available=:available", Test.class);
+		query.setParameter("classId", classId);
+		query.setParameter("available", true);
+		if (query.getSingleResult() != null)
+			return query.getSingleResult();
+		else
 			return null;
-		}
+	} catch (Exception e) {
+		e.printStackTrace();
+		return null;
 	}
+	}
+
 	public List<Test> getAllTests() {
-		List<Test> allTests=new ArrayList<Test>();
-		try{
-			allTests=entityM.createQuery("Select x from Test x",Test.class).getResultList();
+		List<Test> allTests = new ArrayList<Test>();
+		try {
+			allTests = entityM.createQuery("Select x from Test x", Test.class).getResultList();
 			return allTests;
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+
 	public List<Test> getTestsByName(String name) {
-		List<Test> test=new ArrayList<Test>();
-		test=entityM.createQuery("Select x from Test x where x.name='"+name+"'", Test.class).getResultList();
+		List<Test> test = new ArrayList<Test>();
+		test = entityM.createQuery("Select x from Test x where x.name='" + name + "'", Test.class).getResultList();
 		return test;
 	}
+
 	public List<Test> getTestsByUserId(int id) {
-		List<Test> test=new ArrayList<Test>();
-		test=entityM.createQuery("Select x from Test x where x.userCreator.userId='"+id+"'", Test.class).getResultList();
+		List<Test> test = new ArrayList<Test>();
+		test = entityM.createQuery("Select x from Test x where x.userCreator.userId='" + id + "'", Test.class)
+				.getResultList();
 		return test;
+	}
+
+	@Override
+	public List<Test> getTestForClass(int classId) {
+		try {
+			TypedQuery<Test> query = entityM.createQuery("Select x from Test x where x.classForTest.classId=:classId",
+					Test.class);
+			query.setParameter("classId", classId);
+			if (query.getResultList() != null)
+				return query.getResultList();
+			else
+				return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

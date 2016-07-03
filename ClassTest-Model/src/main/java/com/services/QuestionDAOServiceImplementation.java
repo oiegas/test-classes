@@ -34,7 +34,7 @@ private EntityManager entityM;
 
 	public void deleteQuestion(Question question) {
 		entityM.getTransaction().begin();
-		entityM.remove(question);
+		entityM.remove(entityM.merge(question));
 		entityM.getTransaction().commit();
 	}
 	public EntityManager getEntityManager() {

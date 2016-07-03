@@ -72,7 +72,7 @@ public class TestStatisticsController {
 			UITestGrade testGrade = new UITestGrade();
 			testGrade.setGrade(g.getGrade());
 			testGrade.setStudentName(g.getUser().getName());
-			List<StudentAnswer> answers = answerService.getAllAnswersOfStudentAndTest(id, g.getTest().getTestId());
+			List<StudentAnswer> answers = answerService.getAllAnswersOfStudentAndTest(g.getUser().getUserId(),id);
 			System.out.println(answers.size());
 			if (answers.size() == 0)
 				testGrade.setPresentOrNot(STUDENT_ABSENT);
@@ -81,9 +81,6 @@ public class TestStatisticsController {
 			uiGrades.add(testGrade);
 		}
 		model.addAttribute("listGrades", uiGrades);
-		for (UITestGrade ui : uiGrades) {
-			System.out.println(ui.getStudentName());
-		}
 		return "testStatistics";
 	}
 

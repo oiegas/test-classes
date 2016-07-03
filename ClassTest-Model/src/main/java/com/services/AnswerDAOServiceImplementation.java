@@ -9,14 +9,13 @@ import com.domain.Answer;
 import com.repository.EntityManagerUtil;
 
 public class AnswerDAOServiceImplementation implements AnswerDAOService{
-
 	private EntityManager entityM;
 	public AnswerDAOServiceImplementation()
 	{
-		super();
 		entityM = EntityManagerUtil.entityM;
 	}
 	public Answer addAnswer(Answer answer) {
+	
 		entityM.getTransaction().begin();
 		entityM.persist(answer);
 		entityM.getTransaction().commit();
@@ -25,7 +24,8 @@ public class AnswerDAOServiceImplementation implements AnswerDAOService{
 
 	public void deleteAnswe(Answer answer) {
 		entityM.getTransaction().begin();
-		entityM.remove(answer);
+		entityM.remove(entityM.merge(answer));
+		entityM.flush();
 		entityM.getTransaction().commit();
 		
 	}

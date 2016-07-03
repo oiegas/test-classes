@@ -5,11 +5,13 @@ import java.util.List;
 import com.domain.Question;
 import com.domain.StudentAnswer;
 import com.domain.User;
+import com.services.StudentAnswerDAORemoveService;
 import com.services.StudentAnswerDAOService;
 import com.services.StudentAnswerDAOServiceImplementation;
 
 public class StudentAnswerImplementation implements StudentAnswerService {
 	StudentAnswerDAOService dao = new StudentAnswerDAOServiceImplementation();
+	StudentAnswerDAOService removeDAO=new StudentAnswerDAORemoveService();
 
 	public StudentAnswer addStudentAnswer(StudentAnswer answer) {
 		return dao.addStudentAnswer(answer);
@@ -19,8 +21,8 @@ public class StudentAnswerImplementation implements StudentAnswerService {
 		return dao.updateStudentAnswer(answer);
 	}
 
-	public List<StudentAnswer> getAllAnswersOfStudent(User student) {
-		return dao.getAllAnswersOfStudent(student);
+	public List<StudentAnswer> getAllAnswersOfStudent(int userId) {
+		return dao.getAllAnswersOfStudent(userId);
 	}
 
 	public List<StudentAnswer> getAllAnswersOfQuestion(Question question) {
@@ -39,5 +41,11 @@ public class StudentAnswerImplementation implements StudentAnswerService {
 	public List<StudentAnswer> getAllAnsweresOfQuestionsAndStudent(int questionId, int userId) {
 		return dao.getAllAnsweresOfQuestionsAndStudent(questionId, userId);
 	}
+
+	@Override
+	public List<StudentAnswer> getAllAnswersOfTest(int testId) {
+		return dao.getAllAnswersOfTest(testId);
+	}
+
 
 }

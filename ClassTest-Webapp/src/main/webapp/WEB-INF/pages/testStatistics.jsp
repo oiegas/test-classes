@@ -31,6 +31,7 @@
 	border-collapse: collapse;
 	border-spacing: 0;
 	border-color: #ccc;
+	margin: 0 auto;
 }
 
 .iconAdd {
@@ -180,7 +181,7 @@ a {
 .module {
 	position: relative;
 	top: 5%;
-	height: 180%;
+	height: 97%;
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
@@ -328,7 +329,7 @@ a {
 }
 
 .name {
-	width: 50px;
+	width: 150px;
 }
 
 .iconHome {
@@ -360,6 +361,14 @@ a {
 	font-size: 18pt;
 	transition: background .4s;
 	cursor: pointer;
+}
+
+.homepage {
+	margin: 0 auto;
+	margin-top: 1%;
+	width: 50%;
+	vertical-align: middle;
+	text-align: center;
 }
 
 .user-icons {
@@ -420,7 +429,7 @@ a {
 				</form:form>
 			</div>
 			<c:if test="${!empty listTests}">
-				<div class="listTabel" style="overflow-y:scroll">
+				<div class="listTabel" style="overflow-y: scroll">
 
 					<ul class="list-group">
 						<c:forEach items="${listTests}" var="test">
@@ -432,7 +441,7 @@ a {
 					</ul>
 				</div>
 			</c:if>
-			
+
 			<div class="logoutButton">
 				<c:url value="/j_spring_security_logout" var="logoutUrl" />
 				<form action="${logoutUrl}" method="post" id="logoutForm"></form>
@@ -445,19 +454,22 @@ a {
 
 			</div>
 
-			<div class="rightPanel" style="overflow-y:scroll">
+			<div class="rightPanel" style="overflow-y: scroll">
 				<c:if test="${not empty listGrades}">
-					<table>
+					<table class="tg">
+						<tr>
+							<th width="80">Student</th>
+							<th width="80">Grade</th>
+							<th width="60">Present/Absent</th>
+						</tr>
 						<c:forEach items="${listGrades}" var="grade">
 							<tr>
 								<td>
-									<h3>Student:${grade.studentName}</h3>
+									<h3>${grade.studentName}</h3>
 								</td>
-								<td><span style="padding-left: 68px;"></span></td>
 								<td>
-									<h3>Grade:${grade.grade}</h3>
+									<h3>${grade.grade}</h3>
 								</td>
-								<td><span style="padding-left: 68px;"></span></td>
 								<td>
 									<h3>${grade.presentOrNot}</h3>
 								</td>
@@ -468,8 +480,8 @@ a {
 			</div>
 		</div>
 	</div>
-	
-		<script>
+
+	<script>
 		function formSubmit() {
 			document.getElementById("logoutForm").submit();
 		}

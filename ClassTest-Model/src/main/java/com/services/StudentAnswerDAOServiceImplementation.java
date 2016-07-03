@@ -50,16 +50,13 @@ public class StudentAnswerDAOServiceImplementation implements StudentAnswerDAOSe
 
 	public void removeAnswer(StudentAnswer answer) {
 		EntityManager entityM = entityFactory.createEntityManager();
+		StudentAnswer answerToBeRemoved = entityM.getReference(StudentAnswer.class, answer.getStudentAnswerId());
 		entityM.getTransaction().begin();
-		entityM.remove(answer);
+		entityM.remove(answerToBeRemoved);
 		entityM.getTransaction().commit();
 		entityM.close();
-
 	}
 
-	/*
-	 * public EntityManager getEntityManager() { return this.entityM; }
-	 */
 	public List<StudentAnswer> getAllAnswersOfStudentAndTest(int studentId, int testId) {
 		EntityManager entityM = entityFactory.createEntityManager();
 		try {
@@ -81,7 +78,6 @@ public class StudentAnswerDAOServiceImplementation implements StudentAnswerDAOSe
 
 	}
 
-	@Override
 	public List<StudentAnswer> getAllAnsweresOfQuestionsAndStudent(int questionId, int userId) {
 		EntityManager entityM = entityFactory.createEntityManager();
 		try {
@@ -89,6 +85,52 @@ public class StudentAnswerDAOServiceImplementation implements StudentAnswerDAOSe
 					"Select x from StudentAnswer x where x.question.questionId=:questionId and x.user.userId=:userId",
 					StudentAnswer.class);
 			query.setParameter("questionId", questionId);
+			query.setParameter("userId", userId);
+			if (query.getResultList() != null)
+				return query.getResultList();
+			else
+				return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			entityM.close();
+		}
+
+	}
+
+	public List<StudentAnswer> getAllAnswersOfTest(int testId) {
+		EntityManager entityM = entityFactory.createEntityManager();
+		try {
+			TypedQuery<StudentAnswer> query = entityM.createQuery(
+					"Select x from StudentAnswer x where x.test.testId=:testId",
+					StudentAnswer.class);
+			query.setParameter("testId", testId);
+			if (query.getResultList() != null)
+				return query.getResultList();
+			else
+				return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			entityM.close();
+		}
+
+	}
+
+	@Override
+	public List<StudentAnswer> getAllOfClass(int classId) {
+		return null;
+	}
+
+	@Override
+	public List<StudentAnswer> getAllAnswersOfStudent(int userId) {
+		EntityManager entityM = entityFactory.createEntityManager();
+		try {
+			TypedQuery<StudentAnswer> query = entityM.createQuery(
+					"Select x from StudentAnswer x where x.user.userId=:userId",
+					StudentAnswer.class);
 			query.setParameter("userId", userId);
 			if (query.getResultList() != null)
 				return query.getResultList();

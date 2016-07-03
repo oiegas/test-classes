@@ -14,4 +14,5 @@ public interface TestDAOService {
 	public List<Test> getTestsByName(String name);
 	public List<Test> getTestsByUserId(int id);
 	public Test getAvailableTestForClass(int classId);
+	public List<Test> getTestForClass(int classId);
 }

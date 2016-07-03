@@ -30,18 +30,17 @@ import com.ui.domain.UIUser;
 @RequestMapping(value = "/studentStatistics")
 public class StudentStatisticsController {
 
-	private static String STUDENT_PRESENT="Prezent";
-	private static String STUDENT_ABSENT="Absent";
+	private static String STUDENT_PRESENT = "Prezent";
+	private static String STUDENT_ABSENT = "Absent";
 	UserService userService = new UserServiceImplementation();
 	UserConverter userConverter = new UserConverterImplementation();
 	GradesService gradeService = new GradesServiceImplementation();
 	TestService testService = new TestServiceImplementation();
-	StudentAnswerService answerService=new StudentAnswerImplementation();
+	StudentAnswerService answerService = new StudentAnswerImplementation();
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String listTest(Model model) {
 		model.addAttribute("studentSearch", new UIUser());
-
 		List<UIUser> studentsList = convertList(userService.getAllStudents());
 		model.addAttribute("listStudents", studentsList);
 		return "studentStatistics";
@@ -56,16 +55,13 @@ public class StudentStatisticsController {
 	}
 
 	@RequestMapping("/search")
-	public String searchPerson(@ModelAttribute("studentSearch") UIUser user,
-			Model model) {
+	public String searchPerson(@ModelAttribute("studentSearch") UIUser user, Model model) {
 		model.addAttribute("studentSearch", new UIUser());
 		if (user.getName() != null && !user.getName().equals("")) {
-			List<UIUser> users = convertList(userService.getStudentsByName(user
-					.getName()));
+			List<UIUser> users = convertList(userService.getStudentsByName(user.getName()));
 			model.addAttribute("listStudents", users);
 		} else {
-			List<UIUser> studentsList = convertList(userService
-					.getAllStudents());
+			List<UIUser> studentsList = convertList(userService.getAllStudents());
 			model.addAttribute("listStudents", studentsList);
 		}
 		return "studentStatistics";
@@ -74,7 +70,6 @@ public class StudentStatisticsController {
 
 	@RequestMapping("/get/{userId}")
 	public String getPerson(@PathVariable("userId") int userId, Model model) {
-
 		model.addAttribute("studentSearch", new UIUser());
 		List<UIUser> studentsList = convertList(userService.getAllStudents());
 		model.addAttribute("listStudents", studentsList);
@@ -83,19 +78,39 @@ public class StudentStatisticsController {
 		for (Grade g : gradesOfStudent) {
 			UIGrades uiGrade = new UIGrades();
 			uiGrade.setGrade(g.getGrade());
-			uiGrade.setTestName(testService
-					.getTestById(g.getTest().getTestId()).getName());
-			List<StudentAnswer> answers=null;
-			answers=answerService.getAllAnswersOfStudentAndTest(userId, g.getTest().getTestId());
-			System.out.println(answers.size());
-			if(answers.size()==0)
+			uiGrade.setTestName(testService.getTestById(g.getTest().getTestId()).getName());
+			List<StudentAnswer> answers = null;
+			answers = answerService.getAllAnswersOfStudentAndTest(userId, g.getTest().getTestId());
+			if (answers.size() == 0)
 				uiGrade.setPresent(STUDENT_ABSENT);
 			else
 				uiGrade.setPresent(STUDENT_PRESENT);
 			gradesForUi.add(uiGrade);
-			
+
 		}
 		model.addAttribute("listGrades", gradesForUi);
 		return "studentStatistics";
+	}
+
+	@RequestMapping("/remove/{userId}")
+	public String removeStudent(@PathVariable("userId") int userId, Model model) {
+		model.addAttribute("studentSearch", new UIUser());
+		List<UIUser> studentsList = convertList(userService.getAllStudents());
+		model.addAttribute("listStudents", studentsList);
+		User user = userService.getUserById(userId);
+		List<Grade> grades = gradeService.getGradesOfStudentWithId(userId);
+		if (grades != null) {
+			for (Grade grade : grades) {
+				gradeService.removeGrade(grade);
+			}
+		}
+		List<StudentAnswer> studentAnswers=answerService.getAllAnswersOfStudent(userId);
+		if(studentAnswers!=null){
+			for(StudentAnswer studentAnswer:studentAnswers){
+				answerService.removeAnswer(studentAnswer);
+			}
+		}
+		userService.removeUser(user);
+		return "redirect:/studentStatistics";
 	}
 }

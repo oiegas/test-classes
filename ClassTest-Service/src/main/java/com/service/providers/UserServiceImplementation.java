@@ -62,4 +62,9 @@ public class UserServiceImplementation implements UserService {
 		return dao.getUserByEmail(email);
 	}
 
+	@Override
+	public List<User> getAllProfesors() {
+		return dao.getAllProfesors();
+	}
+
 }

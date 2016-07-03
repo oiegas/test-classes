@@ -9,10 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView login(
-			@RequestParam(value = "error", required = false) String error,
+	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout) {
-
 
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
@@ -22,7 +20,6 @@ public class LoginController {
 		if (logout != null) {
 			model.addObject("logout", "You've been logged out successfully.");
 		}
-
 
 		model.setViewName("login");
 

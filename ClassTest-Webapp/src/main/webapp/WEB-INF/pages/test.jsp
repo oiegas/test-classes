@@ -43,7 +43,6 @@
 	height: 40px;
 	width: 40px;
 	opacity: 4;
-	
 }
 
 .searchTest {
@@ -81,6 +80,7 @@ a {
 }
 
 .list-group-item {
+	line-height: 15px;
 	position: relative;
 	display: block;
 	padding: 30px 15px;
@@ -191,7 +191,7 @@ a {
 .module {
 	position: relative;
 	top: 5%;
-	height: 180%;
+	height: 97%;
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
@@ -364,7 +364,7 @@ a {
 }
 
 .name {
-	width: 50px;
+	width: 60px;
 }
 
 .user-icons {
@@ -377,39 +377,56 @@ a {
 }
 
 .questionDiv {
-margin-top:10px;
+	margin-top: 10px;
 	margin-left: 45px;
 }
-.answerDiv{
-margin-left:55px;
+
+.answerDiv {
+	margin-left: 55px;
+}
+
+.homepage {
+	margin: 0 auto;
+	margin-top:1%;
+	width: 50%;
+	vertical-align: middle;
+	text-align: center;
 }
 
 .inputs {
 	width: 100%;
 	padding: 0 2%;
 }
+
+.select {
+	height: 27px;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
 </style>
 <script>
-	$(function() {
 
-	// Setup form validation on the #register-form element
-	$("#dialogAddTest").validate({
+$(function() {
+	  
+    // Setup form validation on the #register-form element
+    $("#register-form").validate({
+    
+        rules: {
+        	testName: "required"
+   
+        },
+        
 
-		rules : {
-			testName : "required",
-		},
+        messages: {
+        	testName: "Please enter a test name!"
+        },
+        
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
 
-		messages : {
-			testName : "Please enter your Yonder code ",
-
-		},
-
-		submitHandler : function(form) {
-			form.submit();
-		}
-	});
-
-});
+  });
 </script>
 
 </head>
@@ -419,23 +436,25 @@ margin-left:55px;
 			<c:url var="addAction" value="/test/add"></c:url>
 			<div id="dialogAddTest1" title="Add test" hidden='true'>
 				<form:form action="${addAction}" commandName="testAdd"
-					id="dialogAddTest" novalidate="novalidate">
+					id="register-form" novalidate="novalidate" class="form">
 					<c:if test="${not empty testAdd}">
 						<table>
 							<tr>
 								<td></td>
 								<td>Name:</td>
-								<td><form:input path='name' class="inputs" name="testName"></form:input></td>
+								<td><form:input path='name' placeholder="Test Name"
+										class="inputs"></form:input></td>
 							</tr>
 							<tr>
 								<td></td>
-								<td>Start:</td>
-								<td><form:input path='startDate' class="inputs"></form:input></td>
+								<td>Start Date:</td>
+								<td><form:input path='startDate' class="inputs"
+										placeholder="Ex: 1999-02-02 12:30"></form:input></td>
 							</tr>
 							<tr>
 								<td></td>
 								<td>For Class:</td>
-								<td><form:select path='nameClass'>
+								<td><form:select path='nameClass' class="select">
 										<form:options items="${classList}" />
 									</form:select></td>
 							</tr>
@@ -617,7 +636,7 @@ margin-left:55px;
 						<table>
 							<tr>
 								<td></td>
-								<td>First Question:</td>
+								<td>Question:</td>
 								<td><form:input path='question'></form:input></td>
 							</tr>
 							<tr>
@@ -673,7 +692,7 @@ margin-left:55px;
 				<div class="searchTest">
 					<img
 						src="http://icons.iconarchive.com/icons/custom-icon-design/office/48/add-2-icon.png"
-						onclick='$("#dialogAddTest").dialog({width: 500});' alt=""
+						onclick='$("#register-form").dialog({width: 500});' alt=""
 						class="iconAdd">
 					<c:url var="searchAction" value="/test/search/"></c:url>
 				</div>
@@ -690,7 +709,7 @@ margin-left:55px;
 				</form:form>
 			</div>
 			<c:if test="${!empty listTests}">
-				<div class="listTabel" style="overflow-y:scroll">
+				<div class="listTabel" style="overflow-y: scroll">
 
 					<ul class="list-group">
 						<c:forEach items="${listTests}" var="test">
@@ -735,22 +754,25 @@ margin-left:55px;
 
 			</div>
 
-			<div class="rightPanel" style="overflow-y:scroll">
+			<div class="rightPanel" style="overflow-y: scroll">
 				<c:if test="${not empty testB}">
 					<div class="testDiv">
 						<h4>ID: ${testB.testId}</h4>
 						<h4>Name: ${testB.name}</h4>
+						<h4>Class: ${testB.className}</h4>
 						<h4>Start date: ${testB.startDate}</h4>
 					</div>
 
 					<c:forEach items="${testB.questions}" varStatus="status"
 						var="quest">
 						<div class="questionDiv">
-							<h5>Question: ${quest.text}</h5>
+							<h4>
+								<b>Question: ${quest.text}</b>
+							</h4>
 							<c:forEach items="${quest.answers}" varStatus="loop" var="answer">
 								<div class="answerDiv">
-									<h3>- ${answer.answer}</h3>
-									</div>
+									<h4>- ${answer.answer}</h4>
+								</div>
 							</c:forEach>
 						</div>
 					</c:forEach>

@@ -12,7 +12,7 @@ import com.ui.domain.UITest;
 
 public class TestConverterImplementation implements TestConverter{
 
-	DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	TestService service=new TestServiceImplementation();
 	
 	public Test createTest(UITest ui) {
@@ -32,6 +32,8 @@ public class TestConverterImplementation implements TestConverter{
 			}
 			test.setStartDate(date);
 		}
+		else
+			return null;
 		return test;
 	}
 

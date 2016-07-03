@@ -63,19 +63,23 @@ body {
 a {
 	display: block;
 	color: #ad5482;
+	margin-top: 60px;
 	text-decoration: none;
 	font-weight: bold;
-	margin-top: 40px;
 	text-align: center;
 }
 
 #bg {
-	position: relative;
+	position: absolute;
 	background:
 		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg');
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
 }
 
 .module {
@@ -175,6 +179,23 @@ a {
 	cursor: pointer;
 }
 
+.button1 {
+	height: 50px;
+	width: 100%;
+	margin-top: 0;
+	border-radius: 3px;
+	border: rgba(0, 0, 0, .3) 0px solid;
+	box-sizing: border-box;
+	padding: 10px;
+	background: #90c843;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 12pt;
+	transition: background .4s;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
 .classname {
 	margin-top: 100px;
 	margin-left: 150px;
@@ -198,14 +219,14 @@ a {
 	height: 40px;
 	width: 40px;
 	opacity: 4;
-	
 }
+
 .homepage {
 	margin-top: -40px;
 }
 
-.a:iconHome{
-margin-top:0px;
+.a:iconHome {
+	margin-top: 0px;
 }
 
 .button:hover {
@@ -227,31 +248,28 @@ margin-top:0px;
 <!-- jQuery Form Validation code -->
 
 <script>
+	$(function() {
 
-   $(function() {
-   
-     // Setup form validation on the #register-form element
-     $("#register-form").validate({
-     
-         rules: {
-             name:{ 
-                 	required: true},
-         },
-         
+		// Setup form validation on the #register-form element
+		$("#register-form").validate({
 
-         messages: {
-        	 name: {
-                 required: "Please enter a name",
-         },
-         
-         submitHandler: function(form) {
-             form.submit();
-         }
-     });
+			rules : {
+				className : "required"
 
-   });
-   
-   </script>
+			},
+
+			messages : {
+				className : "Please enter a class name!!!"
+
+			},
+
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+
+	});
+</script>
 </head>
 <body>
 
@@ -271,7 +289,8 @@ margin-top:0px;
 				<div class="classname">
 					<h4>
 						Class Name:
-						<form:input path='className'></form:input>
+						<form:input path='className' placeholder="Class Name"
+							name="className"></form:input>
 					</h4>
 				</div>
 				<div class="submitbutton">
@@ -299,7 +318,7 @@ margin-top:0px;
 								<td>${aClass.classId}</td>
 								<td>${aClass.className}</td>
 
-								<td><a class="button"
+								<td><a class="button1"
 									href="<c:url value='/class/remove/${aClass.classId}' />"
 									onclick='confirmUser()'>Delete</a></td>
 							</tr>
@@ -311,17 +330,17 @@ margin-top:0px;
 			<c:url value="/j_spring_security_logout" var="logoutUrl" />
 			<form action="${logoutUrl}" method="post" id="logoutForm"></form>
 			<script>
-	function confirmUser(){
-		
-	    var ask=confirm("Are you sure");
+				function confirmUser() {
 
-		   if(ask)
-			   {  alert("ok!");}}</script>
+					var ask = confirm("Are you sure?");
+
+				}
+			</script>
 			<script>
-		function formSubmit() {
-			document.getElementById("logoutForm").submit();
-		}
-	</script>
+				function formSubmit() {
+					document.getElementById("logoutForm").submit();
+				}
+			</script>
 
 			<c:if test="${pageContext.request.userPrincipal.name != null}">
 				<h4>
@@ -329,7 +348,6 @@ margin-top:0px;
 
 				</h4>
 			</c:if>
-
 		</div>
 	</div>
 </body>

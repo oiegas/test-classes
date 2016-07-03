@@ -11,6 +11,13 @@ public class UITestEdit{
 	private int testId;
 	private String name;
 	private String startDate;
+	private String className;
+	public String getClassName() {
+		return className;
+	}
+	public void setClassName(String className) {
+		this.className = className;
+	}
 	private List<UIQuestionEdit> questions;
 
 	public int userId;

@@ -9,21 +9,21 @@
 
 	<persistence-unit name="testclasses" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		
+
 		<!-- hibernate specific -->
-			<class>com.domain.Answer</class>
-			<class>com.domain.Grade</class>
-			<class>com.domain.Question</class>
-			<class>com.domain.Role</class>
-			<class>com.domain.StudentAnswer</class>
-			<class>com.domain.Test</class>
-			<class>com.domain.User</class>
-			<class>com.domain.Clas</class>
-			<class>com.domain.TokenUser</class>
-		
+		<class>com.domain.Answer</class>
+		<class>com.domain.Grade</class>
+		<class>com.domain.Question</class>
+		<class>com.domain.Role</class>
+		<class>com.domain.StudentAnswer</class>
+		<class>com.domain.Test</class>
+		<class>com.domain.User</class>
+		<class>com.domain.Clas</class>
+		<class>com.domain.TokenUser</class>
+
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url"			
+			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost/testclasses?autoReconnect=true" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="root" />
@@ -31,8 +31,8 @@
 			<!-- hibernate specific -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
 		</properties>
-</persistence-unit>
+	</persistence-unit>
 </persistence>

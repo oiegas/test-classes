@@ -18,7 +18,7 @@
 .tg td {
 	font-family: Arial, sans-serif;
 	font-size: 14px;
-	padding: 10px 5px;
+	text-align: center;
 	border-style: solid;
 	border-width: 1px;
 	overflow: hidden;
@@ -59,19 +59,23 @@ body {
 a {
 	display: block;
 	color: #ad5482;
+	margin-top: 60px;
 	text-decoration: none;
 	font-weight: bold;
-	margin-top: 40px;
 	text-align: center;
 }
 
 #bg {
-	position: relative;
+	position: absolute;
 	background:
 		url('http://stolenbabiestheband.com/wp-content/uploads/2012/12/sbSiteBackgroundPaper.jpg');
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
 }
 
 .module {
@@ -171,16 +175,36 @@ a {
 	cursor: pointer;
 }
 
+.button1 {
+	height: 50px;
+	width: 100%;
+	margin-top: 0;
+	border-radius: 3px;
+	border: rgba(0, 0, 0, .3) 0px solid;
+	box-sizing: border-box;
+	padding: 10px;
+	background: #90c843;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 12pt;
+	transition: background .4s;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
 .userName {
 	margin-top: 100px;
 	margin-left: 150px;
 }
+
 .userEmail {
 	margin-left: 195px;
 }
+
 .userPassword {
 	margin-left: 158px;
 }
+
 .userUserName {
 	margin-left: 157px;
 }
@@ -208,9 +232,17 @@ a {
 .homepage {
 	margin-top: -40px;
 }
+.a:iconHome {
+	margin-top: 0px;
+}
+
 
 .button:hover {
 	background: #80b438;
+}
+
+.warning {
+	text-align: center;
 }
 </style>
 
@@ -228,31 +260,34 @@ a {
 <!-- jQuery Form Validation code -->
 
 <script>
+	$(function() {
 
-   $(function() {
-   
-     // Setup form validation on the #register-form element
-     $("#register-form").validate({
-     
-         rules: {
-             name:{ 
-                 	required: true},
-         },
-         
+		// Setup form validation on the #register-form element
+		$("#register-form").validate({
 
-         messages: {
-        	 name: {
-                 required: "Please enter a name",
-         },
-         
-         submitHandler: function(form) {
-             form.submit();
-         }
-     });
+			rules : {
+				name : "required",
+				email:"required",
+				username:"required",
+				password:"required"
 
-   });
-   
-   </script>
+			},
+
+			messages : {
+				name : "Please enter a class name!!!",
+				email : "Please enter an e-mail!!!",
+				username : "Please enter an username!!!",
+				password : "Please enter a password!!!"
+
+			},
+
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+
+	});
+</script>
 </head>
 <body>
 
@@ -274,30 +309,30 @@ a {
 				<div class="userName">
 					<h4>
 						User Name:
-						<form:errors path="name" cssClass="error"/>
-						<form:input path='name' required="required"></form:input>
+						<form:input path='name' placeholder="Name" name="name"></form:input>
 					</h4>
 				</div>
 				<div class="userEmail">
 					<h4>
 						Email:
-						<form:input path='email'></form:input>
+						<form:input path='email' placeholder="ex:example@gmail.com" name="email"></form:input>
 					</h4>
 				</div>
 				<div class="userUserName">
 					<h4>
 						Username:
-						<form:input path='username'></form:input>
+						<form:input path='username' placeholder="Username" name="username"></form:input>
 					</h4>
 				</div>
 				<div class="userPassword">
 					<h4>
 						Password:
-						<form:input path='password'></form:input>
+						<form:input path='password' placeholder="Password" name="password"></form:input>
 					</h4>
 				</div>
-				<h5>The role will be ADMINISTRATOR</h5>
-
+				<div class="warning">
+					<h5>The role will be ADMINISTRATOR</h5>
+				</div>
 
 				<div class="submitbutton">
 					<input type="submit" class="button" value="Add Admin" />
@@ -325,8 +360,8 @@ a {
 								<td>${user.email}</td>
 								<td>${user.username}</td>
 
-								<td><a class="button"
-									href="<c:url value='/user/remove/${user.userId}' />"
+								<td><a class="button1"
+									href="<c:url value='/user/remove/${user.userId}'  />"
 									onclick='confirmUser()'>Delete</a></td>
 							</tr>
 						</c:forEach>
@@ -338,17 +373,16 @@ a {
 			<c:url value="/j_spring_security_logout" var="logoutUrl" />
 			<form action="${logoutUrl}" method="post" id="logoutForm"></form>
 			<script>
-	function confirmUser(){
-		
-	    var ask=confirm("Are you sure");
+				function confirmUser() {
 
-		   if(ask)
-			   {  alert("ok!");}}</script>
+					var ask = confirm("Are you sure?");
+				}
+			</script>
 			<script>
-		function formSubmit() {
-			document.getElementById("logoutForm").submit();
-		}
-	</script>
+				function formSubmit() {
+					document.getElementById("logoutForm").submit();
+				}
+			</script>
 
 			<c:if test="${pageContext.request.userPrincipal.name != null}">
 				<h4>

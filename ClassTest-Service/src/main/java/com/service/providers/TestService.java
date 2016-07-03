@@ -13,4 +13,5 @@ public interface TestService {
 	public List<Test> getTestByName(String name);
 	public List<Test> getTestsByUserId(int id);
 	public Test getAvailableTestForClass(int classId);
+	public List<Test> getTestForClass(int classId);
 }
