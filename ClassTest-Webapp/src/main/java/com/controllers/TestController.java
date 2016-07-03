@@ -329,7 +329,6 @@ public class TestController {
 				testService.removeTest(test);
 			} else {
 				List<User> students = userService.getUsersByClass(clasForTest.getName());
-				System.out.println(clasForTest.getName());
 				for (User u : students) {
 					Grade grade = new Grade();
 					grade.setGrade(0);
